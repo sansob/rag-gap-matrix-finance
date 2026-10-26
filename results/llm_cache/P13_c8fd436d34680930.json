@@ -1,0 +1,205 @@
+{
+  "paper_id": "P13",
+  "model": "openai/gpt-oss-120b",
+  "seed": 42,
+  "usage": {
+    "completion_tokens": 1016,
+    "prompt_tokens": 4152,
+    "total_tokens": 5168,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 296,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 0.398975005,
+    "prompt_time": 0.197756683,
+    "completion_time": 2.139681953,
+    "total_time": 2.337438636
+  },
+  "raw": {
+    "Problem": {
+      "content": "Paper ini mengidentifikasi kebutuhan akan sistem QA yang dapat secara efisien mengambil dan menganalisis informasi kepatuhan dari dokumen keuangan.",
+      "evidence_ids": [
+        "P13:pdf:5"
+      ],
+      "quote": "demand for a Question Answering (QA) system capable of efficiently retrieving and analyzing compliance-related information"
+    },
+    "Domain & Data": {
+      "content": "Sistem diuji pada FinanceBench, dataset QA keuangan berbahasa Inggris dengan 150 pertanyaan tentang perusahaan publik, serta dokumen filing SEC.",
+      "evidence_ids": [
+        "P13:pdf:42",
+        "P13:abstract:0",
+        "P13:pdf:0"
+      ],
+      "quote": "FinanceBench ... includes 150 open-source questions relating to traded companies"
+    },
+    "RAG Method": {
+      "content": "FinSage menggunakan pipeline Multi-path Retrieval dengan BM25 sparse retriever, BGE‑M3 dense retriever, metadata retriever, dan HyDE retriever, serta modul chunk bundling.",
+      "evidence_ids": [
+        "P13:pdf:32",
+        "P13:pdf:29",
+        "P13:pdf:35"
+      ],
+      "quote": "BM25 Sparse Retriever: ... BGE-M3 Dense Retriever: ... Metadata Retriever: ... HyDE Retriever"
+    },
+    "Evaluation & Metrics": {
+      "content": "Evaluasi mencakup recall, precision, F1, serta metrik Normalized Recall dan penilaian faktual menggunakan GPT‑4o serta evaluasi manual.",
+      "evidence_ids": [
+        "P13:pdf:53",
+        "P13:pdf:54",
+        "P13:pdf:50"
+      ],
+      "quote": "adjusted Normalized Recall metric"
+    },
+    "Main Results": {
+      "content": "FinSage mencapai akurasi LLM 49.66% pada FinanceBench, meningkatkan recall sekitar 15% dan precision dari 5.6% menjadi 18.5% dibanding re‑ranker umum.",
+      "evidence_ids": [
+        "P13:pdf:61",
+        "P13:pdf:59",
+        "P13:pdf:62"
+      ],
+      "quote": "FinSage achieves a significant improvement ... LLM accuracy of 49.66%"
+    },
+    "Limitations": {
+      "content": "Penulis mencatat kesulitan integrasi RAG ke dalam tugas kepatuhan keuangan karena keterbatasan domain dan tantangan multi‑modalitas.",
+      "evidence_ids": [
+        "P13:pdf:5",
+        "P13:pdf:15",
+        "P13:pdf:9"
+      ],
+      "quote": "integration into financial compliance tasks can be difficult due to inherent domain-related limitations"
+    },
+    "Gap": {
+      "content": "Inferensi: Meskipun FinSage meningkatkan akurasi dan recall pada dokumen filing berbahasa Inggris, tidak mengevaluasi faithfulness atau kemampuan abstention pada dokumen produk perbankan berbahasa Indonesia, sehingga masih ada celah untuk menilai keandalan sistem RAG dalam konteks bahasa dan domain tersebut.",
+      "evidence_ids": [
+        "P13:pdf:5",
+        "P13:pdf:6"
+      ],
+      "quote": "financial filings combine unstructured text ... conventional text-centric retrieval architectures fail to process cohesively"
+    }
+  },
+  "retrieved": {
+    "Problem": [
+      {
+        "id": "P13:pdf:5",
+        "text": " with expert teams dedicated for this specific purpose [34, 35]. More practically, these challenges have led to a strong demand for a Question An- swering (QA) system capable of efficiently retrieving and analyzing compliance-related information from financial filings [37], with the hope of reducing manual labor and minimizing human error. Such systems often require the integration of retrieval-augmented gener- ation (RAG), which enables machine learning-powered systems to directly search through databases to extract relevant information that can empower greater decision making. However, while RAG systems have proven helpful for general LLM reliability and reasoning, integration into financial compliance tasks can be difficult due to inherent domain-related limitations. First, financial fi",
+        "distance": 0.5842
+      },
+      {
+        "id": "P13:pdf:48",
+        "text": "ed DRR, trained on single-company fi- nancial filings, against BAAI/bge-reranker-v2-gemma, a general re-ranker. Our model is fine-tuned using Direct Preference Opti- mization (DPO) with a contrastive learning objective. The training dataset comprises annotated query-document pairs, each contain- ing one relevant chunk and multiple irrelevant ones. This enables the model to adapt to SEC filings’ terminology and structure, rank- ing relevant chunks higher for improved retrieval precision. The experiment aims to evaluate whether a domain-specific re-ranker enhances retrieval effectiveness. 4.2.3 Response settings. We evaluate the end-to-end question an- swering (QA) performance of FinSage by comparing it against question answering approach proposed in [15, 17, 36] on the Fi- nanceBench datase",
+        "distance": 0.6627
+      },
+      {
+        "id": "P13:pdf:54",
+        "text": "aluator module from LlamaIndex, which utilizes GPT-4o to systematically score generated responses based on alignment of Fin- Sage’s outputs with ground truth reference answers. This follows prior work [28, 29, 51] which utilize language models to judge the quality of system-generated responses. To complement automatic evaluation, our team manually labeled the responses after careful discussion. Human evaluation focuses on factual correctness, co- herence, and completeness, however, minor factual inconsistencies may be tolerated if they do not alter the overall meaning or intent of the response. Details are provided in the appendix. These two metrics together provide a measurement to assess the FinSage’s ability to generate responses that align with the annotated ground truth answers both t",
+        "distance": 0.6663
+      }
+    ],
+    "Domain & Data": [
+      {
+        "id": "P13:pdf:42",
+        "text": " traditional method to handle user queries, retrieve related data from the vector database, and generate answers accordingly (Figure 2). Xinyu et al. 4 Experiments We conduct experiments across three settings to evaluate FinSage: (1) assessing the Multi-path Retrieval pipeline, (2) evaluating the Document Re-ranker, and (3) measuring overall answer quality. 4.1 Datasets and Baseline To evaluate performance, a manually annotated dataset is typically regarded as the “golden dataset,” with high-quality entries serving as the ground truth [20]. We utilize two such datasets: FinanceBench. FinanceBench [15] is a financial question-answering dataset created to evaluate the performance of LLMs on open-book tasks. It includes 150 open-source questions relating to traded com- panies and provides raw",
+        "distance": 0.3973
+      },
+      {
+        "id": "P13:abstract:0",
+        "text": "Leveraging large language models in real-world settings often entails a need to utilize domain-specific data and tools in order to follow the complex regulations that need to be followed for acceptable use. Within financial sectors, modern enterprises increasingly rely on Retrieval-Augmented Generation (RAG) systems to address complex information retrieval in financial document workflows. However, existing solutions struggle to account for the inherent heterogeneity of data (e.g., text, tables, diagrams) and evolving complexity in financial filings, leading to compromised accuracy in critical information extraction. We propose the FinSage framework as a solution, utilizing a multi-aspect RAG framework tailored for data retrieval and summarization in multi-modal financial documents. øurmode",
+        "distance": 0.4221
+      },
+      {
+        "id": "P13:pdf:0",
+        "text": "FinSage: A Multi-aspect RAG System for Financial Filings Question Answering Xinyu Wang1,2 *, Jijun Chi1,3 *, Zhenghan Tai1,3 *, Tung Sum Thomas Kwok1,4, Muzhi Li5, Zhuhong Li1,6, Hailin He1, Yuchen Hua1,2, Peng Lu7, Suyuchen Wang7,8, Yihong Wu7, Jerry Huang7,8, Jingrui Tian4, Fengran Mo7, Yufei Cui2,9 †, Ling Zhou10 § 1SimpleWay.AI 2McGill University 3University of Toronto 4University of California, Los Angeles 5The Chinese University of Hong Kong 6Duke University 7Université de Montréal 8Mila - Quebec AI Institute 9Noah’s Ark Lab 10CG Matrix Technology Limited xinyu.wang5@mail.mcgill.ca {ferris.chi,winfred.tai}@mail.utoronto.ca Abstract Leveraging large language models in real-world settings often en- tails a need to utilize domain-specific data and tools in order to follow the complex re",
+        "distance": 0.4521
+      }
+    ],
+    "RAG Method": [
+      {
+        "id": "P13:pdf:29",
+        "text": "a 5-tuple (˜𝑡𝑖, ˜𝑚𝑖, d𝑖, p𝑖, e𝑖). These enhance- ments ensure that extracted chunks are self-contained, contextually coherent, and semantically enriched, optimizing their utility for downstream processing. Further details regarding the selection of the multi-modal textualization model and the dense embedding model are found in Appendices A.3 and A.4, respectively. 3.2 Multi-path Retrieval pipeline We introduce a Multi-path Retrieval (MPR) pipeline that enhances performance by leveraging both metadata and semantic information during the retrieval process. The pipeline consists of two primary modules: a Query Paraphrasing Module and a Retrieval Module for obtaining relevant answers from diverse sources. Query Paraphrasing Module. An LLM agent is employed to refor- mulate each input query usi",
+        "distance": 0.4232
+      },
+      {
+        "id": "P13:pdf:32",
+        "text": "ently, our MPR pipeline comprises four components: (1) BM25 Sparse Retriever: This component employs the BM25 scoring function to compute relevance based on tf-idf between the query and documents [32]. (2) BGE-M3 Dense Retriever: Utilizing the BGE-M3 model [10], this retriever calculates the cosine similarity between query embeddings and chunk embeddings. The retrieval process is accelerated by FAISS [18], ensuring high-performance search. (3) Metadata Retriever: Leveraging the same BGE-M3 model, this module computes the cosine similarity between the query and metadata embeddings, facilitating the integration of structured metadata into the retrieval process. FinSage: A Multi-aspect RAG System for Financial Filings Question Answering (4) HyDE Retriever: This component computes the cosine s",
+        "distance": 0.4291
+      },
+      {
+        "id": "P13:pdf:35",
+        "text": "ypothetical Document Embeddings[48], a specialized query expansion technique which uses an LLM-generated response to the user query as a hypothesis for retrieving similar chunks. To further enhance HyDE’s perfor- mance, we augment the LLM’s domain-specific knowledge through instruction fine-tuning on our custom Company dataset, following the InPars method [7]. Additionally, a smaller model is subsequently trained on a synthesized dataset to emulate the generative capa- bilities of larger models. As a result, HyDE not only improves the matching accuracy between the generated hypothetical responses and the target chunks but also bolsters overall retrieval performance across diverse content types. Chunk Bundling Module. After retrieval, the MPR pipeline employs a chunk expansion mechanism to ",
+        "distance": 0.4302
+      }
+    ],
+    "Evaluation & Metrics": [
+      {
+        "id": "P13:pdf:50",
+        "text": " dataset, where we measure QA accuracy by comparing generated answers against ground truth answers. For response generation, we set 𝐾= 5 for each sub-query to efficiently manage LLM token consumption. This threshold is jus- tified by empirical evidence indicating that retrieving five chunks is generally sufficient to generate effective answers [24]. 4.3 Evaluation MPR Evaluation. Our MPR pipeline is evaluated using various com- binations of retriever paths by analyzing document chunk recom- mendation metrics (Recall, Precision, F1) on the in-depth dataset. By introducing additional retriever paths, we expect improvements in recall rates due to a more diverse information coverage [52]. DRR Evaluation. We assess the effectiveness of the Document Re- ranker by comparing the retrieved chunks w",
+        "distance": 0.4774
+      },
+      {
+        "id": "P13:pdf:54",
+        "text": "aluator module from LlamaIndex, which utilizes GPT-4o to systematically score generated responses based on alignment of Fin- Sage’s outputs with ground truth reference answers. This follows prior work [28, 29, 51] which utilize language models to judge the quality of system-generated responses. To complement automatic evaluation, our team manually labeled the responses after careful discussion. Human evaluation focuses on factual correctness, co- herence, and completeness, however, minor factual inconsistencies may be tolerated if they do not alter the overall meaning or intent of the response. Details are provided in the appendix. These two metrics together provide a measurement to assess the FinSage’s ability to generate responses that align with the annotated ground truth answers both t",
+        "distance": 0.4789
+      },
+      {
+        "id": "P13:pdf:53",
+        "text": " methods relative to the total number of retrieved relevant chunks. we introduce an adjusted Normalized Recall metric: Normalized Recall = correctly retrieved chunks min(ground truth chunks, 𝐾) . We cap denominator to min(ground truth chunks, 𝐾), making it an upper bound for recall calculation. Traditional recall would underestimate and unfairly penalize the model if we were to divide by the actual number of ground truth chunks, despite the reranker functioning optimally within its retrieval limit. Response Evaluation. We compare between the quality of system- generated responses and expert-provided answers through auto- matic evaluation using GPT-4o. Specifically, we use the Correct- nessEvaluator module from LlamaIndex, which utilizes GPT-4o to systematically score generated responses ba",
+        "distance": 0.537
+      }
+    ],
+    "Main Results": [
+      {
+        "id": "P13:pdf:61",
+        "text": "e from our experiments, while others are from the original papers. Dataset Method LLM Manual FinanceBench Islam et al. [15] - 0.1900 FinanceBench Jimeno-Yepes et al. [17] 0.3262 0.3688 FinanceBench Setty et al. [36] 0.2560 - FinanceBench FinSage∗ 0.4966 0.5705 Company FinSage∗ 0.8533 0.8800 Table 2 shows performance on the FinanceBench and Company datasets. FinSage achieves a significant improvement over prior Table 3: Response Time Comparison (in seconds) Method Mean Median Min Max GraphRAG 16.90 15.27 9.86 40.67 LightRAG 12.16 8.84 3.41 859.51 FinSage 19.34 18.57 8.57 40.02 Table 4: Faithful Evaluation Score Comparison Method Questions Mean Median Min Max Pass % GraphRAG 71(w/ 4 failures) 3.46 3.50 2.0 5.0 42.50% LightRAG 75 2.45 2.00 1.0 5.0 13.67% FinSage 75 4.31 5.00 1.00 5.00 82.67% ",
+        "distance": 0.4917
+      },
+      {
+        "id": "P13:pdf:62",
+        "text": "3.46 3.50 2.0 5.0 42.50% LightRAG 75 2.45 2.00 1.0 5.0 13.67% FinSage 75 4.31 5.00 1.00 5.00 82.67% methods on FinanceBench, with an LLM accuracy of 49.66%, out- performing Jimeno-Yepes et al. [17] (32.62%) and Setty et al. [36] (25.60%, aligns most closely with our configuration). Similarly, man- ual evaluation also reflects an accuracy of 57.05%, substantially higher than the closest competitor Jimeno-Yepes et al. [17] (36.88%). These results indicate that FinSage’s retrieval and ranking mecha- nisms contribute significantly to improved answer quality. In the Company dataset, FinSage also demonstrates strong performance, which achieves an LLM accuracy of 85.33% and a manual accuracy of 88.00%. The consistently higher scores across both datasets in- dicate that FinSage is particularly ade",
+        "distance": 0.5174
+      },
+      {
+        "id": "P13:pdf:59",
+        "text": "s’ performance in Figure 5, where we com- pare our trained re-ranker with bge-reranker-v2-Gemma. These results demonstrate that our Document Re-ranker significantly and consistently outperforms the general re-ranker across all set- tings and metrics in top-5 and top-10 configurations. Notably, our trained re-ranker retrieves more relevant chunks, evidenced by an approximate 15% improvement in recall across all setups. Moreover, performance gains are not limited to retrieving relevant chunks, it also effectively filters out irrelevant information, leading to a substantial precision boost from 5.6% to 18.5%. It is worth noting that precision, MRR, and binary nDCG all decline as more chunks are extracted by the reranker: precision drops from 78.8% to 38.8%, MRR from 75.4% to 20.7%, and binary",
+        "distance": 0.5223
+      }
+    ],
+    "Limitations": [
+      {
+        "id": "P13:pdf:5",
+        "text": " with expert teams dedicated for this specific purpose [34, 35]. More practically, these challenges have led to a strong demand for a Question An- swering (QA) system capable of efficiently retrieving and analyzing compliance-related information from financial filings [37], with the hope of reducing manual labor and minimizing human error. Such systems often require the integration of retrieval-augmented gener- ation (RAG), which enables machine learning-powered systems to directly search through databases to extract relevant information that can empower greater decision making. However, while RAG systems have proven helpful for general LLM reliability and reasoning, integration into financial compliance tasks can be difficult due to inherent domain-related limitations. First, financial fi",
+        "distance": 0.5194
+      },
+      {
+        "id": "P13:pdf:15",
+        "text": "s three fundamental challenges: (1) handling multi- modal data such as tables, figures, and structured text; (2) extract- ing a comprehensive scope of relevant information from multiple sources; and (3) generating accurate and precise responses by effec- tively summarizing and reasoning over retrieved content. To tackle these challenges, we propose FinSage, an end-to-end financial QA system tailored for regulatory compliance. This section introduces the three key components of FinSage, each designed to address specific challenges in financial RAG (Figure 2). Section 3.1 presents the Financial Filings Pre-processing Pipeline (FFP), which transforms financial documents into a struc- tured machine-readable format while enriching their semantic con- tent. Section 3.2 details the Multi-path Ret",
+        "distance": 0.5487
+      },
+      {
+        "id": "P13:pdf:9",
+        "text": "dresses precision limitations through direct preference optimization (DPO) [49], prioritizing chunks containing legally sig- nificant phrases (e.g., “material weakness” or “non-compliance”) and suppressing irrelevant semantic matches. By jointly optimizing re- trieval diversity and precision, FinSage establishes a new paradigm for compliance-critical financial QA systems. The experimental results demonstrate that FinSage significantly outperforms tradi- tional RAG approaches in financial regulatory compliance tasks, offering a practical and scalable solution for financial institutions. In summary, our contributions are as follows: • We present an end-to-end financial QA system that integrates pre-processing, retrieval, and re-ranking to provide a robust solution for regulatory compliance. ",
+        "distance": 0.568
+      }
+    ],
+    "Gap": [
+      {
+        "id": "P13:pdf:5",
+        "text": " with expert teams dedicated for this specific purpose [34, 35]. More practically, these challenges have led to a strong demand for a Question An- swering (QA) system capable of efficiently retrieving and analyzing compliance-related information from financial filings [37], with the hope of reducing manual labor and minimizing human error. Such systems often require the integration of retrieval-augmented gener- ation (RAG), which enables machine learning-powered systems to directly search through databases to extract relevant information that can empower greater decision making. However, while RAG systems have proven helpful for general LLM reliability and reasoning, integration into financial compliance tasks can be difficult due to inherent domain-related limitations. First, financial fi",
+        "distance": 0.5654
+      },
+      {
+        "id": "P13:pdf:6",
+        "text": "al compliance tasks can be difficult due to inherent domain-related limitations. First, financial filings combine unstructured text (narrative disclosures), semi-structured data (tables, graphs), and contextual metadata - a multi-modal composition that conventional text-centric retrieval architectures fail to process cohesively, leading to fragmented or incomplete context representation [31, 41, 42, 46]. Next, while ex- isting RAG systems predominantly employ dense retrieval [19, 43] or sparse lexical matching [32], these can fail due to the need for domain-specific fine-tuning or an inability to capture implicit regu- latory relationships [17, 38, 45]. Finally, existing retrieval methods often rely on ranking relevant passages based on semantic simi- larity rather than domain-specific cri",
+        "distance": 0.591
+      },
+      {
+        "id": "P13:pdf:7",
+        "text": "ten rely on ranking relevant passages based on semantic simi- larity rather than domain-specific criteria, leading to the critical arXiv:2504.14493v4 [cs.IR] 13 Aug 2025 Xinyu et al. risk of faulty or incomplete reasoning [1, 5, 6]. Such limitations collectively undermine the precision and accountability of auto- mated compliance workflows, exposing enterprises to operational and regulatory hazards. As a solution to these challenges, we introduce FinSage, an end- to-end financial question-answering framework optimized for reg- ulatory compliance that leverages the heterogeneous nature of financial data for better reasoning. As shown in Figure 1, Fin- Sage consists of three core components: (1) Financial Filings Pre- processing (FFP) pipeline, (2) Multi-path Retrieval (MPR) pipeline, and (3",
+        "distance": 0.625
+      }
+    ]
+  }
+}

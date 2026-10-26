@@ -1,0 +1,204 @@
+{
+  "paper_id": "P12",
+  "model": "openai/gpt-oss-120b",
+  "seed": 42,
+  "usage": {
+    "completion_tokens": 1143,
+    "prompt_tokens": 2957,
+    "total_tokens": 4100,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 394,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 0.199437168,
+    "prompt_time": 0.142689702,
+    "completion_time": 2.412474835,
+    "total_time": 2.555164537
+  },
+  "raw": {
+    "Problem": {
+      "content": "Paper memperkenalkan HybridRAG, pendekatan gabungan VectorRAG dan GraphRAG untuk meningkatkan analisis dokumen keuangan.",
+      "evidence_ids": [
+        "P12:pdf:12"
+      ],
+      "quote": "To the best of our knowledge the present work is the first work that proposes a RAG approach that is hybrid of both VectorRAG and GraphRAG and demonstrates its potential of more effective analysis and utilization of financial documents"
+    },
+    "Domain & Data": {
+      "content": "Menggunakan dokumen keuangan perusahaan, khususnya transkrip earnings call, dengan entitas seperti metrik keuangan, eksekutif, dan peristiwa korporasi.",
+      "evidence_ids": [
+        "P12:pdf:45",
+        "P12:pdf:41",
+        "P12:pdf:33"
+      ],
+      "quote": "Our methodology builds upon the concept of RAG ... leveraging both the power of large language models and the efficiency of semantic search."
+    },
+    "RAG Method": {
+      "content": "HybridRAG memakai model embedding text-embedding-ada-002, chunk size 1024, Pinecone vector DB, serta integrasi GraphRAG untuk pencarian semantik dan pemrosesan KG.",
+      "evidence_ids": [
+        "P12:pdf:46",
+        "P12:pdf:6",
+        "P12:pdf:15"
+      ],
+      "quote": "We employ OpenAI’s text-embedding-ada-002 model to transform textual data ... Chunk Size 1024"
+    },
+    "Evaluation & Metrics": {
+      "content": "Dievaluasi dengan metrik faithfulness, answer relevancy, dan context relevance untuk menilai kualitas jawaban dan relevansi konteks.",
+      "evidence_ids": [
+        "P12:pdf:27",
+        "P12:pdf:26",
+        "P12:pdf:33"
+      ],
+      "quote": "These metrics ... focus on faithfulness, answer relevance, and context relevance"
+    },
+    "Main Results": {
+      "content": "HybridRAG mencapai skor faithfulness 0.96, answer relevancy 0.96, dan context recall 1.0, menunjukkan kinerja seimbang dibandingkan VectorRAG dan GraphRAG.",
+      "evidence_ids": [
+        "P12:pdf:56",
+        "P12:pdf:60",
+        "P12:pdf:62"
+      ],
+      "quote": "HybridRAG ... excels in faithfulness, answer relevancy, and context recall"
+    },
+    "Limitations": {
+      "content": "GraphRAG kurang baik pada tugas Q&A abstraktif dan ketika entitas tidak eksplisit; tantangan pada konteks panjang dan kualitas konteks yang tidak konsisten.",
+      "evidence_ids": [
+        "P12:pdf:11",
+        "P12:pdf:12",
+        "P12:pdf:60"
+      ],
+      "quote": "GraphRAG generally underperforms in abstractive Q&A tasks or when there is not explicit entity mentioned in the question"
+    },
+    "Gap": {
+      "content": "Penelitian ini tidak mengevaluasi abstention (menolak menjawab bila konteks tidak memadai) dan tidak menggunakan dokumen berbahasa Indonesia; Inferensi: sehingga belum menjawab fokus penelitian tentang faithfulness dan abstention pada dokumen perbankan Indonesia.",
+      "evidence_ids": [
+        "P12:pdf:27"
+      ],
+      "quote": "These metrics ... focus on faithfulness, answer relevance, and context relevance"
+    }
+  },
+  "retrieved": {
+    "Problem": [
+      {
+        "id": "P12:pdf:26",
+        "text": "provements in response quality, accuracy, and comprehensiveness that might arise from the synergistic integra- tion of these two RAG methodologies. To objectively evaluate different RAG approaches (VectorRAG and GraphRAG in their case), Ref. [22] utilized metrics such as comprehensiveness (i.e., the amount of details the answer provides to cover all aspects and details of the question?); diversity (i.e., the richness of the answer in providing different perspectives and insights on the question); empowerment (i.e., the helpfulness of the answer to the reader understand and make informed judgements about the topic); and, directness (i.e., clearness of the answer in addressing the question). here, the LLM was provided tuples of question, target metric, and a pair of answers, and was asked to",
+        "distance": 0.5638
+      },
+      {
+        "id": "P12:pdf:33",
+        "text": "o 1, indicate bet- ter alignment and thus better context recall. This metric is crucial for assessing the effectiveness of information retrieval systems in providing relevant context. 3 DATA DESCRIPTION Although there do exist some public financial datasets, none of them were suitable for the present experiments: e.g., FinQA [31], TAT- QA [32], FIQA [33], FinanceBench [34], etc. datasets are limited to specific usecases such as benchmarking LLMs’ abilities to perform complex numerical reasoning or sentiment analysis. On the other hand, FinTextQA [35] dataset was not publicly available at the time of writing the present work. In addition, in most of these datasets, access to the actual documents from which the ground- truth Q&As were created is not available, making it impossible to use the",
+        "distance": 0.6236
+      },
+      {
+        "id": "P12:pdf:12",
+        "text": "echanism across multiple docu- ments and longer contexts poses a significant challenge in extract- ing relevant responses. GraphRAG combines the capabilities of KGs with RAG to improve traditional NLP tasks [23–25]. Within our implementations of both VectorRAG GraphRAG techniques, we explicitly add information on the metadata of the documents that is also shown to improve the performance of VectorRAG [8]. To the best of our knowledge the present work is the first work that proposes a RAG approach that is hybrid of both VectorRAG and GraphRAG and demonstrates its potential of more effective analysis and utilization of financial documents by leveraging the combined strengths of VectorRAG and GraphRAG. We also utilize a novel ground-truth Q&A dataset extracted from publicly available financia",
+        "distance": 0.6324
+      }
+    ],
+    "Domain & Data": [
+      {
+        "id": "P12:pdf:45",
+        "text": "le knowledge base that captures the complex relationships and key information present in corporate narratives. This approach opens up new pos- sibilities for financial analysis and automated reasoning in the business domain that will be explored further in the future. 4.2 VectorRAG Our methodology builds upon the concept of RAG [9] which al- lows for the creation of a system that can provide context-aware, accurate responses to queries about company financial informa- tion, leveraging both the power of large language models and the efficiency of semantic search. At the core of our system is a Pinecone vector database7, which serves as the foundation for our information retrieval process. We employ OpenAI’s text-embedding-ada-002 model to transform tex- tual data from earnings call transcri",
+        "distance": 0.4221
+      },
+      {
+        "id": "P12:pdf:41",
+        "text": " abbreviations, infor- mal references Financial Metrics and Indicators Revenue, profit margins, EBITDA Corporate Executives and Key Personnel CEOs, CFOs, board members Products and Services Tangible products and intangible ser- vices Geographical Locations Headquarters, operational regions, markets Corporate Events Mergers, acquisitions, product launches, earnings calls Legal and Regulatory Information Legal cases, regulatory compliance Table 2: Entities extracted from earnings call transcripts Table 2 summarizes details on entities extracted from the earn- ing calls transcripts using our prompt based method. Concurrently, LLM identifies relationships between these entities using a curated set of verbs, capturing the nuanced interactions within the cor- porate narrative. A key improvement ",
+        "distance": 0.4874
+      },
+      {
+        "id": "P12:pdf:33",
+        "text": "o 1, indicate bet- ter alignment and thus better context recall. This metric is crucial for assessing the effectiveness of information retrieval systems in providing relevant context. 3 DATA DESCRIPTION Although there do exist some public financial datasets, none of them were suitable for the present experiments: e.g., FinQA [31], TAT- QA [32], FIQA [33], FinanceBench [34], etc. datasets are limited to specific usecases such as benchmarking LLMs’ abilities to perform complex numerical reasoning or sentiment analysis. On the other hand, FinTextQA [35] dataset was not publicly available at the time of writing the present work. In addition, in most of these datasets, access to the actual documents from which the ground- truth Q&As were created is not available, making it impossible to use the",
+        "distance": 0.4956
+      }
+    ],
+    "RAG Method": [
+      {
+        "id": "P12:pdf:46",
+        "text": "employ OpenAI’s text-embedding-ada-002 model to transform tex- tual data from earnings call transcripts into high-dimensional vec- tor representations. This vectorization process enables semantic similarity searches, significantly enhancing the relevance and ac- curacy of retrieved information. Table 3 provides summary of the configuration of the set up in use for our experiments. LLM GPT-3.5-Turbo LLM Temperature 0 Embedding Model text-embedding-ada-002 Framework LangChain Vector Database Pinecone Chunk Size 1024 Chunk Overlap 0 Maximum Output Tokens 1024 Chunks for Similarity Algorithm 20 Number of Context Retrieved 4 Table 3: VectorRAG Configuration 7https://www.pinecone.io/ The Q&A pipeline is constructed using the LangChain frame- work8. The begins with a context retrieval step, where",
+        "distance": 0.4854
+      },
+      {
+        "id": "P12:pdf:6",
+        "text": "techniques. VectorRAG (the traditional RAG techniques that are based on vector databases) focuses on improving Natural Language Processing (NLP) tasks by retrieving relevant textual information to support the generation tasks. VectorRAG excels in situations where context from related textual documents is crucial for generating meaningful and coherent responses [9–11]. RAG- based methods ensure the LLMs generate relevant and coherent responses that are aligned with the original input query. How- ever, for financial documents, these approaches have significant challenges as a standalone solution. For instance, traditional RAG systems often use paragraph-level chunking techniques, which assume the text in those documents are uniform in length. This approach neglects the hierarchical nature of",
+        "distance": 0.4861
+      },
+      {
+        "id": "P12:pdf:15",
+        "text": "trieval of external information with the generative capabilities of large language models, RAG enhances the overall quality and reliability of the generated text. In traditional VectorRAG, the given external documents are di- vided into multiple chunks because of the limitation of context size of the language model. Those chunks are converted into embed- dings using an embeddings model and then stored into a vector database. After that, the retrieval component performs a similarity search within the vector database to identify and rank the chunks most relevant to the query. The top-ranked chunks are retrieved and aggregated to provide context for the generative model. Then, the generative model takes this retrieved context along with the original query and synthesizes a response. Thus, it ",
+        "distance": 0.4983
+      }
+    ],
+    "Evaluation & Metrics": [
+      {
+        "id": "P12:pdf:27",
+        "text": "ere, the LLM was provided tuples of question, target metric, and a pair of answers, and was asked to assess which answer was better according to the metric and why. These metrics though compare the final generated answers, do not necessarily directly evaluate the retrieval and generation parts separately. Instead, here we implement a comprehensive set of evaluation metrics which are designed to capture different aspects of a given RAG system’s output quality, focusing on faithfulness, answer relevance, and context relevance [30]. Each metric provides unique insights into the system’s capabilities and limitations. 2.4.1 Faithfulness. Faithfulness is a crucial metric that measures the extent to which the generated answer can be inferred from the provided context. Our implementation of the fa",
+        "distance": 0.4511
+      },
+      {
+        "id": "P12:pdf:26",
+        "text": "provements in response quality, accuracy, and comprehensiveness that might arise from the synergistic integra- tion of these two RAG methodologies. To objectively evaluate different RAG approaches (VectorRAG and GraphRAG in their case), Ref. [22] utilized metrics such as comprehensiveness (i.e., the amount of details the answer provides to cover all aspects and details of the question?); diversity (i.e., the richness of the answer in providing different perspectives and insights on the question); empowerment (i.e., the helpfulness of the answer to the reader understand and make informed judgements about the topic); and, directness (i.e., clearness of the answer in addressing the question). here, the LLM was provided tuples of question, target metric, and a pair of answers, and was asked to",
+        "distance": 0.4686
+      },
+      {
+        "id": "P12:pdf:33",
+        "text": "o 1, indicate bet- ter alignment and thus better context recall. This metric is crucial for assessing the effectiveness of information retrieval systems in providing relevant context. 3 DATA DESCRIPTION Although there do exist some public financial datasets, none of them were suitable for the present experiments: e.g., FinQA [31], TAT- QA [32], FIQA [33], FinanceBench [34], etc. datasets are limited to specific usecases such as benchmarking LLMs’ abilities to perform complex numerical reasoning or sentiment analysis. On the other hand, FinTextQA [35] dataset was not publicly available at the time of writing the present work. In addition, in most of these datasets, access to the actual documents from which the ground- truth Q&As were created is not available, making it impossible to use the",
+        "distance": 0.511
+      }
+    ],
+    "Main Results": [
+      {
+        "id": "P12:pdf:56",
+        "text": "of Faithfulness, GraphRAG and HybridRAG demonstrated superior performance, both achieving a score of 0.96, while VectorRAG trailed slightly with a score of 0.94. Answer relevancy scores varied across the meth- ods, with HybridRAG outperforming the others at 0.96, followed by VectorRAG at 0.91, and GraphRAG at 0.89. Context precision was highest for GraphRAG at 0.96, significantly surpassing Vec- torRAG (0.84) and HybridRAG (0.79). However, in context recall, both VectorRAG and HybridRAG achieved perfect scores of 1, while GraphRAG lagged behind at 0.85. Overall, these results suggest that GraphRAG offers improve- ments over VectorRAG, particularly in faithfulness and context pre- cision. Furthermore, HybridRAG emerges as the most balanced and effective approach, outperforming both VectorRA",
+        "distance": 0.4892
+      },
+      {
+        "id": "P12:pdf:60",
+        "text": "e performance of LLMs by incorporating relevant re- trieval mechanisms. RAG methods enhance the LLMs’ capabilities by retrieving pertinent documents or text to provide additional context during the generation process. However, these approaches encounter significant limitations when applied to the specialized and intricate domain of financial documents. Furthermore, the qual- ity of the retrieved context from a vast and heterogeneous corpus can be inconsistent, leading to inaccuracies and incomplete analyses. These challenges highlight the need for more sophisticated methods that can effectively integrate and process the detailed and domain- specific information found in financial documents, ensuring more reliable and accurate outputs for informed decision-making. In the present work, we ha",
+        "distance": 0.6137
+      },
+      {
+        "id": "P12:pdf:62",
+        "text": " step towards more effective financial analysis tools. Through a comparative analysis using objecive evaluation met- rics, we have highlighted the distinct performance advantages of the HybridRAG approach over its vector-based and KG-based coun- terparts. The HybridRAG system excels in faithfulness, answer relevancy, and context recall, demonstrating the benefits of inte- grating contexts from both VectorRAG and GraphRAG methods, despite potential trade-offs in context precision. The implications of this research extend beyond the immedi- ate realm of financial analysis. By developing a system capable of understanding and responding to nuanced queries about com- plex financial documents, we pave the way for more sophisticated AI-assisted financial decision-making tools that could potential",
+        "distance": 0.6328
+      }
+    ],
+    "Limitations": [
+      {
+        "id": "P12:pdf:11",
+        "text": "ial documents. But GraphRAG generally underperforms in abstractive Q&A tasks or when there is not explicit entity mentioned in the question. In the present work, we propose a combination of VectorRAG and GraphRAG, called HybridRAG, to retrieve the relevant information from external documents for a given query to the LLM that brings advantages of both the RAGs together to provide demonstrably more accurate answers to the queries. 1.1 Prior Work and Our Contribution VectorRAG has been extensively investigated in the recent years and focuses on enhancing NLP tasks by retrieving relevant textual information to support generation processes [9–11, 26]. However, the effectiveness of the retrieval mechanism across multiple docu- ments and longer contexts poses a significant challenge in extract- i",
+        "distance": 0.6107
+      },
+      {
+        "id": "P12:pdf:12",
+        "text": "echanism across multiple docu- ments and longer contexts poses a significant challenge in extract- ing relevant responses. GraphRAG combines the capabilities of KGs with RAG to improve traditional NLP tasks [23–25]. Within our implementations of both VectorRAG GraphRAG techniques, we explicitly add information on the metadata of the documents that is also shown to improve the performance of VectorRAG [8]. To the best of our knowledge the present work is the first work that proposes a RAG approach that is hybrid of both VectorRAG and GraphRAG and demonstrates its potential of more effective analysis and utilization of financial documents by leveraging the combined strengths of VectorRAG and GraphRAG. We also utilize a novel ground-truth Q&A dataset extracted from publicly available financia",
+        "distance": 0.6167
+      },
+      {
+        "id": "P12:pdf:60",
+        "text": "e performance of LLMs by incorporating relevant re- trieval mechanisms. RAG methods enhance the LLMs’ capabilities by retrieving pertinent documents or text to provide additional context during the generation process. However, these approaches encounter significant limitations when applied to the specialized and intricate domain of financial documents. Furthermore, the qual- ity of the retrieved context from a vast and heterogeneous corpus can be inconsistent, leading to inaccuracies and incomplete analyses. These challenges highlight the need for more sophisticated methods that can effectively integrate and process the detailed and domain- specific information found in financial documents, ensuring more reliable and accurate outputs for informed decision-making. In the present work, we ha",
+        "distance": 0.618
+      }
+    ],
+    "Gap": [
+      {
+        "id": "P12:pdf:27",
+        "text": "ere, the LLM was provided tuples of question, target metric, and a pair of answers, and was asked to assess which answer was better according to the metric and why. These metrics though compare the final generated answers, do not necessarily directly evaluate the retrieval and generation parts separately. Instead, here we implement a comprehensive set of evaluation metrics which are designed to capture different aspects of a given RAG system’s output quality, focusing on faithfulness, answer relevance, and context relevance [30]. Each metric provides unique insights into the system’s capabilities and limitations. 2.4.1 Faithfulness. Faithfulness is a crucial metric that measures the extent to which the generated answer can be inferred from the provided context. Our implementation of the fa",
+        "distance": 0.6045
+      },
+      {
+        "id": "P12:pdf:33",
+        "text": "o 1, indicate bet- ter alignment and thus better context recall. This metric is crucial for assessing the effectiveness of information retrieval systems in providing relevant context. 3 DATA DESCRIPTION Although there do exist some public financial datasets, none of them were suitable for the present experiments: e.g., FinQA [31], TAT- QA [32], FIQA [33], FinanceBench [34], etc. datasets are limited to specific usecases such as benchmarking LLMs’ abilities to perform complex numerical reasoning or sentiment analysis. On the other hand, FinTextQA [35] dataset was not publicly available at the time of writing the present work. In addition, in most of these datasets, access to the actual documents from which the ground- truth Q&As were created is not available, making it impossible to use the",
+        "distance": 0.6269
+      },
+      {
+        "id": "P12:pdf:11",
+        "text": "ial documents. But GraphRAG generally underperforms in abstractive Q&A tasks or when there is not explicit entity mentioned in the question. In the present work, we propose a combination of VectorRAG and GraphRAG, called HybridRAG, to retrieve the relevant information from external documents for a given query to the LLM that brings advantages of both the RAGs together to provide demonstrably more accurate answers to the queries. 1.1 Prior Work and Our Contribution VectorRAG has been extensively investigated in the recent years and focuses on enhancing NLP tasks by retrieving relevant textual information to support generation processes [9–11, 26]. However, the effectiveness of the retrieval mechanism across multiple docu- ments and longer contexts poses a significant challenge in extract- i",
+        "distance": 0.6509
+      }
+    ]
+  }
+}

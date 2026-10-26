@@ -1,0 +1,195 @@
+{
+  "paper_id": "P02",
+  "model": "openai/gpt-oss-120b",
+  "seed": 42,
+  "usage": {
+    "completion_tokens": 1199,
+    "prompt_tokens": 1170,
+    "total_tokens": 2369,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 490,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 0.351409453,
+    "prompt_time": 0.056116732,
+    "completion_time": 2.488417113,
+    "total_time": 2.544533845
+  },
+  "raw": {
+    "Problem": {
+      "content": "Penelitian ini merancang dan mengevaluasi IndoRAG-FA, kerangka hybrid Retrieval-Augmented Generation dengan mitigasi halusinasi untuk advisory keuangan MSME Bahasa Indonesia.",
+      "evidence_ids": [
+        "P02:abstract:0"
+      ],
+      "quote": "designs and evaluates IndoRAG-FA, a hybrid Retrieval-Augmented Generation (RAG) framework with explicit hallucination mitigation"
+    },
+    "Domain & Data": {
+      "content": "Domainnya adalah keuangan MSME Indonesia; data berupa basis pengetahuan dari sumber keuangan dan pajak resmi Indonesia serta benchmark pertanyaan MSME yang divalidasi ahli.",
+      "evidence_ids": [
+        "P02:abstract:0",
+        "P02:abstract:1"
+      ],
+      "quote": "A curated knowledge base was built from authoritative Indonesian financial and tax sources, and an expert-validated benchmark of representative MSME questions"
+    },
+    "RAG Method": {
+      "content": "Menggunakan chunking semantik berbasis koherensi, retrieval hibrida BM25 dan embedding multibahasa yang digabungkan lewat reciprocal rank fusion, re‑ranking cross‑encoder, serta generasi tergrounded dengan mekanisme abstention berbasis kepercayaan.",
+      "evidence_ids": [
+        "P02:abstract:0",
+        "P02:abstract:1"
+      ],
+      "quote": "hybrid retrieval combining lexical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re-ranking; and grounded generation that produces source-cited answers with a confidence-based abstention mechanism"
+    },
+    "Evaluation & Metrics": {
+      "content": "Dievaluasi melawan baseline LLM‑only dan RAG vanilla menggunakan Recall@k, MRR, nDCG, faithfulness, relevansi dan kebenaran jawaban, tingkat halusinasi, precision dan recall abstention, serta rubrik ahli manusia.",
+      "evidence_ids": [
+        "P02:abstract:0",
+        "P02:abstract:1"
+      ],
+      "quote": "using retrieval metrics (Recall@k, MRR, nDCG), faithfulness, answer relevance and correctness, hallucination rate, abstention precision and recall, and a human-expert rubric"
+    },
+    "Main Results": {
+      "content": "Temuan menunjukkan bahwa desain berbasis retrieval‑grounded dan abstention‑aware memberikan jalur praktis dan dapat dipercaya untuk advisory keuangan MSME Indonesia.",
+      "evidence_ids": [
+        "P02:abstract:2"
+      ],
+      "quote": "Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trustworthy path toward deployable financial advisory for Indonesian MSMEs"
+    },
+    "Limitations": {
+      "content": "tidak disebut",
+      "evidence_ids": [],
+      "quote": ""
+    },
+    "Gap": {
+      "content": "Inferensi: Penelitian ini tidak mengevaluasi faithfulness dan abstention pada dokumen produk perbankan Indonesia, melainkan pada advisory keuangan MSME secara umum.",
+      "evidence_ids": [
+        "P02:abstract:0"
+      ],
+      "quote": "General-purpose large language models (LLMs) can make such knowledge more accessible, but they often produce fluent yet unsourced or hallucinated answers, which is unacceptable in a financial and regulatory context"
+    }
+  },
+  "retrieved": {
+    "Problem": [
+      {
+        "id": "P02:abstract:1",
+        "text": "exical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re-ranking; and grounded generation that produces source-cited answers with a confidence-based abstention mechanism and a groundedness verifier. A curated knowledge base was built from authoritative Indonesian financial and tax sources, and an expert-validated benchmark of representative MSME questions, including out-of-scope items, was developed. The framework was compared with an LLM-only baseline and a vanilla RAG baseline using retrieval metrics (Recall@k, MRR, nDCG), faithfulness, answer relevance and correctness, hallucination rate, abstention precision and recall, and a human-expert rubric. Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trust",
+        "distance": 0.6984
+      },
+      {
+        "id": "P02:abstract:2",
+        "text": "c. Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trustworthy path toward deployable financial advisory for Indonesian MSMEs and provides a reusable evaluation protocol for domain-specific LLM systems.",
+        "distance": 0.7903
+      },
+      {
+        "id": "P02:abstract:0",
+        "text": "Micro, small, and medium enterprises (MSMEs) are the backbone of Indonesia's economy, yet many owners face persistent gaps in financial literacy and difficulty navigating complex financial and tax regulations. General-purpose large language models (LLMs) can make such knowledge more accessible, but they often produce fluent yet unsourced or hallucinated answers, which is unacceptable in a financial and regulatory context. This study designs and evaluates IndoRAG-FA, a hybrid Retrieval-Augmented Generation (RAG) framework with explicit hallucination mitigation for Bahasa Indonesia MSME financial advisory. The framework integrates coherence-based semantic chunking; hybrid retrieval combining lexical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re",
+        "distance": 0.8026
+      }
+    ],
+    "Domain & Data": [
+      {
+        "id": "P02:abstract:2",
+        "text": "c. Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trustworthy path toward deployable financial advisory for Indonesian MSMEs and provides a reusable evaluation protocol for domain-specific LLM systems.",
+        "distance": 0.5113
+      },
+      {
+        "id": "P02:abstract:0",
+        "text": "Micro, small, and medium enterprises (MSMEs) are the backbone of Indonesia's economy, yet many owners face persistent gaps in financial literacy and difficulty navigating complex financial and tax regulations. General-purpose large language models (LLMs) can make such knowledge more accessible, but they often produce fluent yet unsourced or hallucinated answers, which is unacceptable in a financial and regulatory context. This study designs and evaluates IndoRAG-FA, a hybrid Retrieval-Augmented Generation (RAG) framework with explicit hallucination mitigation for Bahasa Indonesia MSME financial advisory. The framework integrates coherence-based semantic chunking; hybrid retrieval combining lexical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re",
+        "distance": 0.5165
+      },
+      {
+        "id": "P02:abstract:1",
+        "text": "exical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re-ranking; and grounded generation that produces source-cited answers with a confidence-based abstention mechanism and a groundedness verifier. A curated knowledge base was built from authoritative Indonesian financial and tax sources, and an expert-validated benchmark of representative MSME questions, including out-of-scope items, was developed. The framework was compared with an LLM-only baseline and a vanilla RAG baseline using retrieval metrics (Recall@k, MRR, nDCG), faithfulness, answer relevance and correctness, hallucination rate, abstention precision and recall, and a human-expert rubric. Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trust",
+        "distance": 0.5485
+      }
+    ],
+    "RAG Method": [
+      {
+        "id": "P02:abstract:2",
+        "text": "c. Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trustworthy path toward deployable financial advisory for Indonesian MSMEs and provides a reusable evaluation protocol for domain-specific LLM systems.",
+        "distance": 0.6133
+      },
+      {
+        "id": "P02:abstract:1",
+        "text": "exical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re-ranking; and grounded generation that produces source-cited answers with a confidence-based abstention mechanism and a groundedness verifier. A curated knowledge base was built from authoritative Indonesian financial and tax sources, and an expert-validated benchmark of representative MSME questions, including out-of-scope items, was developed. The framework was compared with an LLM-only baseline and a vanilla RAG baseline using retrieval metrics (Recall@k, MRR, nDCG), faithfulness, answer relevance and correctness, hallucination rate, abstention precision and recall, and a human-expert rubric. Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trust",
+        "distance": 0.6224
+      },
+      {
+        "id": "P02:abstract:0",
+        "text": "Micro, small, and medium enterprises (MSMEs) are the backbone of Indonesia's economy, yet many owners face persistent gaps in financial literacy and difficulty navigating complex financial and tax regulations. General-purpose large language models (LLMs) can make such knowledge more accessible, but they often produce fluent yet unsourced or hallucinated answers, which is unacceptable in a financial and regulatory context. This study designs and evaluates IndoRAG-FA, a hybrid Retrieval-Augmented Generation (RAG) framework with explicit hallucination mitigation for Bahasa Indonesia MSME financial advisory. The framework integrates coherence-based semantic chunking; hybrid retrieval combining lexical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re",
+        "distance": 0.7054
+      }
+    ],
+    "Evaluation & Metrics": [
+      {
+        "id": "P02:abstract:1",
+        "text": "exical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re-ranking; and grounded generation that produces source-cited answers with a confidence-based abstention mechanism and a groundedness verifier. A curated knowledge base was built from authoritative Indonesian financial and tax sources, and an expert-validated benchmark of representative MSME questions, including out-of-scope items, was developed. The framework was compared with an LLM-only baseline and a vanilla RAG baseline using retrieval metrics (Recall@k, MRR, nDCG), faithfulness, answer relevance and correctness, hallucination rate, abstention precision and recall, and a human-expert rubric. Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trust",
+        "distance": 0.5419
+      },
+      {
+        "id": "P02:abstract:2",
+        "text": "c. Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trustworthy path toward deployable financial advisory for Indonesian MSMEs and provides a reusable evaluation protocol for domain-specific LLM systems.",
+        "distance": 0.7147
+      },
+      {
+        "id": "P02:abstract:0",
+        "text": "Micro, small, and medium enterprises (MSMEs) are the backbone of Indonesia's economy, yet many owners face persistent gaps in financial literacy and difficulty navigating complex financial and tax regulations. General-purpose large language models (LLMs) can make such knowledge more accessible, but they often produce fluent yet unsourced or hallucinated answers, which is unacceptable in a financial and regulatory context. This study designs and evaluates IndoRAG-FA, a hybrid Retrieval-Augmented Generation (RAG) framework with explicit hallucination mitigation for Bahasa Indonesia MSME financial advisory. The framework integrates coherence-based semantic chunking; hybrid retrieval combining lexical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re",
+        "distance": 0.7774
+      }
+    ],
+    "Main Results": [
+      {
+        "id": "P02:abstract:2",
+        "text": "c. Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trustworthy path toward deployable financial advisory for Indonesian MSMEs and provides a reusable evaluation protocol for domain-specific LLM systems.",
+        "distance": 0.7229
+      },
+      {
+        "id": "P02:abstract:1",
+        "text": "exical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re-ranking; and grounded generation that produces source-cited answers with a confidence-based abstention mechanism and a groundedness verifier. A curated knowledge base was built from authoritative Indonesian financial and tax sources, and an expert-validated benchmark of representative MSME questions, including out-of-scope items, was developed. The framework was compared with an LLM-only baseline and a vanilla RAG baseline using retrieval metrics (Recall@k, MRR, nDCG), faithfulness, answer relevance and correctness, hallucination rate, abstention precision and recall, and a human-expert rubric. Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trust",
+        "distance": 0.7411
+      },
+      {
+        "id": "P02:abstract:0",
+        "text": "Micro, small, and medium enterprises (MSMEs) are the backbone of Indonesia's economy, yet many owners face persistent gaps in financial literacy and difficulty navigating complex financial and tax regulations. General-purpose large language models (LLMs) can make such knowledge more accessible, but they often produce fluent yet unsourced or hallucinated answers, which is unacceptable in a financial and regulatory context. This study designs and evaluates IndoRAG-FA, a hybrid Retrieval-Augmented Generation (RAG) framework with explicit hallucination mitigation for Bahasa Indonesia MSME financial advisory. The framework integrates coherence-based semantic chunking; hybrid retrieval combining lexical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re",
+        "distance": 0.8116
+      }
+    ],
+    "Limitations": [
+      {
+        "id": "P02:abstract:0",
+        "text": "Micro, small, and medium enterprises (MSMEs) are the backbone of Indonesia's economy, yet many owners face persistent gaps in financial literacy and difficulty navigating complex financial and tax regulations. General-purpose large language models (LLMs) can make such knowledge more accessible, but they often produce fluent yet unsourced or hallucinated answers, which is unacceptable in a financial and regulatory context. This study designs and evaluates IndoRAG-FA, a hybrid Retrieval-Augmented Generation (RAG) framework with explicit hallucination mitigation for Bahasa Indonesia MSME financial advisory. The framework integrates coherence-based semantic chunking; hybrid retrieval combining lexical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re",
+        "distance": 0.7063
+      },
+      {
+        "id": "P02:abstract:2",
+        "text": "c. Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trustworthy path toward deployable financial advisory for Indonesian MSMEs and provides a reusable evaluation protocol for domain-specific LLM systems.",
+        "distance": 0.7301
+      },
+      {
+        "id": "P02:abstract:1",
+        "text": "exical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re-ranking; and grounded generation that produces source-cited answers with a confidence-based abstention mechanism and a groundedness verifier. A curated knowledge base was built from authoritative Indonesian financial and tax sources, and an expert-validated benchmark of representative MSME questions, including out-of-scope items, was developed. The framework was compared with an LLM-only baseline and a vanilla RAG baseline using retrieval metrics (Recall@k, MRR, nDCG), faithfulness, answer relevance and correctness, hallucination rate, abstention precision and recall, and a human-expert rubric. Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trust",
+        "distance": 0.7351
+      }
+    ],
+    "Gap": [
+      {
+        "id": "P02:abstract:1",
+        "text": "exical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re-ranking; and grounded generation that produces source-cited answers with a confidence-based abstention mechanism and a groundedness verifier. A curated knowledge base was built from authoritative Indonesian financial and tax sources, and an expert-validated benchmark of representative MSME questions, including out-of-scope items, was developed. The framework was compared with an LLM-only baseline and a vanilla RAG baseline using retrieval metrics (Recall@k, MRR, nDCG), faithfulness, answer relevance and correctness, hallucination rate, abstention precision and recall, and a human-expert rubric. Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trust",
+        "distance": 0.6402
+      },
+      {
+        "id": "P02:abstract:0",
+        "text": "Micro, small, and medium enterprises (MSMEs) are the backbone of Indonesia's economy, yet many owners face persistent gaps in financial literacy and difficulty navigating complex financial and tax regulations. General-purpose large language models (LLMs) can make such knowledge more accessible, but they often produce fluent yet unsourced or hallucinated answers, which is unacceptable in a financial and regulatory context. This study designs and evaluates IndoRAG-FA, a hybrid Retrieval-Augmented Generation (RAG) framework with explicit hallucination mitigation for Bahasa Indonesia MSME financial advisory. The framework integrates coherence-based semantic chunking; hybrid retrieval combining lexical BM25 and dense multilingual embeddings fused through reciprocal rank fusion; cross-encoder re",
+        "distance": 0.69
+      },
+      {
+        "id": "P02:abstract:2",
+        "text": "c. Findings indicate that a retrieval-grounded, abstention-aware design offers a practical and trustworthy path toward deployable financial advisory for Indonesian MSMEs and provides a reusable evaluation protocol for domain-specific LLM systems.",
+        "distance": 0.7412
+      }
+    ]
+  }
+}

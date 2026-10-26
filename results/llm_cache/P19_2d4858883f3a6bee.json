@@ -1,0 +1,205 @@
+{
+  "paper_id": "P19",
+  "model": "openai/gpt-oss-120b",
+  "seed": 42,
+  "usage": {
+    "completion_tokens": 1096,
+    "prompt_tokens": 3943,
+    "total_tokens": 5039,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 334,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 0.398871349,
+    "prompt_time": 0.1767027,
+    "completion_time": 2.293722287,
+    "total_time": 2.470424987
+  },
+  "raw": {
+    "Problem": {
+      "content": "Penelitian ini mengevaluasi sistem RAG yang menjelaskan kontrak asuransi Quebec dengan fokus pada pengalaman pengguna secara manusiawi.",
+      "evidence_ids": [
+        "P19:pdf:10"
+      ],
+      "quote": "conducting a large-scale extrinsic study within the Quebec (francophone) insurance context"
+    },
+    "Domain & Data": {
+      "content": "Domainnya adalah asuransi kendaraan di Quebec, menggunakan dataset percakapan 3.759 pasangan pesan‑jawaban dari 154 peserta yang mayoritas berbahasa Prancis.",
+      "evidence_ids": [
+        "P19:pdf:11",
+        "P19:pdf:12",
+        "P19:pdf:5"
+      ],
+      "quote": "Study Sample Our user study successfully concluded with the collection of complete responses from 154 participants, along with the 3,759 message-answer pairs"
+    },
+    "RAG Method": {
+      "content": "Sistem menggunakan model LLM OpenAI “o3-2025-04-16” dengan arsitektur RAG standar, namun detail retriever dan strategi chunking tidak dijelaskan.",
+      "evidence_ids": [
+        "P19:pdf:11",
+        "P19:pdf:5",
+        "P19:pdf:42"
+      ],
+      "quote": "The insurance RAG system under evaluation utilizes OpenAI “o3-2025-04-16” LLM, along with the same RAG as described in [5]"
+    },
+    "Evaluation & Metrics": {
+      "content": "Evaluasi mencakup survei Likert 7‑point, analisis statistik t‑test, Kruskal‑Wallis, dan korelasi Pearson untuk mengukur kepuasan, usaha kognitif, dan kepercayaan.",
+      "evidence_ids": [
+        "P19:pdf:13",
+        "P19:pdf:15",
+        "P19:pdf:20"
+      ],
+      "quote": "Most questions utilized a 7-point Likert scale"
+    },
+    "Main Results": {
+      "content": "Pengguna dengan literasi rendah melaporkan kepuasan secara signifikan lebih tinggi, sementara manfaat inti sistem diakui secara universal oleh semua kelompok.",
+      "evidence_ids": [
+        "P19:pdf:21",
+        "P19:pdf:22",
+        "P19:pdf:8"
+      ],
+      "quote": "reported significantly higher overall satisfaction than their high-literacy counterparts"
+    },
+    "Limitations": {
+      "content": "Penulis mencatat adanya kesalahan faktual, preferensi pengguna terhadap agen manusia, serta keterbatasan generalisasi karena sampel berpendidikan tinggi dan setting eksperimental.",
+      "evidence_ids": [
+        "P19:pdf:37",
+        "P19:pdf:38",
+        "P19:pdf:24"
+      ],
+      "quote": "the system is not yet ready for fully autonomous, unsupervised public deployment"
+    },
+    "Gap": {
+      "content": "Penelitian ini tidak mengevaluasi faithfulness atau kemampuan abstention RAG pada dokumen perbankan berbahasa Indonesia; fokusnya terbatas pada konteks asuransi Quebec berbahasa Prancis. Inferensi: Karena tidak ada pengujian terhadap keakuratan faktual atau penolakan ketika konteks tidak memadai, gap muncul untuk aplikasi bahasa Indonesia di domain perbankan.",
+      "evidence_ids": [
+        "P19:pdf:41",
+        "P19:pdf:24"
+      ],
+      "quote": "may not be fully generalizable to a broader, more diverse demographic"
+    }
+  },
+  "retrieved": {
+    "Problem": [
+      {
+        "id": "P19:pdf:40",
+        "text": "anadian insurance company, NSERC research grant RDCPJ 537198-18 and FRQNT doctoral research grant. We thank the reviewers for their comments regarding our work. Disclosure of Interests. Both authors have received research grants from a Canadian insurance company. Limitations While this study provides valuable insights into the human-centric eval- uation of RAG agents, its findings should be interpreted in light of three limitations. First, and most significantly, our participant sample was recruited from a university population and demonstrated significantly higher insurance literacy than the general Quebec population. Consequently, the overwhelmingly positive user experience, par- ticularly regarding ease of use and satisfaction, may not be fully generalizable to a broader, more diverse d",
+        "distance": 0.5442
+      },
+      {
+        "id": "P19:pdf:10",
+        "text": "s that provide clear justifications for their outputs [29]. Our research builds on this body of work by conducting a large-scale extrinsic study within the Quebec (francophone) insurance context, providing empirical data on how factors such as “Cognitive Effort” contribute to the overall user experience (UX) of a specialized RAG. 3 Methodology To evaluate the RAG system’s real-world utility, we designed and conducted an extrinsic, human-centric user study. Our methodology is grounded in es- tablished frameworks for human-computer interaction and chatbot evaluation, combining quantitative and qualitative analysis to provide a holistic assessment of the system’s performance [28,3]. This section details the system, participant recruitment, the UI, our data collection and analysis procedures, ",
+        "distance": 0.5497
+      },
+      {
+        "id": "P19:pdf:39",
+        "text": "tails developing a hybrid model with a seamless escalation path to a human expert, particularly for the complex or emotionally charged scenarios that users identified as beyond the scope of a purely automated agent. This approach, which leverages the strengths of both human and agentic systems through collaborative optimization, is a promising frontier for designing effective real-world applications [31]. By embracing an ap- proach that augments rather than replaces human oversight, we can responsibly harness the power of this technology to create a more transparent and equitable insurance market for all consumers. Acknowledgments. This research was made possible thanks to the support of a Canadian insurance company, NSERC research grant RDCPJ 537198-18 and FRQNT doctoral research grant. W",
+        "distance": 0.5599
+      }
+    ],
+    "Domain & Data": [
+      {
+        "id": "P19:pdf:11",
+        "text": "n details the system, participant recruitment, the UI, our data collection and analysis procedures, study sample and ethical considerations. System Architecture The insurance RAG system under evaluation utilizes OpenAI “o3-2025-04-16” LLM, along with the same RAG as described in [5]. Participant Recruitment and Profile Participants were recruited from the student and employee populations at Laval University. The recruitment process involved a qualification survey designed to assess their insurance literacy. This survey consists of 15 agree/disagree questions adapted from established financial literacy studies [33,3,24,28]. To contextualize our sample, participants’ scores were benchmarked against the “Indice AMF”, an official measure of financial literacy in Quebec [1,9] (see our supplemen",
+        "distance": 0.5514
+      },
+      {
+        "id": "P19:pdf:12",
+        "text": "ainst the “Indice AMF”, an official measure of financial literacy in Quebec [1,9] (see our supplementary materials). User Interface To facilitate a controlled and realistic interaction, we developed a dedicated UI for the study, inspired by established research on chatbot usability and UX [25,36]. It is illustrated in our supplementary materials. 4 David Beauchemin and Richard Khoury Data Collection Our data collection strategy mostly relies on a structured survey. Upon completing their 30-minute interaction with the chatbot, partici- pants are directed to a post-use 21-question evaluation survey. This instrument is designed to assess the user’s experience across four key themes derived from [23,32,11,25,36]: “System Satisfaction” (SS), “Cognitive Effort” (CE), “Perceived Autonomy” (PA), a",
+        "distance": 0.579
+      },
+      {
+        "id": "P19:pdf:5",
+        "text": "lize [15]. Consequently, current methods force a choice between the scale of digital platforms and the personalization of an expert agent, with no existing solution effectively combining both. To address this gap, this paper investigates how a Retrieval-Augmented Gen- eration (RAG) system can automatically provide accurate and understandable answers to customer questions. A RAG system enhances a Large Language Model’s (LLM) responses by first retrieving relevant text from a specialized knowledge base, enabling it to generate an answer that is more accurate and factually grounded [13]. This approach has shown significant promise in com- plex domains such as law and insurance [21,5]. However, the deployment of such agents introduces a critical challenge: balancing their potential to empower ",
+        "distance": 0.6055
+      }
+    ],
+    "RAG Method": [
+      {
+        "id": "P19:pdf:5",
+        "text": "lize [15]. Consequently, current methods force a choice between the scale of digital platforms and the personalization of an expert agent, with no existing solution effectively combining both. To address this gap, this paper investigates how a Retrieval-Augmented Gen- eration (RAG) system can automatically provide accurate and understandable answers to customer questions. A RAG system enhances a Large Language Model’s (LLM) responses by first retrieving relevant text from a specialized knowledge base, enabling it to generate an answer that is more accurate and factually grounded [13]. This approach has shown significant promise in com- plex domains such as law and insurance [21,5]. However, the deployment of such agents introduces a critical challenge: balancing their potential to empower ",
+        "distance": 0.6157
+      },
+      {
+        "id": "P19:pdf:42",
+        "text": "ngs are specific to the evaluated RAG architecture and the dis- tinct legal and linguistic context of Quebec’s automobile insurance system. The nature and frequency of system errors, as well as user preferences for human agents, could vary across different LLMs, retrieval strategies, and other complex consumer domains with distinct regulatory frameworks. These limitations highlight important avenues for future research, including studies with more representative populations and real deployments to assess long-term user interaction. 12 David Beauchemin and Richard Khoury",
+        "distance": 0.621
+      },
+      {
+        "id": "P19:pdf:7",
+        "text": "sed when generalizing these findings to the broader population of insurance consumers. This article is struc- tured as follows: Section 2 details the related work, while Section 3 details our methodology. Section 4 presents the quantitative and qualitative results from the user study, and Section 5 presents our generalization findings. Finally, we conclude the paper and present our future work. 2 Related Work The application of LLMs to specialized domains, such as law and finance, is a rapidly growing area of research [30]. In particular, RAG has emerged as a key architecture for improving the factual accuracy and domain-specificity of LLM-generated responses [13]. Recent work has demonstrated the effectiveness of RAG in legal question-answering [5]. These systems are designed to inter- pr",
+        "distance": 0.6487
+      }
+    ],
+    "Evaluation & Metrics": [
+      {
+        "id": "P19:pdf:20",
+        "text": "between trusting the agent’s answers (Q7) and perceiving personal risk (Q18) (-0.38). This relationship indicates that as users’ trust in the system’s reliability increases, their apprehension about potential negative consequences decreases, underscoring that building a trustworthy system is the most direct path to overcoming user hesitation. Fig. 2: Pearson correlation heatmap matrix of user experience dimensions. Inferential Statistics We present in Table 2 the inference statistics for vari- ous questions and CS across the low- and high-literacy segments of our users. First, we can see that the system’s utility is most significant for participants with low literacy. Members of this group reported significantly higher overall satisfaction than their high-literacy counterparts, a finding c",
+        "distance": 0.4417
+      },
+      {
+        "id": "P19:pdf:15",
+        "text": "y observed differences, given the ordinal nature of the Likert scale data, the Kruskal-Wallis (KW) H-test [34] non-parametric statistical test is employed. Finally, to identify recurring patterns and extract nuanced insights from the qualitative data and open-ended comments, we use a thematic analysis approach. Study Sample Our user study successfully concluded with the collection of complete responses from 154 participants, along with the 3,759 message-answer pairs between participants and the RAG system, over a period of 30 days. Ethical Considerations The evaluation protocol and data collection tools were approved by the Université Laval Research Ethics Committee (2024-431, January 27, 2025). Respondents who completed the surveys consented to par- ticipating and to their answers being u",
+        "distance": 0.4445
+      },
+      {
+        "id": "P19:pdf:13",
+        "text": " [23,32,11,25,36]: “System Satisfaction” (SS), “Cognitive Effort” (CE), “Perceived Autonomy” (PA), and “Perceived Risks” (PR). Our questionnaire is included in our supplementary materials. Most questions utilized a 7-point Likert scale [20]. Statistical Procedures We employ a mixed-methods approach for data anal- ysis. First, quantitative data from Likert-scale responses are analyzed using descriptive and inferential statistics. To compare the experiences of low- and high-literacy users, using a median split of their literacy scores, we use the independent-samples t-test and the paired-samples t-test to explore relation- ships across different dimensions. All statistical tests use a significance level of p < 0.01. Second, we conduct a correlation analysis using Pearson’s correlation coeffi",
+        "distance": 0.4493
+      }
+    ],
+    "Main Results": [
+      {
+        "id": "P19:pdf:21",
+        "text": "eported significantly higher overall satisfaction than their high-literacy counterparts, a finding confirmed by both parametric and non-parametric tests on individual satisfaction question Q1 and a CS(Q1-5, Q9). This result demonstrates the system’s effectiveness as a “cog- nitive equalizer”, successfully bridging the knowledge gap for more vulnerable consumers. Interestingly, this difference was isolated to satisfaction; the levels of trust (Q7), perceived educational benefit (Q10), and empowerment (Q16) were A Human-Centric Evaluation of a RAG System for Explaining Insurance 7 statistically uniform across both groups. This nuance suggests that while novices derive greater satisfaction from the system, its core benefits are universally rec- ognized and appreciated by all users, regardless",
+        "distance": 0.5533
+      },
+      {
+        "id": "P19:pdf:22",
+        "text": " the system, its core benefits are universally rec- ognized and appreciated by all users, regardless of their literacy. t-Test p-value Kruskal-Wallis H-test p-value Q1 -3.79 < .001 8.28 0.004 CS(Q1-5, Q9) -4.72 < .001 11.04 < .001 Q7 0.93 0.354 0.435 0.510 Q10 1.22 0.225 6.54 0.011 Q16 1.55 0.124 0.20 0.655 Table 2: Results of inferential tests between low/high-literacy groups. We present a set of paired-samples t-tests in Table 3. The first pair shows that, while participants agree that the agent improved their understanding (Q10), they rate its potential to increase their autonomy (Q16) significantly higher (p < .001). It indicates that users perceive the agent not merely as a passive source of information but as an active tool that enhances their capacity to man- age their insurance nee",
+        "distance": 0.604
+      },
+      {
+        "id": "P19:pdf:8",
+        "text": "ed the effectiveness of RAG in legal question-answering [5]. These systems are designed to inter- pret statutory law, and new benchmarks, such as LegalBench-RAG, have been A Human-Centric Evaluation of a RAG System for Explaining Insurance 3 developed to evaluate performance on complex legal reasoning tasks [27]. The in- surance sector, a specific type of legal and financial domain, has also seen initial applications, with chatbots developed to handle customer queries by leveraging domain-specific datasets [26,4]. While these studies establish the technical vi- ability of RAG for domain-specific QA, our work shifts the focus from purely technical performance to a deep, human-centric evaluation of such systems in a consumer-facing role, assessing their real-world impacts on user understandi",
+        "distance": 0.6128
+      }
+    ],
+    "Limitations": [
+      {
+        "id": "P19:pdf:37",
+        "text": "complex infor- mation domain. However, this study also serves as a crucial cautionary tale. The user-documented factual errors and logical contradictions, combined with a clear preference by users for human agents in high-stakes scenarios, confirm that the system is not yet ready for fully autonomous, unsupervised public deployment. In its current form, it is a powerful decision-support tool, not a replacement for human expertise. Furthermore, while the study’s conclusions are robust for a more educated, high-literacy user group, caution should be exercised when generalizing these findings to the broader population of insurance consumers. A Human-Centric Evaluation of a RAG System for Explaining Insurance 11 The path forward must be guided by the limitations and preferences identi- fied by",
+        "distance": 0.5415
+      },
+      {
+        "id": "P19:pdf:38",
+        "text": "ning Insurance 11 The path forward must be guided by the limitations and preferences identi- fied by users. Future work should prioritize two main avenues. First, enhancing trust and reliability is essential. It involves not only exploring advanced RAG strategies, such as self-correction to reduce factual errors, but also integrating explainability features that cite the specific, relevant sources used to generate an answer. Doing so requires a user-centered approach to XAI, where explana- tions are treated as a social and interactive process rather than a simple data dump [22]. Second, and most critically, the system should be implemented within a robust “human-in-the-loop” framework. It entails developing a hybrid model with a seamless escalation path to a human expert, particularly for ",
+        "distance": 0.5572
+      },
+      {
+        "id": "P19:pdf:24",
+        "text": "e to continue using the system (Q8) robustly outweighed both their concerns about personal and societal risks, as confirmed by the highly significant t-test results of both the Q8-Q18 and Q8-Q19 pairs. This duality between enthusiasm for the tool and risks of using it may explain the results of Q20, which asked users to choose which insurance tasks they would use the AI assistant for. As shown in Table 4, a large majority of participants indicate a willingness to use the agent for in- formational and transactional tasks like purchasing a policy (76.81%), while, on the other hand, they are more hesitant to perform more sensitive tasks like a claim (67.29%). 4.2 Qualitative Results To complement our quantitative findings, we conducted a thematic analysis of open-ended feedback collected from",
+        "distance": 0.5711
+      }
+    ],
+    "Gap": [
+      {
+        "id": "P19:pdf:26",
+        "text": " 75.36 Renewing insurance 71.74 Making a claim following a loss 67.29 Cancelling insurance 56.52 None of the above 10.87 Table 4: Participants’ answers to the multiple-choice question (Q20). Participants commented that the chatbot “translated jargon into plain language” and “broke down complicated clauses into simple points”. It directly explains the low “CE” reported by users: the system performed the heavy lifting of simpli- fying complex legal terminology, allowing users to engage more confidently and thereby reducing the mental effort that can lead to poor decision-making. For layperson users, this creates a powerful sense of psychological safety. One partici- pant articulated this perfectly: “It’s less intimidating than calling an agent. I can ask basic questions without feeling stupi",
+        "distance": 0.5898
+      },
+      {
+        "id": "P19:pdf:41",
+        "text": " regarding ease of use and satisfaction, may not be fully generalizable to a broader, more diverse demographic, including individuals with lower educational levels or functional literacy skills who represent a key target group for such an empowering tool. Second, the study was conducted in a controlled experimental setting with a limited 30-minute time frame. This environment, while necessary for data collection, does not fully replicate the real-world context of purchasing insurance or making a claim, where emotional and financial stakes are higher. User behavior, trust calibration, and interaction patterns may differ significantly in longitudinal, real-world deployments. Finally, our findings are specific to the evaluated RAG architecture and the dis- tinct legal and linguistic context o",
+        "distance": 0.5911
+      },
+      {
+        "id": "P19:pdf:24",
+        "text": "e to continue using the system (Q8) robustly outweighed both their concerns about personal and societal risks, as confirmed by the highly significant t-test results of both the Q8-Q18 and Q8-Q19 pairs. This duality between enthusiasm for the tool and risks of using it may explain the results of Q20, which asked users to choose which insurance tasks they would use the AI assistant for. As shown in Table 4, a large majority of participants indicate a willingness to use the agent for in- formational and transactional tasks like purchasing a policy (76.81%), while, on the other hand, they are more hesitant to perform more sensitive tasks like a claim (67.29%). 4.2 Qualitative Results To complement our quantitative findings, we conducted a thematic analysis of open-ended feedback collected from",
+        "distance": 0.5935
+      }
+    ]
+  }
+}

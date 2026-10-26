@@ -1,0 +1,205 @@
+{
+  "paper_id": "P09",
+  "model": "openai/gpt-oss-120b",
+  "seed": 42,
+  "usage": {
+    "completion_tokens": 1135,
+    "prompt_tokens": 4245,
+    "total_tokens": 5380,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 362,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 0.397896372,
+    "prompt_time": 0.202205119,
+    "completion_time": 2.372054873,
+    "total_time": 2.574259992
+  },
+  "raw": {
+    "Problem": {
+      "content": "Paper ini mengidentifikasi kebutuhan akan evaluasi sistem Retrieval‑Augmented Generation (RAG) yang akurat dalam domain keuangan, mengingat kesalahan kecil dapat berdampak besar pada investasi dan kepatuhan.",
+      "evidence_ids": [
+        "P09:pdf:2"
+      ],
+      "quote": "Accurate information retrieval is critical in financial Question-Answering (QA)"
+    },
+    "Domain & Data": {
+      "content": "Dataset FINDER mencakup dokumen keuangan seperti artikel berita, filing, dan basis pengetahuan, berfokus pada bahasa Inggris dan tidak menyebutkan dokumen perbankan Indonesia.",
+      "evidence_ids": [
+        "P09:pdf:12",
+        "P09:pdf:10",
+        "P09:pdf:3"
+      ],
+      "quote": "retrieving relevant documents (e.g., news articles, filings, and knowledge bases)"
+    },
+    "RAG Method": {
+      "content": "Sistem RAG menggunakan retriever BM25 (k1=1.2, b=0.75) serta model dense seperti e5‑mistral‑7b‑instruct, mE5, dan GTE; dokumen dipotong menjadi paragraf, dan generator meliputi GPT‑o1, Claude‑3.7‑Sonnet, Qwen‑QWQ‑32B, serta DeepSeek‑R1‑Distill.",
+      "evidence_ids": [
+        "P09:pdf:30",
+        "P09:pdf:31",
+        "P09:pdf:28"
+      ],
+      "quote": "We use BM25 with standard parameters k1 = 1.2 and b = 0.75"
+    },
+    "Evaluation & Metrics": {
+      "content": "Evaluasi mencakup Context Recall (RAGAS), Precision, serta metrik Response Correctness dan Faithfulness pada berbagai tugas keuangan.",
+      "evidence_ids": [
+        "P09:pdf:40",
+        "P09:pdf:2",
+        "P09:pdf:42"
+      ],
+      "quote": "Context Recall metric from RAGAS"
+    },
+    "Main Results": {
+      "content": "Model e5‑mistral mencapai Context Recall tertinggi dengan total 25.95, sementara Claude‑3.7‑Sonnet memperoleh skor Faithfulness tertinggi pada sebagian besar tugas.",
+      "evidence_ids": [
+        "P09:pdf:35",
+        "P09:pdf:39",
+        "P09:pdf:42"
+      ],
+      "quote": "E5-mistral demonstrates the best performance in all categories in terms of Context Recall"
+    },
+    "Limitations": {
+      "content": "Penulis mencatat bahwa dataset sebelumnya tidak mencerminkan ambiguitas kueri dan proses retrieval yang penting untuk QA keuangan.",
+      "evidence_ids": [
+        "P09:pdf:6",
+        "P09:pdf:29",
+        "P09:pdf:2"
+      ],
+      "quote": "prior datasets ... failed to reflect the importance of ambiguous queries and the retrieval process"
+    },
+    "Gap": {
+      "content": "Inferensi: Meskipun FINDER mengevaluasi faithfulness, tidak ada pembahasan tentang kemampuan sistem menolak menjawab (abstention) ketika konteks tidak mengandung jawaban, dan dataset berbahasa Inggris tidak mencakup dokumen perbankan Indonesia.",
+      "evidence_ids": [
+        "P09:pdf:4",
+        "P09:pdf:6"
+      ],
+      "quote": "Even state-of-the-art Large Language Models (LLMs) struggle with factual correctness in financial queries without proper context"
+    }
+  },
+  "retrieved": {
+    "Problem": [
+      {
+        "id": "P09:pdf:9",
+        "text": "ch addressing unique challenges within the domain. Early datasets, such as FiQA (de Franc¸a Costa & da Silva, 2018) introduced tasks involving opinion-based QA, while FinQA (Chen et al., 2021), and TAT-QA (Zhu et al., 2021), focused on numerical reasoning, and hybrid reasoning across textual and tabular data. However, most existing datasets aim to reflect re- alistic settings but either neglect retrieval or implement it under limited conditions (Sarmah et al., 2024). ConvFinQA (Chen et al., 2022) and MultiHiertt (Zhao et al., 2022) focus on conversational queries and multi-table reasoning but do not treat retrieval as a core task, limiting their applica- bility in real-world search scenarios. DocFinQA (Reddy et al., 2024) limits retrieval to a single pre-selected relevant document, while F",
+        "distance": 0.5786
+      },
+      {
+        "id": "P09:pdf:25",
+        "text": "4.52% of queries require qualitative reasoning, such as interpreting textual information or assessing financial risks, while 15.48% involve quantita- tive reasoning, requiring numerical calculations and financial modeling. Following the quantitative question categorization used in previous work (Zhu et al., 2021; Chen et al., 2021), Table 3 indicates that a substantial portion (49.83%) of quantitative queries involve compositional reasoning, where multiple steps are necessary to derive the correct answer. Additionally, operations such as division 4We analyzed the number of domain-specific expressions using GPT-4o-mini (Achiam et al., 2023). 5 ICLR ’25 Advances in Financial AI Question Category Count Percentage Accounting 491 8.61% Company Overview 1081 18.95% Financials 990 17.36% Footnote",
+        "distance": 0.5969
+      },
+      {
+        "id": "P09:pdf:47",
+        "text": "eved context, yet no single model consistently excels across all financial reasoning tasks. FINDER underscores the gap between current AI ca- pabilities and the precision required in finance, providing a rigorous testbed for advancing retrieval algorithms, query disambiguation, and factually accurate text generation. Future work should ex- plore integrating diverse financial document sources and developing retrieval-enhanced models that refine queries dynamically.",
+        "distance": 0.6083
+      }
+    ],
+    "Domain & Data": [
+      {
+        "id": "P09:pdf:12",
+        "text": "marks, FINDER uniquely assesses both the search system’s ability to interpret queries (e.g., recognizing ‘MS’ as Morgan Stanley) and the LLM’s capacity to synthesize relevant information from multiple sources to generate accurate responses (e.g., extracting trading revenue data to compute CAGR). edge (Sun et al., 2023; Kandpal et al., 2023; Szymanski et al., 2024; Jayakumar et al., 2023; Mai et al., 2024)—a challenge that is particularly critical in finance where information evolves rapidly. By retrieving relevant documents (e.g., news articles, filings, and knowledge bases), RAG can mit- igate the limitations of LLMs, improving both accuracy and contextual richness (Setty et al., 2024; Iaroshev et al., 2024; Zhang et al., 2023). Improving the pipeline of data collection, document in- dexi",
+        "distance": 0.4189
+      },
+      {
+        "id": "P09:pdf:10",
+        "text": ". DocFinQA (Reddy et al., 2024) limits retrieval to a single pre-selected relevant document, while FinanceBench (Islam et al., 2023) offers limited scalability with only 150 public questions and minimal emphasis on retrieval. FinTextQA (Chen et al., 2024) aims to address retrieval in open-book settings, but its impact is restricted because the dataset is currently unavailable for public use. 2.2 RETRIEVAL-AUGMENTED GENERATION (RAG) IN FINANCE RAG (Lewis et al., 2020) is a technique designed to improve performance of LLMs by retrieving and integrating relevant external documents into the response generation process to provide contex- tually rich and reliable outputs (Jiang et al., 2023; Gao et al., 2023). RAG has effectively addressed key limitations of LLMs in finance (Zhang et al., 2023; ",
+        "distance": 0.428
+      },
+      {
+        "id": "P09:pdf:3",
+        "text": "Liu et al., 2024; Frischbier et al., 2020). With new information constantly being updated, re- trieval systems face challenges in navigating vast documents, dense tables, and context-dependent narratives from sources like financial reports and market feeds (So et al., 2022; Jiang et al., 2014). Moreover, financial queries are often brief, ambiguous, and filled with domain-specific jargon and abbreviations (Banks, 2004; Downes & Goodman, 2014; Law, 2014) (e.g., “Recent CAGR in MS trading revenue”), requiring systems to first identify key contextual elements—such as the company name, its business focus, and the specific metrics mentioned—while retrieving the correct evidence. Unlike open-domain QA, financial QA demands a higher level of precision, disambiguation, and technical understanding,",
+        "distance": 0.4331
+      }
+    ],
+    "RAG Method": [
+      {
+        "id": "P09:pdf:30",
+        "text": "g RAG research. 4.1 BASELINE SYSTEMS FOR RETRIEVAL MODELS We evaluate the retrieval component of our Retrieval-Augmented Generation (RAG) system us- ing four state-of-the-art models: one sparse and three dense retrievers. For the sparse baseline, we use BM25 with standard parameters k1 = 1.2 and b = 0.75. The dense models include one decoder-based model—e5-mistral-7b-instruct (E5-Mistral) (Wang et al., 2023a)—and two encoder-based models: multilingual-e5-large-instruct (mE5) (Wang et al., 2024a), and gte-large-en-v1.5 (GTE) (Li et al., 2023). Our preprocessing pipeline follows a simple approach: raw HTML documents are parsed to remove tags, then segmented into paragraphs, which form the retrieval corpus. For each query, the system retrieves the top-10 paragraphs based on model-specific sim",
+        "distance": 0.411
+      },
+      {
+        "id": "P09:pdf:31",
+        "text": "ieval corpus. For each query, the system retrieves the top-10 paragraphs based on model-specific similarity scores. We assess performance using the Context Recall metric from RAGAS (Es et al., 2023), which measures how well the retrieved contexts cover reference information. References are decomposed into individual claims, and recall is computed based on whether each claim is supported by the retrieved passages. Fol- lowing RAGAS, we use LLM-based scoring to estimate recall (and precision), ranging from 0 to 100. 4.2 BASELINE SYSTEMS FOR GENERATION MODELS We evaluate the generation component of our RAG system using four state-of-the-art language models: GPT-o1 from OpenAI (Jaech et al., 2024), claude-3.7-sonnet7 from Anthropic, Qwen-QWQ-32B from Alibaba (Team, 2025), and deepseek-r1-disti",
+        "distance": 0.5212
+      },
+      {
+        "id": "P09:pdf:28",
+        "text": " baseline, we adopt the RAGAS framework (Es et al., 2023), which provides auto- mated evaluation for RAG systems and integrates seamlessly with LLM-based workflows such as LANGCHAIN5 and LLAMAINDEX6. It offers a suite of metrics covering aspects such as retrieval relevance and generation faithfulness. For analysis, we evaluate our system on a representative 10% subset of the dataset. The RAG pipeline involves pre-processing steps including document parsing and indexing (Gao et al., 2023; Finardi et al., 2024; Singh et al., 2024; Li et al., 2025), as well as transformations applied to both documents and queries (Efthimiadis, 1996; Wang et al., 2011; Carpineto & Romano, 2012; Nogueira et al., 2019; Wang et al., 2023b; Chan et al., 2024). Due to the variability introduced by these steps, rule",
+        "distance": 0.5665
+      }
+    ],
+    "Evaluation & Metrics": [
+      {
+        "id": "P09:pdf:40",
+        "text": "is calculated as the average precision based on the order of predicted relevant contexts (Es et al., 2023). Category Claude-3.7-Sonnet GPT-o1 Deepseek-R1-Distill Qwen-QWQ Accounting 79.37 82.62 84.71 83.33 Company overview 63.29 62.27 59.58 59.99 Financials 50.04 50.46 43.75 47.36 Footnotes 63.03 61.59 59.29 60.53 Governance 53.37 53.77 50.40 51.16 Legal 77.11 76.00 71.47 80.22 Risk 79.90 79.90 78.27 80.32 Shareholder return 45.91 43.15 41.41 42.36 Total 63.05 62.90 60.01 61.78 Table 7: Comparison of four baseline language models across six tasks (Qualitative, Addition, Sub- traction, Multiplication, Division, Compositional, and Total), evaluated by Response Correctness and Faithfulness metrics. The experiment is conducted in the setting of Using partial information, where only the top-10 ",
+        "distance": 0.4859
+      },
+      {
+        "id": "P09:pdf:2",
+        "text": "or evaluating RAG systems. We further present a comprehen- sive evaluation of multiple state-of-the-art retrieval models and Large Language Models, showcasing challenges derived from a realistic benchmark to drive future research on truthful and precise RAG in the financial domain. 1 INTRODUCTION Accurate information retrieval is critical in financial Question-Answering (QA) (Setty et al., 2024; Iaroshev et al., 2024; Sarmah et al., 2023), where even small errors can lead to costly consequences in investments, risk management, and compliance (Gozman & Currie, 2014; Hopkin, 2018). How- ever, ensuring precision is increasingly difficult due to the dynamic and complex nature of financial data (Liu et al., 2024; Frischbier et al., 2020). With new information constantly being updated, re- triev",
+        "distance": 0.5195
+      },
+      {
+        "id": "P09:pdf:42",
+        "text": "9.36 72.54 19.64 69.62 Total 28.79 84.75 31.89 83.35 30.96 74.89 32.41 79.99 5.3 GENERATION UNDER FINANCIAL REASONING TASKS Exploring further, Table 7 assesses baseline language models across seven tasks—Qualitative rea- soning and various arithmetic operations (Addition, Subtraction, Multiplication, Division, Composi- tion)—evaluated through metrics such as Response Correctness and Faithfulness. The results reveal intriguing nuances: GPT-o1 and Qwen-QWQ excel in arithmetic tasks such as Multiplication and Division, showcasing impressive numeric reasoning capabilities. Meanwhile, Claude-3.7-Sonnet consistently achieves the highest Faithfulness scores, highlighting its unique ability to produce co- herent and trustworthy outputs. However, a clear insight emerges—no single model universally ",
+        "distance": 0.5211
+      }
+    ],
+    "Main Results": [
+      {
+        "id": "P09:pdf:39",
+        "text": "-specific strengths, particularly in Accounting, whereas Qwen-QWQ excels in Legal and Risk domains. These nuanced performances suggest a critical insight: retrieval sets need not be perfectly precise—rather, a diverse retrieval pool is bene- ficial since reasoning-focused models effectively discern relevant information despite some noise. 8 ICLR ’25 Advances in Financial AI Table 6: F1-score evaluation of reranking performance, where each model reranks the top 10 re- trieved results from e5-mistral-7b-instruct (Wang et al., 2023a) and selects the top 5. Recall is computed as the proportion of ground-truth answer elements correctly attributed to any of the retrieved contexts, while precision is calculated as the average precision based on the order of predicted relevant contexts (Es et al.,",
+        "distance": 0.5542
+      },
+      {
+        "id": "P09:pdf:29",
+        "text": "2019; Wang et al., 2023b; Chan et al., 2024). Due to the variability introduced by these steps, rule-based evaluation is often insufficient. To address this, we adopt an LLM-as- a-judge approach (Gu et al., 2024; Zheng et al., 2023; Huang et al., 2024) supported by RAGAS, enabling more flexible and context-aware evaluation of generated outputs. 5https://www.langchain.com/ 6https://www.llamaindex.ai/ 6 ICLR ’25 Advances in Financial AI By combining RAGAS with an LLM-based evaluation strategy, we provide a robust and adaptable assessment of our baseline. This setup effectively captures the diverse outcomes of document and query transformations, aligning with the flexibility needed for advancing RAG research. 4.1 BASELINE SYSTEMS FOR RETRIEVAL MODELS We evaluate the retrieval component of our",
+        "distance": 0.5576
+      },
+      {
+        "id": "P09:pdf:35",
+        "text": " Advances in Financial AI Table 4: The decoder-based retrieval model (E5-mistral) demonstrates the best performance in all categories in terms of Context Recall, while encoder-based models generally outperform BM25. Category BM25 GTE mE5 E5-mistral Accounting 15.14 13.78 18.23 31.92 Company overview 13.83 24.76 24.57 32.48 Financials 6.42 11.92 9.14 15.84 Footnotes 10.30 13.92 13.11 22.58 Governance 8.57 14.16 13.49 19.11 Legal 13.17 18.86 18.58 29.71 Risk 14.36 23.61 23.97 33.07 Shareholder return 17.23 24.67 23.25 31.67 Total 11.68 17.83 17.36 25.95 Table 5: Comparison of retrieval performance between well-formed questions and FINDER using Precision. Well-formed questions are manually rewritten by financial experts to expand domain- specific terminology for a random sample of 500 queries",
+        "distance": 0.5587
+      }
+    ],
+    "Limitations": [
+      {
+        "id": "P09:pdf:6",
+        "text": " answers that meet the precision demands of financial QA (Setty et al., 2024; Iaroshev et al., 2024). However, prior datasets (de Franc¸a Costa & da Silva, 2018; Chen et al., 2021; Zhu et al., 2021; Chen et al., 2022; Zhao et al., 2022; Islam et al., 2023; Reddy et al., 2024; Chen et al., 2024; Xu et al., 2024) that rely on structured questions with readily available context have failed to reflect the importance of ambiguous queries and the retrieval process, which is central to financial QA. To address these limitations, we introduce FINDER (Financial Dataset for Evaluating RAG), a dataset specifically designed to capture the ambiguity and context-dependency of real-world finan- cial queries. FINDER captures this complexity by sampling real search queries from professionals in financial s",
+        "distance": 0.5139
+      },
+      {
+        "id": "P09:pdf:29",
+        "text": "2019; Wang et al., 2023b; Chan et al., 2024). Due to the variability introduced by these steps, rule-based evaluation is often insufficient. To address this, we adopt an LLM-as- a-judge approach (Gu et al., 2024; Zheng et al., 2023; Huang et al., 2024) supported by RAGAS, enabling more flexible and context-aware evaluation of generated outputs. 5https://www.langchain.com/ 6https://www.llamaindex.ai/ 6 ICLR ’25 Advances in Financial AI By combining RAGAS with an LLM-based evaluation strategy, we provide a robust and adaptable assessment of our baseline. This setup effectively captures the diverse outcomes of document and query transformations, aligning with the flexibility needed for advancing RAG research. 4.1 BASELINE SYSTEMS FOR RETRIEVAL MODELS We evaluate the retrieval component of our",
+        "distance": 0.526
+      },
+      {
+        "id": "P09:pdf:2",
+        "text": "or evaluating RAG systems. We further present a comprehen- sive evaluation of multiple state-of-the-art retrieval models and Large Language Models, showcasing challenges derived from a realistic benchmark to drive future research on truthful and precise RAG in the financial domain. 1 INTRODUCTION Accurate information retrieval is critical in financial Question-Answering (QA) (Setty et al., 2024; Iaroshev et al., 2024; Sarmah et al., 2023), where even small errors can lead to costly consequences in investments, risk management, and compliance (Gozman & Currie, 2014; Hopkin, 2018). How- ever, ensuring precision is increasingly difficult due to the dynamic and complex nature of financial data (Liu et al., 2024; Frischbier et al., 2020). With new information constantly being updated, re- triev",
+        "distance": 0.5533
+      }
+    ],
+    "Gap": [
+      {
+        "id": "P09:pdf:4",
+        "text": "n QA, financial QA demands a higher level of precision, disambiguation, and technical understanding, which makes it uniquely challenging and error-prone (Chen et al., 2021; Zhu et al., 2021; Chen et al., 2022; Zhao et al., 2022; Saini & Singh, 2023). Even state-of-the-art Large Language Models (LLMs) struggle with factual correctness in financial queries without proper context (Islam et al., 2023; Reddy et al., 2024; Chen et al., 2024; Xu et al., 2024). For example, GPT-4-turbo (Achiam et al., 2023) achieved only 9% accuracy when answering 1 arXiv:2504.15800v3 [cs.IR] 3 Sep 2025 ICLR ’25 Advances in Financial AI clear and straightforward questions in a closed-book setting, with 91% of its responses being incor- rect or unanswered (Islam et al., 2023). These results highlight the importance",
+        "distance": 0.5283
+      },
+      {
+        "id": "P09:pdf:42",
+        "text": "9.36 72.54 19.64 69.62 Total 28.79 84.75 31.89 83.35 30.96 74.89 32.41 79.99 5.3 GENERATION UNDER FINANCIAL REASONING TASKS Exploring further, Table 7 assesses baseline language models across seven tasks—Qualitative rea- soning and various arithmetic operations (Addition, Subtraction, Multiplication, Division, Composi- tion)—evaluated through metrics such as Response Correctness and Faithfulness. The results reveal intriguing nuances: GPT-o1 and Qwen-QWQ excel in arithmetic tasks such as Multiplication and Division, showcasing impressive numeric reasoning capabilities. Meanwhile, Claude-3.7-Sonnet consistently achieves the highest Faithfulness scores, highlighting its unique ability to produce co- herent and trustworthy outputs. However, a clear insight emerges—no single model universally ",
+        "distance": 0.5428
+      },
+      {
+        "id": "P09:pdf:6",
+        "text": " answers that meet the precision demands of financial QA (Setty et al., 2024; Iaroshev et al., 2024). However, prior datasets (de Franc¸a Costa & da Silva, 2018; Chen et al., 2021; Zhu et al., 2021; Chen et al., 2022; Zhao et al., 2022; Islam et al., 2023; Reddy et al., 2024; Chen et al., 2024; Xu et al., 2024) that rely on structured questions with readily available context have failed to reflect the importance of ambiguous queries and the retrieval process, which is central to financial QA. To address these limitations, we introduce FINDER (Financial Dataset for Evaluating RAG), a dataset specifically designed to capture the ambiguity and context-dependency of real-world finan- cial queries. FINDER captures this complexity by sampling real search queries from professionals in financial s",
+        "distance": 0.5759
+      }
+    ]
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "paper_id": "P03",
+  "model": "openai/gpt-oss-120b",
+  "seed": 42,
+  "usage": {
+    "completion_tokens": 927,
+    "prompt_tokens": 1176,
+    "total_tokens": 2103,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 240,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 0.309968944,
+    "prompt_time": 0.063510751,
+    "completion_time": 1.9605455470000002,
+    "total_time": 2.024056298
+  },
+  "raw": {
+    "Problem": {
+      "content": "Penelitian ini mengatasi masalah halusinasi pada sistem Retrieval-Augmented Generation (RAG) bahasa Arab untuk analisis dokumen keuangan.",
+      "evidence_ids": [
+        "P03:abstract:0"
+      ],
+      "quote": "This research introduces a customized attention visualization framework for mitigating hallucinations in Arabic Retrieval-Augmented Generation (RAG) systems tailored for financial document analysis."
+    },
+    "Domain & Data": {
+      "content": "Domain keuangan, dokumen finansial berbahasa Arab, dengan dataset baru berisi 7.000 pasangan query‑konteks beranotasi.",
+      "evidence_ids": [
+        "P03:abstract:0"
+      ],
+      "quote": "trained on a newly constructed dataset of 7,000 annotated Arabic financial query-context pairs"
+    },
+    "RAG Method": {
+      "content": "Metode memperluas MarBERT dengan mekanisme supervisi perhatian dua tahap dan loss yang sadar halusinasi, serta ambang presisi dinamis untuk penolakan output.",
+      "evidence_ids": [
+        "P03:abstract:0"
+      ],
+      "quote": "The proposed architecture extends MarBERT with a dual-stage attention supervision mechanism and a hallucination-aware loss formulation"
+    },
+    "Evaluation & Metrics": {
+      "content": "Dievaluasi dengan akurasi klasifikasi 95.04%, presisi 95.84%, recall 94.12%, F1 94.97%, serta deteksi halusinasi 87.63% dengan false alarm 8.91% dan latensi 3.2 token.",
+      "evidence_ids": [
+        "P03:abstract:1",
+        "P03:abstract:0"
+      ],
+      "quote": "classification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%... detection rate with only 8.91% false alarms and a detection latency of 3.2 tokens"
+    },
+    "Main Results": {
+      "content": "Model mencapai akurasi 95.04% dan F1 94.97%, mengungguli baseline AraELECTRA dan mBERT‑RAG, serta mendeteksi halusinasi dengan tingkat 87.63% dan kegagalan hanya 8.91%.",
+      "evidence_ids": [
+        "P03:abstract:1",
+        "P03:abstract:0"
+      ],
+      "quote": "outperforming AraELECTRA and mBERT-RAG baselines... reaches an 87.63% detection rate with only 8.91% false alarms"
+    },
+    "Limitations": {
+      "content": "tidak disebut",
+      "evidence_ids": [],
+      "quote": ""
+    },
+    "Gap": {
+      "content": "Inferensi: Meskipun berhasil mengurangi halusinasi pada RAG bahasa Arab, penelitian ini tidak mengevaluasi faithfulness atau abstention pada dokumen perbankan berbahasa Indonesia, sehingga belum menjawab fokus riset yang diusulkan.",
+      "evidence_ids": [
+        "P03:abstract:0"
+      ],
+      "quote": "Arabic Retrieval-Augmented Generation (RAG) systems"
+    }
+  },
+  "retrieved": {
+    "Problem": [
+      {
+        "id": "P03:abstract:1",
+        "text": "lassification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%, outperforming AraELECTRA and mBERT-RAG baselines. For hallucination detection, it reaches an 87.63% detection rate with only 8.91% false alarms and a detection latency of 3.2 tokens, showcasing reliability in identifying ungrounded financial claims. Visualizations using cross-attention matrices and token contribution scores reveal consistent alignment with critical Arabic financial terms, temporal expressions, and entity references. An interactive attention interface further empowers non-technical users to identify hallucinations with 83.4% success in usability tests. These results validate the effectiveness of integrating interpretable attention modeling with domain-specific retrieval, offering a scalable ",
+        "distance": 0.7765
+      },
+      {
+        "id": "P03:abstract:2",
+        "text": "of integrating interpretable attention modeling with domain-specific retrieval, offering a scalable approach for risk-sensitive natural language processing in low-resource languages.",
+        "distance": 0.7866
+      },
+      {
+        "id": "P03:abstract:0",
+        "text": "This research introduces a customized attention visualization framework for mitigating hallucinations in Arabic Retrieval-Augmented Generation (RAG) systems tailored for financial document analysis. The proposed architecture extends MarBERT with a dual-stage attention supervision mechanism and a hallucination-aware loss formulation, trained on a newly constructed dataset of 7,000 annotated Arabic financial query-context pairs. A grounding alignment score is computed over attended tokens, and generated responses are rejected when falling below a dynamically adjusted precision-aware threshold,serving as the core decision-making approach for hallucination detection. The system achieves 95.04% classification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%, outperforming Ar",
+        "distance": 0.8085
+      }
+    ],
+    "Domain & Data": [
+      {
+        "id": "P03:abstract:2",
+        "text": "of integrating interpretable attention modeling with domain-specific retrieval, offering a scalable approach for risk-sensitive natural language processing in low-resource languages.",
+        "distance": 0.6011
+      },
+      {
+        "id": "P03:abstract:0",
+        "text": "This research introduces a customized attention visualization framework for mitigating hallucinations in Arabic Retrieval-Augmented Generation (RAG) systems tailored for financial document analysis. The proposed architecture extends MarBERT with a dual-stage attention supervision mechanism and a hallucination-aware loss formulation, trained on a newly constructed dataset of 7,000 annotated Arabic financial query-context pairs. A grounding alignment score is computed over attended tokens, and generated responses are rejected when falling below a dynamically adjusted precision-aware threshold,serving as the core decision-making approach for hallucination detection. The system achieves 95.04% classification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%, outperforming Ar",
+        "distance": 0.7255
+      },
+      {
+        "id": "P03:abstract:1",
+        "text": "lassification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%, outperforming AraELECTRA and mBERT-RAG baselines. For hallucination detection, it reaches an 87.63% detection rate with only 8.91% false alarms and a detection latency of 3.2 tokens, showcasing reliability in identifying ungrounded financial claims. Visualizations using cross-attention matrices and token contribution scores reveal consistent alignment with critical Arabic financial terms, temporal expressions, and entity references. An interactive attention interface further empowers non-technical users to identify hallucinations with 83.4% success in usability tests. These results validate the effectiveness of integrating interpretable attention modeling with domain-specific retrieval, offering a scalable ",
+        "distance": 0.7852
+      }
+    ],
+    "RAG Method": [
+      {
+        "id": "P03:abstract:2",
+        "text": "of integrating interpretable attention modeling with domain-specific retrieval, offering a scalable approach for risk-sensitive natural language processing in low-resource languages.",
+        "distance": 0.6506
+      },
+      {
+        "id": "P03:abstract:0",
+        "text": "This research introduces a customized attention visualization framework for mitigating hallucinations in Arabic Retrieval-Augmented Generation (RAG) systems tailored for financial document analysis. The proposed architecture extends MarBERT with a dual-stage attention supervision mechanism and a hallucination-aware loss formulation, trained on a newly constructed dataset of 7,000 annotated Arabic financial query-context pairs. A grounding alignment score is computed over attended tokens, and generated responses are rejected when falling below a dynamically adjusted precision-aware threshold,serving as the core decision-making approach for hallucination detection. The system achieves 95.04% classification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%, outperforming Ar",
+        "distance": 0.7614
+      },
+      {
+        "id": "P03:abstract:1",
+        "text": "lassification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%, outperforming AraELECTRA and mBERT-RAG baselines. For hallucination detection, it reaches an 87.63% detection rate with only 8.91% false alarms and a detection latency of 3.2 tokens, showcasing reliability in identifying ungrounded financial claims. Visualizations using cross-attention matrices and token contribution scores reveal consistent alignment with critical Arabic financial terms, temporal expressions, and entity references. An interactive attention interface further empowers non-technical users to identify hallucinations with 83.4% success in usability tests. These results validate the effectiveness of integrating interpretable attention modeling with domain-specific retrieval, offering a scalable ",
+        "distance": 0.8101
+      }
+    ],
+    "Evaluation & Metrics": [
+      {
+        "id": "P03:abstract:1",
+        "text": "lassification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%, outperforming AraELECTRA and mBERT-RAG baselines. For hallucination detection, it reaches an 87.63% detection rate with only 8.91% false alarms and a detection latency of 3.2 tokens, showcasing reliability in identifying ungrounded financial claims. Visualizations using cross-attention matrices and token contribution scores reveal consistent alignment with critical Arabic financial terms, temporal expressions, and entity references. An interactive attention interface further empowers non-technical users to identify hallucinations with 83.4% success in usability tests. These results validate the effectiveness of integrating interpretable attention modeling with domain-specific retrieval, offering a scalable ",
+        "distance": 0.3476
+      },
+      {
+        "id": "P03:abstract:0",
+        "text": "This research introduces a customized attention visualization framework for mitigating hallucinations in Arabic Retrieval-Augmented Generation (RAG) systems tailored for financial document analysis. The proposed architecture extends MarBERT with a dual-stage attention supervision mechanism and a hallucination-aware loss formulation, trained on a newly constructed dataset of 7,000 annotated Arabic financial query-context pairs. A grounding alignment score is computed over attended tokens, and generated responses are rejected when falling below a dynamically adjusted precision-aware threshold,serving as the core decision-making approach for hallucination detection. The system achieves 95.04% classification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%, outperforming Ar",
+        "distance": 0.4915
+      },
+      {
+        "id": "P03:abstract:2",
+        "text": "of integrating interpretable attention modeling with domain-specific retrieval, offering a scalable approach for risk-sensitive natural language processing in low-resource languages.",
+        "distance": 0.7275
+      }
+    ],
+    "Main Results": [
+      {
+        "id": "P03:abstract:1",
+        "text": "lassification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%, outperforming AraELECTRA and mBERT-RAG baselines. For hallucination detection, it reaches an 87.63% detection rate with only 8.91% false alarms and a detection latency of 3.2 tokens, showcasing reliability in identifying ungrounded financial claims. Visualizations using cross-attention matrices and token contribution scores reveal consistent alignment with critical Arabic financial terms, temporal expressions, and entity references. An interactive attention interface further empowers non-technical users to identify hallucinations with 83.4% success in usability tests. These results validate the effectiveness of integrating interpretable attention modeling with domain-specific retrieval, offering a scalable ",
+        "distance": 0.7122
+      },
+      {
+        "id": "P03:abstract:0",
+        "text": "This research introduces a customized attention visualization framework for mitigating hallucinations in Arabic Retrieval-Augmented Generation (RAG) systems tailored for financial document analysis. The proposed architecture extends MarBERT with a dual-stage attention supervision mechanism and a hallucination-aware loss formulation, trained on a newly constructed dataset of 7,000 annotated Arabic financial query-context pairs. A grounding alignment score is computed over attended tokens, and generated responses are rejected when falling below a dynamically adjusted precision-aware threshold,serving as the core decision-making approach for hallucination detection. The system achieves 95.04% classification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%, outperforming Ar",
+        "distance": 0.788
+      },
+      {
+        "id": "P03:abstract:2",
+        "text": "of integrating interpretable attention modeling with domain-specific retrieval, offering a scalable approach for risk-sensitive natural language processing in low-resource languages.",
+        "distance": 0.8825
+      }
+    ],
+    "Limitations": [
+      {
+        "id": "P03:abstract:1",
+        "text": "lassification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%, outperforming AraELECTRA and mBERT-RAG baselines. For hallucination detection, it reaches an 87.63% detection rate with only 8.91% false alarms and a detection latency of 3.2 tokens, showcasing reliability in identifying ungrounded financial claims. Visualizations using cross-attention matrices and token contribution scores reveal consistent alignment with critical Arabic financial terms, temporal expressions, and entity references. An interactive attention interface further empowers non-technical users to identify hallucinations with 83.4% success in usability tests. These results validate the effectiveness of integrating interpretable attention modeling with domain-specific retrieval, offering a scalable ",
+        "distance": 0.7948
+      },
+      {
+        "id": "P03:abstract:0",
+        "text": "This research introduces a customized attention visualization framework for mitigating hallucinations in Arabic Retrieval-Augmented Generation (RAG) systems tailored for financial document analysis. The proposed architecture extends MarBERT with a dual-stage attention supervision mechanism and a hallucination-aware loss formulation, trained on a newly constructed dataset of 7,000 annotated Arabic financial query-context pairs. A grounding alignment score is computed over attended tokens, and generated responses are rejected when falling below a dynamically adjusted precision-aware threshold,serving as the core decision-making approach for hallucination detection. The system achieves 95.04% classification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%, outperforming Ar",
+        "distance": 0.8193
+      },
+      {
+        "id": "P03:abstract:2",
+        "text": "of integrating interpretable attention modeling with domain-specific retrieval, offering a scalable approach for risk-sensitive natural language processing in low-resource languages.",
+        "distance": 0.8681
+      }
+    ],
+    "Gap": [
+      {
+        "id": "P03:abstract:2",
+        "text": "of integrating interpretable attention modeling with domain-specific retrieval, offering a scalable approach for risk-sensitive natural language processing in low-resource languages.",
+        "distance": 0.7268
+      },
+      {
+        "id": "P03:abstract:1",
+        "text": "lassification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%, outperforming AraELECTRA and mBERT-RAG baselines. For hallucination detection, it reaches an 87.63% detection rate with only 8.91% false alarms and a detection latency of 3.2 tokens, showcasing reliability in identifying ungrounded financial claims. Visualizations using cross-attention matrices and token contribution scores reveal consistent alignment with critical Arabic financial terms, temporal expressions, and entity references. An interactive attention interface further empowers non-technical users to identify hallucinations with 83.4% success in usability tests. These results validate the effectiveness of integrating interpretable attention modeling with domain-specific retrieval, offering a scalable ",
+        "distance": 0.7627
+      },
+      {
+        "id": "P03:abstract:0",
+        "text": "This research introduces a customized attention visualization framework for mitigating hallucinations in Arabic Retrieval-Augmented Generation (RAG) systems tailored for financial document analysis. The proposed architecture extends MarBERT with a dual-stage attention supervision mechanism and a hallucination-aware loss formulation, trained on a newly constructed dataset of 7,000 annotated Arabic financial query-context pairs. A grounding alignment score is computed over attended tokens, and generated responses are rejected when falling below a dynamically adjusted precision-aware threshold,serving as the core decision-making approach for hallucination detection. The system achieves 95.04% classification accuracy, 95.84% precision, 94.12% recall, and an F1 score of 94.97%, outperforming Ar",
+        "distance": 0.8156
+      }
+    ]
+  }
+}

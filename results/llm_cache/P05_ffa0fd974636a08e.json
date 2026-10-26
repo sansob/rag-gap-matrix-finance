@@ -1,0 +1,206 @@
+{
+  "paper_id": "P05",
+  "model": "openai/gpt-oss-120b",
+  "seed": 42,
+  "usage": {
+    "completion_tokens": 1158,
+    "prompt_tokens": 4071,
+    "total_tokens": 5229,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 268,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 0.214601455,
+    "prompt_time": 0.179668866,
+    "completion_time": 3.094367457,
+    "total_time": 3.274036323
+  },
+  "raw": {
+    "Problem": {
+      "content": "Paper memperkenalkan dataset LFQA keuangan pertama dan melakukan benchmark komprehensif untuk menilai kemampuan model dalam menjawab pertanyaan keuangan.",
+      "evidence_ids": [
+        "P05:pdf:10"
+      ],
+      "quote": "introducing the first LFQA financial dataset and conducting comprehensive benchmark experiments"
+    },
+    "Domain & Data": {
+      "content": "Dataset berfokus pada domain keuangan, mencakup dokumen teks buku, regulasi, dan kebijakan dari sumber seperti HKMA, EU, dan Federal Reserve; berisi 1.262 pasangan QA dalam bahasa Inggris.",
+      "evidence_ids": [
+        "P05:pdf:5",
+        "P05:pdf:16",
+        "P05:pdf:4"
+      ],
+      "quote": "FinTextQA contains 1,262 QA pairs"
+    },
+    "RAG Method": {
+      "content": "Menggunakan empat embedder (Bge‑small‑en‑v1.5, Gte‑large, Ember‑v1, Ada), tiga retriever (AMR, SWR, vector‑based), tiga reranker (LLMRerank, Bge‑Reranker‑Base, All‑Mpnet‑Base‑v2), serta generator LLM termasuk Baichuan2‑7B.",
+      "evidence_ids": [
+        "P05:pdf:14",
+        "P05:pdf:28",
+        "P05:pdf:31"
+      ],
+      "quote": "We adopt four popular embedding models... We explore three retriever methods... examine the influence of three rerankers"
+    },
+    "Evaluation & Metrics": {
+      "content": "Evaluasi menggunakan metrik otomatis ROUGE‑1/2/L, BLEU, serta skor GPT‑4 yang menilai kegunaan, relevansi, akurasi, kedalaman, dan kreativitas; juga melibatkan penilaian manusia dengan skala 1‑5.",
+      "evidence_ids": [
+        "P05:pdf:38",
+        "P05:pdf:19",
+        "P05:pdf:37"
+      ],
+      "quote": "ROUGE and BLEU are used to automatically measure... GPT‑4 scoring method is used to evaluate the answers"
+    },
+    "Main Results": {
+      "content": "Embedder Ada mencapai skor GPT‑4 tertinggi 4.586; retriever AMR memperoleh 4.492; kombinasi AMR, Ada, Bge‑Reranker‑Base menghasilkan skor tertinggi 4.622. Generator pada dataset regulasi memperoleh ROUGE‑1 0.317 dan GPT‑4 4.238.",
+      "evidence_ids": [
+        "P05:pdf:39",
+        "P05:pdf:40",
+        "P05:pdf:46"
+      ],
+      "quote": "Ada2, achieving a score of 4.586... AMR outperforms the rest with an impressive score of 4.492... ROUGE‑1 scores are 0.317 and 0.270, respectively; the GPT‑4 scores are 4.238 and 4.293"
+    },
+    "Limitations": {
+      "content": "Dataset memiliki jumlah pasangan QA yang relatif kecil dibandingkan dataset AI‑generated besar, sehingga dapat memengaruhi generalisasi; data berkualitas tinggi sulit diperoleh karena hak cipta; belum ada dataset LFQA khusus untuk bahasa Indonesia.",
+      "evidence_ids": [
+        "P05:pdf:49",
+        "P05:pdf:10",
+        "P05:pdf:12"
+      ],
+      "quote": "FinTextQA contains a relatively smaller number of QA pairs... High‑quality data are challenging to acquire... none of them addresses LFQA"
+    },
+    "Gap": {
+      "content": "Inferensi: Meskipun FinTextQA menyediakan benchmark LFQA keuangan, penelitian ini tidak mengevaluasi faithfulness atau kemampuan abstention pada dokumen produk perbankan berbahasa Indonesia, sehingga belum menjawab fokus riset yang diusulkan.",
+      "evidence_ids": [
+        "P05:pdf:12",
+        "P05:pdf:4",
+        "P05:pdf:11"
+      ],
+      "quote": "none of them addresses LFQA"
+    }
+  },
+  "retrieved": {
+    "Problem": [
+      {
+        "id": "P05:pdf:50",
+        "text": "ure research should concentrate on data augmentation and the development of innovative methods to ad- dress data scarcity. Expanding the dataset by in- corporating more diverse sources and exploring ad- vanced RAG capabilities and retrieval frameworks could also be beneficial. Ethical Statement In this study, we uphold rigorous ethical standards and endeavor to mitigate any potential risks. • While constructing our dataset, we meticu- lously ensure that all data are acquired through lawful and ethical means. Adhering to the Fair Use principle, the dataset is exclusively uti- lized for academic research purposes and is strictly prohibited from commercial exploita- tion. • We bear the responsibility of openly sharing the interface, dataset, codes, and trained mod- els with the public. Noneth",
+        "distance": 0.5321
+      },
+      {
+        "id": "P05:pdf:10",
+        "text": "their performance and explanation capabilities (Guu et al., 2020). We believe this work, by introducing the first LFQA financial dataset and conducting comprehen- sive benchmark experiments on the dataset, marks a milestone in advancing the comprehension of fi- nancial concepts and enhancing assistance in this field: FinTextQA offers a rich and rigorous frame- work for building and assessing the capabilities of general finance LFQA systems. Our experimental analysis not only highlights the efficacy of vari- ous model configurations but also underscores the critical need for enhancing current methodologies to improve both the precision and explicability of financial question-answering systems. 2 Related Work 2.1 Long-Form Question Answering (LFQA) Compared to the conventional question-answe",
+        "distance": 0.6212
+      },
+      {
+        "id": "P05:pdf:38",
+        "text": "stions in the responses (e.g., cases when models return \"can not provide answer based on the content). 4.3.2 Overall Evaluation of the RAG-based LFQA System ROUGE (Lin, 2004) and BLEU (Papineni et al., 2002)) are used to automatically measure the overall system performance. The GPT-4 scoring method is used to evaluate the answers from help- fulness, relevance, accuracy, depth, and creativity. Additionally, we invite three annotators to rank top-performing answers from all tested models and compare them with the ground truth answers, cap- turing human perception and assessing subjective response quality. Further details of human evalua- tion can be found in Appendix A.1. Answer One Answer Two Answer Three Answer Four Average Ranking 2.19 2.11 3.10 2.60 Table 6: Comparison of the average ran",
+        "distance": 0.626
+      }
+    ],
+    "Domain & Data": [
+      {
+        "id": "P05:pdf:5",
+        "text": "ts available, including ELI5 (Fan et al., 2019), WikiHowQA (Bolotova-Baranova et al., 2023) and WebCPM (Qin et al., 2023). However, it is impor- tant to note that there is currently no LFQA dataset specifically tailored for the finance domain. Ex- isting financial QA benchmarks often fall short in addressing question complexity and variety by pri- marily on sentiment analysis and numerical calcula- tion, as comprehensive paragraph-length responses and relevant document retrievals are often required to answer intricate, open-domain questions (Han et al., 2023). To address these challenges, we intro- 6025 Relevant documents Reranker Generator Indexing Input Retriever Prompt What is a bank? How does a bank differ from most other financial- service providers? Document 1: The government finally",
+        "distance": 0.4528
+      },
+      {
+        "id": "P05:pdf:16",
+        "text": "ure and government agencies, such as expert-authored question-answer pairs from recognized finance textbooks: Bank Management and Financial Services (BMFS), Fun- damentals of Corporate Finance (FCF), and The Economics of Money, Banking, and Financial Mar- kets (EMBFM). Additionally, crucial information regarding financial regulations and policies is in- corporated from esteemed websites such as the Hong Kong Monetary Authority (HKMA) 2, Euro- pean Union (EU)3, and the Federal Reserve (FR)4. Question types encompass various domains, span- ning concept explanation and numerical calculation to comparative analysis and open-ended opinion- based queries. 3.2 Selection of Policy and Regulation Data In textbooks, questions are typically straightfor- ward, and evidence (i.e., citations) can be eas",
+        "distance": 0.4607
+      },
+      {
+        "id": "P05:pdf:4",
+        "text": "rate paragraph-length answers when given questions and documents. intricate nature of financial data, with its domain- specific terminologies, concepts, and the inherent uncertainty of the market and decision-making pro- cesses, demands a deep understanding of the finan- cial domain to generate accurate and informative re- sponses (Confalonieri et al., 2021). In this context, long-form question answering (LFQA) scenarios become particularly relevant as they require models to demonstrate a broad spectrum of sophisticated skills, including information retrieval, summariza- tion, data analysis, comprehension, and reasoning (Fan et al., 2019). In the general domain, there are several LFQA datasets available, including ELI5 (Fan et al., 2019), WikiHowQA (Bolotova-Baranova et al., 2023) and WebC",
+        "distance": 0.4786
+      }
+    ],
+    "RAG Method": [
+      {
+        "id": "P05:pdf:14",
+        "text": "cost- efficient indexing, retrieval, and generation, al- beit with certain constraints. Advanced RAG ad- dresses these limitations by integrating refined in- dexing and retrieval techniques, optimizing data handling, and introducing strategic Retrieval and post-retrieval processes. Its capabilities include fine-tuning domain-specific embedders, employing dynamic ones for improved context comprehen- sion, and applying reranker and prompt compres- sion during post-retrieval processes (Ilin, 2023). Modular RAG represents a further advancement from traditional NLP frameworks by introducing specialized modules for similarity-based retrieval, fine-tuning, and problem-solving. It also incorpo- rates innovative modules like Search and Memory (Cheng et al., 2023a), Fusion (Rackauckas, 2024), and Ro",
+        "distance": 0.4597
+      },
+      {
+        "id": "P05:pdf:28",
+        "text": "he Embedder Module The role of the embed- der module is to convert human language into a vector representation that can be understood and processed by computers. In our experiments, we adopt four popular embedding models that have achieved high rankings on the Hugging Face leader- board, including (1) BAAI’s Bge-small-en-v1.5 (Xiao and Liu, 2023), (2) NLPer’s Gte-large (Li et al., 2023), (3) LLMRails’ Ember-v16, and (4) OpenAI’s Ada27. The Retriever Module The retriever module forms the backbone of our experiment by search- ing and retrieving relevant context related to a given question. We explore three retriever methods, including Auto Merging Retriever (AMR) (Liu, 2023), (2) Sentence Window Retriever (SWR) (lla- maindex, 2023), and a simple vector-based retriever approach. AMR organizes",
+        "distance": 0.4848
+      },
+      {
+        "id": "P05:pdf:31",
+        "text": "ality context. Finally, the vector-based retriever approach simply searches for related context through a vector index. The Reranker Module The primary objective of rerankers is to refine the retrieved information by repositioning the most pertinent content towards the prompt edges. To accomplish this, we examine the influence of three rerankers on the overall sys- tem performance: (1) LLMRerank (Fajardo, 2023), (2) Bge-Ranker-Base8, and (3) All-Mpnet-Base- v2(Song et al., 2020). The Generator Module The generator module first consolidates the query and relevant document context prepared by the former modules into a well- structured and coherent prompt. These prompts are then fed to a LLM to generate final responses. To evaluate the performance of various LLMs, we include six sota models, ",
+        "distance": 0.4864
+      }
+    ],
+    "Evaluation & Metrics": [
+      {
+        "id": "P05:pdf:38",
+        "text": "stions in the responses (e.g., cases when models return \"can not provide answer based on the content). 4.3.2 Overall Evaluation of the RAG-based LFQA System ROUGE (Lin, 2004) and BLEU (Papineni et al., 2002)) are used to automatically measure the overall system performance. The GPT-4 scoring method is used to evaluate the answers from help- fulness, relevance, accuracy, depth, and creativity. Additionally, we invite three annotators to rank top-performing answers from all tested models and compare them with the ground truth answers, cap- turing human perception and assessing subjective response quality. Further details of human evalua- tion can be found in Appendix A.1. Answer One Answer Two Answer Three Answer Four Average Ranking 2.19 2.11 3.10 2.60 Table 6: Comparison of the average ran",
+        "distance": 0.4491
+      },
+      {
+        "id": "P05:pdf:19",
+        "text": "ators evaluates the coherence and connectedness between the question, con- text, and answer for each entry. Using a grad- ing scale from 1 to 5, they ensure high stan- dards of relevancy. Only entries with a score exceeding 2 across all three variables are in- cluded in the final dataset. Initially, we collected 300 regulation and policy question-answer pairs with related document con- texts. After careful data quality control, 240 pairs were retained. The data selection process resulted in a dataset demonstrating strong relevance among answer-context (3.91), question-answer (4.88), and question-context (4.54), indicating its high qual- ity and dependability. Further details of human evaluation can be found in Appendix A.1. 3.3 Dataset Statistics FinTextQA contains 1,262 QA pairs, with 1,0",
+        "distance": 0.5004
+      },
+      {
+        "id": "P05:pdf:37",
+        "text": "ve- point Likert scale. The average score, referred to as the ‘GPT-4 score’, is calculated for overall performance evaluation. The prompt used for GPT- 4-aided evaluation is shown in Appendix A.2. Generators. To evaluate the performance of gen- erators, we employ automatic metrics compris- ing matching-based measures such as ROUGE-1, ROUGE-2, and ROUGE-L (Lin, 2004), as well as the BLEU score (Papineni et al., 2002). However, since prior research (Zheng et al., 2023) shows that matching-based metrics may overestimate perfor- mance in long sequences, we also use the GPT- 4 evaluation method mentioned above to assess evidence-answer relevance. In addition, we report the ratio of unanswered questions in the responses (e.g., cases when models return \"can not provide answer based on the content",
+        "distance": 0.5041
+      }
+    ],
+    "Main Results": [
+      {
+        "id": "P05:pdf:39",
+        "text": " Answer Three Answer Four Average Ranking 2.19 2.11 3.10 2.60 Table 6: Comparison of the average rankings of four answers generated by top RAG systems. 4.4 Results Embedders, Retrievers, and Rerankers Table 4 shows the GPT-4 score of different embedders, retrievers, and rerankers, which constitute the ev- idence generation pipeline. It also shows at the end the best-performing evidence-generation mod- ule combinations. We observe that the highest- performing embedding model is Ada2, achieving a score of 4.586, followed by Ember-v1 (4.486) and Bge-Small-en-v1.5 (4.455) with similar scores. Gte-Large lagged with a noticeable gap with a score of 4.261. Among the retrievers we assess, AMR outperforms the rest with an impressive score of 4.492. SWR ranks second at 4.466, while the sim- ple vect",
+        "distance": 0.5257
+      },
+      {
+        "id": "P05:pdf:40",
+        "text": "forms the rest with an impressive score of 4.492. SWR ranks second at 4.466, while the sim- ple vector-based approach has the lowest perfor- mance with a score of 4.358. Among the rerankers, Bge-Reranker-Base per- forms the best, achieving a competitive score of 4.489. LLMRerank ranks second with a score of 4.469, followed by All-Mpnet-Base-v2 with a score of 4.383. The evidence generation modules together, we observe that the combination of AMR, Ada2, and Bge-Reranker-Base yields the highest score of 4.622, followed by the combination of SWR, Ada2, and Bge-Reranker-Base/All-Mpnet-Base-v2, with a score of 4.620. The marginal differences in perfor- mance among these leading combinations indicate that a variety of configurations are capable of yield- ing satisfactory outcomes for evidence ge",
+        "distance": 0.5285
+      },
+      {
+        "id": "P05:pdf:46",
+        "text": "words, adding more input documents exerts a less marginal effect on system performance. Performance of Generators on Regulation and Textbook Dataset Table 11 presents the perfor- mance results of all the generators on regulation- based and textbook-based questions. For the regula- tion and textbook datasets, the Rouge-1 scores are 0.317 and 0.270, respectively; the Rouge-2 scores are 0.146 and 0.084, respectively; the Rouge-L scores are 0.215 and 0.170; the BLEU scores are 0.074 and 0.031; and the GPT-4 scores are 4.238 and 4.293. These results indicate that the LFQA system performs better on the policy/regulation dataset. Since the textbook dataset consists of questions derived from textbook exercises, each question is closely tied to the text content. After annotating the data, 60 policy",
+        "distance": 0.5426
+      }
+    ],
+    "Limitations": [
+      {
+        "id": "P05:pdf:49",
+        "text": "on system that leverages human ranking, automatic metrics, and GPT-4 scoring to assess various facets of model performance. Our results suggest that the most effective combination of models and modules for finance-related LFQA tasks includes Ada2, AMR, Bge-Reranker-Base, and Baichuan2-7B. Limitations Despite its expert curation and high quality, Fin- TextQA contains a relatively smaller number of QA pairs compared to larger AI-generated datasets. This limitation could potentially affect the gener- alizability of models trained on it when applied to broader real-world applications. High-quality data are challenging to acquire, and copyright re- strictions often prevent sharing. Therefore, future research should concentrate on data augmentation and the development of innovative methods to ad",
+        "distance": 0.5726
+      },
+      {
+        "id": "P05:pdf:10",
+        "text": "their performance and explanation capabilities (Guu et al., 2020). We believe this work, by introducing the first LFQA financial dataset and conducting comprehen- sive benchmark experiments on the dataset, marks a milestone in advancing the comprehension of fi- nancial concepts and enhancing assistance in this field: FinTextQA offers a rich and rigorous frame- work for building and assessing the capabilities of general finance LFQA systems. Our experimental analysis not only highlights the efficacy of vari- ous model configurations but also underscores the critical need for enhancing current methodologies to improve both the precision and explicability of financial question-answering systems. 2 Related Work 2.1 Long-Form Question Answering (LFQA) Compared to the conventional question-answe",
+        "distance": 0.6029
+      },
+      {
+        "id": "P05:pdf:12",
+        "text": "le in general domain, including ELI5 (Fan et al., 2019), Wiki- HowQA (Bolotova-Baranova et al., 2023), and We- 6026 bCPM (Qin et al., 2023). In the financial domain, some QA datasets have been developed. How- ever, none of them addresses LFQA. While these datasets like FinQA (Chen et al., 2021) and TAT- QA (Zhu et al., 2021) address specific scopes such as numerical reasoning, they do not touch upon general LFQA tasks. In addition, FIQA (Maia et al., 2018) only provides short-context documents, which may not adequately represent real-life sce- narios and have limited industry applicability. Al- though FinanceBench (Islam et al., 2023) does cover a wider scope, it only offers 150 open-source question-answer pairs, while the question complex- ity and answer do not satisfy real-life LFQA sce-",
+        "distance": 0.6255
+      }
+    ],
+    "Gap": [
+      {
+        "id": "P05:pdf:12",
+        "text": "le in general domain, including ELI5 (Fan et al., 2019), Wiki- HowQA (Bolotova-Baranova et al., 2023), and We- 6026 bCPM (Qin et al., 2023). In the financial domain, some QA datasets have been developed. How- ever, none of them addresses LFQA. While these datasets like FinQA (Chen et al., 2021) and TAT- QA (Zhu et al., 2021) address specific scopes such as numerical reasoning, they do not touch upon general LFQA tasks. In addition, FIQA (Maia et al., 2018) only provides short-context documents, which may not adequately represent real-life sce- narios and have limited industry applicability. Al- though FinanceBench (Islam et al., 2023) does cover a wider scope, it only offers 150 open-source question-answer pairs, while the question complex- ity and answer do not satisfy real-life LFQA sce-",
+        "distance": 0.593
+      },
+      {
+        "id": "P05:pdf:4",
+        "text": "rate paragraph-length answers when given questions and documents. intricate nature of financial data, with its domain- specific terminologies, concepts, and the inherent uncertainty of the market and decision-making pro- cesses, demands a deep understanding of the finan- cial domain to generate accurate and informative re- sponses (Confalonieri et al., 2021). In this context, long-form question answering (LFQA) scenarios become particularly relevant as they require models to demonstrate a broad spectrum of sophisticated skills, including information retrieval, summariza- tion, data analysis, comprehension, and reasoning (Fan et al., 2019). In the general domain, there are several LFQA datasets available, including ELI5 (Fan et al., 2019), WikiHowQA (Bolotova-Baranova et al., 2023) and WebC",
+        "distance": 0.6193
+      },
+      {
+        "id": "P05:pdf:11",
+        "text": ". 2 Related Work 2.1 Long-Form Question Answering (LFQA) Compared to the conventional question-answering task (Bouziane et al., 2015; Mao et al., 2023; Yang et al., 2023b; Cao et al., 2021; Cheng et al., 2023d, 2024), the goal of LFQA is to generate compre- hensive, paragraph-length responses by retrieving and assimilating relevant information from various sources (Fan et al., 2019). This poses a signif- icant test for current Natural Language Process- ing (NLP) and Artificial Intelligence (AI) models, given their limited understanding and learning ca- pacities (Thompson et al., 2020; Cao et al., 2022; Zhang et al., 2023; Cheng et al., 2023b,c; Cheng, 2021). Several LFQA datasets are available in general domain, including ELI5 (Fan et al., 2019), Wiki- HowQA (Bolotova-Baranova et al., 2023",
+        "distance": 0.635
+      }
+    ]
+  }
+}

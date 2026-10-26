@@ -1,0 +1,198 @@
+{
+  "paper_id": "P18",
+  "model": "openai/gpt-oss-120b",
+  "seed": 42,
+  "usage": {
+    "completion_tokens": 1182,
+    "prompt_tokens": 1241,
+    "total_tokens": 2423,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 450,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 0.224521752,
+    "prompt_time": 0.053458964,
+    "completion_time": 2.466239704,
+    "total_time": 2.519698668
+  },
+  "raw": {
+    "Problem": {
+      "content": "Makalah mengidentifikasi tiga tantangan utama LLM multi‑agent dalam keputusan berisiko tinggi: kontrol halusinasi, penggabungan penalaran semantik dengan simulasi numerik deterministik, serta auditabilitas end‑to‑end.",
+      "evidence_ids": [
+        "P18:abstract:0"
+      ],
+      "quote": "Large language model (LLM)-based multi-agent systems face three open challenges in high-stakes decision support"
+    },
+    "Domain & Data": {
+      "content": "Kerangka diuji pada domain stress testing keuangan menggunakan dataset publik (FRED, Yahoo Finance), perpustakaan 150 peristiwa krisis, dan 10 portofolio institusional sintetis.",
+      "evidence_ids": [
+        "P18:abstract:0",
+        "P18:abstract:1",
+        "P18:abstract:2"
+      ],
+      "quote": "public financial datasets (FRED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfolios"
+    },
+    "RAG Method": {
+      "content": "MacroRisk‑Agent memperkenalkan pipeline retrieval‑augmented generation dengan deterministic validation gates yang mengubah intent stres bahasa alami menjadi objek parameter ber‑skema.",
+      "evidence_ids": [
+        "P18:abstract:0",
+        "P18:abstract:1"
+      ],
+      "quote": "a retrieval-augmented generation (RAG) pipeline with deterministic validation gates"
+    },
+    "Evaluation & Metrics": {
+      "content": "Evaluasi mencakup tingkat validitas 92.6% vs 78.4% (p<0.001), peningkatan estimasi kerugian sistemik 52%, dan tingkat keberhasilan keputusan top‑1 sebesar 68.6%.",
+      "evidence_ids": [
+        "P18:abstract:1",
+        "P18:abstract:2"
+      ],
+      "quote": "92.6% validity rate versus 78.4% for RAG-augmented baselines (p<0.001)"
+    },
+    "Main Results": {
+      "content": "MacroRisk‑Agent mencapai validitas 92.6% (lebih tinggi 14.2 poin persentase), menghasilkan estimasi kerugian sistemik 52% lebih tinggi, dan sukses keputusan top‑1 sebesar 68.6%.",
+      "evidence_ids": [
+        "P18:abstract:1"
+      ],
+      "quote": "92.6% validity rate versus 78.4% for RAG-augmented baselines"
+    },
+    "Limitations": {
+      "content": "Validasi pada data institusional nyata belum dilakukan; penelitian masih bersifat proof‑of‑concept pada data sintetis dan publik.",
+      "evidence_ids": [
+        "P18:abstract:2"
+      ],
+      "quote": "validation on real institutional data is left to future work"
+    },
+    "Gap": {
+      "content": "Penulis tidak mengevaluasi faithfulness atau kemampuan abstention pada dokumen perbankan berbahasa Indonesia; mereka hanya menguji pada dataset publik berbahasa Inggris dan data sintetis. Inferensi: Oleh karena itu, belum ada analisis tentang bagaimana RAG menangani konteks bahasa Indonesia atau menolak menjawab bila konteks tidak memadai.",
+      "evidence_ids": [
+        "P18:abstract:2"
+      ],
+      "quote": "validation on real institutional data is left to future work"
+    }
+  },
+  "retrieved": {
+    "Problem": [
+      {
+        "id": "P18:abstract:2",
+        "text": "RED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfolios; reported improvements are statistically significant across scenario validity, propagation modeling, and intervention quality within this synthetic evaluation environment . We position the framework as a proposed architecture—rather than an empirically validated, deployment-ready system—for building hallucination-controlled, provenance-tracked LLM-agent pipelines that are designed to improve auditability in high-stakes settings; validation on real institutional data is left to future work.",
+        "distance": 0.6603
+      },
+      {
+        "id": "P18:abstract:1",
+        "text": "-language stress intent into executable, schema-constrained parameter objects, achieving 92.6% validity rate versus 78.4% for RAG-augmented baselines ( $$p<0.001$$ ); (2) a constraint-coupled multi-agent simulation that models endogenous amplification through fire-sale, margin, and liquidity feedback loops, producing a 52% higher systemic-loss estimate than the one-pass configuration under the calibrated experimental setting; and (3) a counterfactual re-simulation framework that validates proposed interventions under identical scenario constraints, achieving 68.6% simulation-defined top-1 decision success rate. We evaluate MacroRisk-Agent as a proof-of-concept on public financial datasets (FRED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfoli",
+        "distance": 0.6708
+      },
+      {
+        "id": "P18:abstract:0",
+        "text": "Abstract Large language model (LLM)-based multi-agent systems face three open challenges in high-stakes decision support: hallucination control in structured output generation, coupling of semantic reasoning with deterministic numerical simulation, and end-to-end auditability of multi-step agentic workflows. We present MacroRisk-Agent , a multi-agent architecture that addresses these challenges in the domain of financial stress testing—a setting that demands strict output validity, reproducibility, and regulatory traceability. MacroRisk-Agent introduces three technical contributions: (1) a retrieval-augmented generation (RAG) pipeline with deterministic validation gates that converts natural-language stress intent into executable, schema-constrained parameter objects, achieving 92.6% valid",
+        "distance": 0.7199
+      }
+    ],
+    "Domain & Data": [
+      {
+        "id": "P18:abstract:2",
+        "text": "RED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfolios; reported improvements are statistically significant across scenario validity, propagation modeling, and intervention quality within this synthetic evaluation environment . We position the framework as a proposed architecture—rather than an empirically validated, deployment-ready system—for building hallucination-controlled, provenance-tracked LLM-agent pipelines that are designed to improve auditability in high-stakes settings; validation on real institutional data is left to future work.",
+        "distance": 0.5668
+      },
+      {
+        "id": "P18:abstract:1",
+        "text": "-language stress intent into executable, schema-constrained parameter objects, achieving 92.6% validity rate versus 78.4% for RAG-augmented baselines ( $$p<0.001$$ ); (2) a constraint-coupled multi-agent simulation that models endogenous amplification through fire-sale, margin, and liquidity feedback loops, producing a 52% higher systemic-loss estimate than the one-pass configuration under the calibrated experimental setting; and (3) a counterfactual re-simulation framework that validates proposed interventions under identical scenario constraints, achieving 68.6% simulation-defined top-1 decision success rate. We evaluate MacroRisk-Agent as a proof-of-concept on public financial datasets (FRED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfoli",
+        "distance": 0.5788
+      },
+      {
+        "id": "P18:abstract:0",
+        "text": "Abstract Large language model (LLM)-based multi-agent systems face three open challenges in high-stakes decision support: hallucination control in structured output generation, coupling of semantic reasoning with deterministic numerical simulation, and end-to-end auditability of multi-step agentic workflows. We present MacroRisk-Agent , a multi-agent architecture that addresses these challenges in the domain of financial stress testing—a setting that demands strict output validity, reproducibility, and regulatory traceability. MacroRisk-Agent introduces three technical contributions: (1) a retrieval-augmented generation (RAG) pipeline with deterministic validation gates that converts natural-language stress intent into executable, schema-constrained parameter objects, achieving 92.6% valid",
+        "distance": 0.6866
+      }
+    ],
+    "RAG Method": [
+      {
+        "id": "P18:abstract:0",
+        "text": "Abstract Large language model (LLM)-based multi-agent systems face three open challenges in high-stakes decision support: hallucination control in structured output generation, coupling of semantic reasoning with deterministic numerical simulation, and end-to-end auditability of multi-step agentic workflows. We present MacroRisk-Agent , a multi-agent architecture that addresses these challenges in the domain of financial stress testing—a setting that demands strict output validity, reproducibility, and regulatory traceability. MacroRisk-Agent introduces three technical contributions: (1) a retrieval-augmented generation (RAG) pipeline with deterministic validation gates that converts natural-language stress intent into executable, schema-constrained parameter objects, achieving 92.6% valid",
+        "distance": 0.6325
+      },
+      {
+        "id": "P18:abstract:1",
+        "text": "-language stress intent into executable, schema-constrained parameter objects, achieving 92.6% validity rate versus 78.4% for RAG-augmented baselines ( $$p<0.001$$ ); (2) a constraint-coupled multi-agent simulation that models endogenous amplification through fire-sale, margin, and liquidity feedback loops, producing a 52% higher systemic-loss estimate than the one-pass configuration under the calibrated experimental setting; and (3) a counterfactual re-simulation framework that validates proposed interventions under identical scenario constraints, achieving 68.6% simulation-defined top-1 decision success rate. We evaluate MacroRisk-Agent as a proof-of-concept on public financial datasets (FRED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfoli",
+        "distance": 0.7047
+      },
+      {
+        "id": "P18:abstract:2",
+        "text": "RED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfolios; reported improvements are statistically significant across scenario validity, propagation modeling, and intervention quality within this synthetic evaluation environment . We position the framework as a proposed architecture—rather than an empirically validated, deployment-ready system—for building hallucination-controlled, provenance-tracked LLM-agent pipelines that are designed to improve auditability in high-stakes settings; validation on real institutional data is left to future work.",
+        "distance": 0.7694
+      }
+    ],
+    "Evaluation & Metrics": [
+      {
+        "id": "P18:abstract:2",
+        "text": "RED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfolios; reported improvements are statistically significant across scenario validity, propagation modeling, and intervention quality within this synthetic evaluation environment . We position the framework as a proposed architecture—rather than an empirically validated, deployment-ready system—for building hallucination-controlled, provenance-tracked LLM-agent pipelines that are designed to improve auditability in high-stakes settings; validation on real institutional data is left to future work.",
+        "distance": 0.5017
+      },
+      {
+        "id": "P18:abstract:1",
+        "text": "-language stress intent into executable, schema-constrained parameter objects, achieving 92.6% validity rate versus 78.4% for RAG-augmented baselines ( $$p<0.001$$ ); (2) a constraint-coupled multi-agent simulation that models endogenous amplification through fire-sale, margin, and liquidity feedback loops, producing a 52% higher systemic-loss estimate than the one-pass configuration under the calibrated experimental setting; and (3) a counterfactual re-simulation framework that validates proposed interventions under identical scenario constraints, achieving 68.6% simulation-defined top-1 decision success rate. We evaluate MacroRisk-Agent as a proof-of-concept on public financial datasets (FRED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfoli",
+        "distance": 0.5758
+      },
+      {
+        "id": "P18:abstract:0",
+        "text": "Abstract Large language model (LLM)-based multi-agent systems face three open challenges in high-stakes decision support: hallucination control in structured output generation, coupling of semantic reasoning with deterministic numerical simulation, and end-to-end auditability of multi-step agentic workflows. We present MacroRisk-Agent , a multi-agent architecture that addresses these challenges in the domain of financial stress testing—a setting that demands strict output validity, reproducibility, and regulatory traceability. MacroRisk-Agent introduces three technical contributions: (1) a retrieval-augmented generation (RAG) pipeline with deterministic validation gates that converts natural-language stress intent into executable, schema-constrained parameter objects, achieving 92.6% valid",
+        "distance": 0.6778
+      }
+    ],
+    "Main Results": [
+      {
+        "id": "P18:abstract:1",
+        "text": "-language stress intent into executable, schema-constrained parameter objects, achieving 92.6% validity rate versus 78.4% for RAG-augmented baselines ( $$p<0.001$$ ); (2) a constraint-coupled multi-agent simulation that models endogenous amplification through fire-sale, margin, and liquidity feedback loops, producing a 52% higher systemic-loss estimate than the one-pass configuration under the calibrated experimental setting; and (3) a counterfactual re-simulation framework that validates proposed interventions under identical scenario constraints, achieving 68.6% simulation-defined top-1 decision success rate. We evaluate MacroRisk-Agent as a proof-of-concept on public financial datasets (FRED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfoli",
+        "distance": 0.614
+      },
+      {
+        "id": "P18:abstract:2",
+        "text": "RED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfolios; reported improvements are statistically significant across scenario validity, propagation modeling, and intervention quality within this synthetic evaluation environment . We position the framework as a proposed architecture—rather than an empirically validated, deployment-ready system—for building hallucination-controlled, provenance-tracked LLM-agent pipelines that are designed to improve auditability in high-stakes settings; validation on real institutional data is left to future work.",
+        "distance": 0.644
+      },
+      {
+        "id": "P18:abstract:0",
+        "text": "Abstract Large language model (LLM)-based multi-agent systems face three open challenges in high-stakes decision support: hallucination control in structured output generation, coupling of semantic reasoning with deterministic numerical simulation, and end-to-end auditability of multi-step agentic workflows. We present MacroRisk-Agent , a multi-agent architecture that addresses these challenges in the domain of financial stress testing—a setting that demands strict output validity, reproducibility, and regulatory traceability. MacroRisk-Agent introduces three technical contributions: (1) a retrieval-augmented generation (RAG) pipeline with deterministic validation gates that converts natural-language stress intent into executable, schema-constrained parameter objects, achieving 92.6% valid",
+        "distance": 0.7961
+      }
+    ],
+    "Limitations": [
+      {
+        "id": "P18:abstract:1",
+        "text": "-language stress intent into executable, schema-constrained parameter objects, achieving 92.6% validity rate versus 78.4% for RAG-augmented baselines ( $$p<0.001$$ ); (2) a constraint-coupled multi-agent simulation that models endogenous amplification through fire-sale, margin, and liquidity feedback loops, producing a 52% higher systemic-loss estimate than the one-pass configuration under the calibrated experimental setting; and (3) a counterfactual re-simulation framework that validates proposed interventions under identical scenario constraints, achieving 68.6% simulation-defined top-1 decision success rate. We evaluate MacroRisk-Agent as a proof-of-concept on public financial datasets (FRED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfoli",
+        "distance": 0.5668
+      },
+      {
+        "id": "P18:abstract:2",
+        "text": "RED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfolios; reported improvements are statistically significant across scenario validity, propagation modeling, and intervention quality within this synthetic evaluation environment . We position the framework as a proposed architecture—rather than an empirically validated, deployment-ready system—for building hallucination-controlled, provenance-tracked LLM-agent pipelines that are designed to improve auditability in high-stakes settings; validation on real institutional data is left to future work.",
+        "distance": 0.5713
+      },
+      {
+        "id": "P18:abstract:0",
+        "text": "Abstract Large language model (LLM)-based multi-agent systems face three open challenges in high-stakes decision support: hallucination control in structured output generation, coupling of semantic reasoning with deterministic numerical simulation, and end-to-end auditability of multi-step agentic workflows. We present MacroRisk-Agent , a multi-agent architecture that addresses these challenges in the domain of financial stress testing—a setting that demands strict output validity, reproducibility, and regulatory traceability. MacroRisk-Agent introduces three technical contributions: (1) a retrieval-augmented generation (RAG) pipeline with deterministic validation gates that converts natural-language stress intent into executable, schema-constrained parameter objects, achieving 92.6% valid",
+        "distance": 0.6135
+      }
+    ],
+    "Gap": [
+      {
+        "id": "P18:abstract:0",
+        "text": "Abstract Large language model (LLM)-based multi-agent systems face three open challenges in high-stakes decision support: hallucination control in structured output generation, coupling of semantic reasoning with deterministic numerical simulation, and end-to-end auditability of multi-step agentic workflows. We present MacroRisk-Agent , a multi-agent architecture that addresses these challenges in the domain of financial stress testing—a setting that demands strict output validity, reproducibility, and regulatory traceability. MacroRisk-Agent introduces three technical contributions: (1) a retrieval-augmented generation (RAG) pipeline with deterministic validation gates that converts natural-language stress intent into executable, schema-constrained parameter objects, achieving 92.6% valid",
+        "distance": 0.6153
+      },
+      {
+        "id": "P18:abstract:1",
+        "text": "-language stress intent into executable, schema-constrained parameter objects, achieving 92.6% validity rate versus 78.4% for RAG-augmented baselines ( $$p<0.001$$ ); (2) a constraint-coupled multi-agent simulation that models endogenous amplification through fire-sale, margin, and liquidity feedback loops, producing a 52% higher systemic-loss estimate than the one-pass configuration under the calibrated experimental setting; and (3) a counterfactual re-simulation framework that validates proposed interventions under identical scenario constraints, achieving 68.6% simulation-defined top-1 decision success rate. We evaluate MacroRisk-Agent as a proof-of-concept on public financial datasets (FRED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfoli",
+        "distance": 0.7086
+      },
+      {
+        "id": "P18:abstract:2",
+        "text": "RED, Yahoo Finance), a library of 150 curated crisis events, and 10 synthetic institutional portfolios; reported improvements are statistically significant across scenario validity, propagation modeling, and intervention quality within this synthetic evaluation environment . We position the framework as a proposed architecture—rather than an empirically validated, deployment-ready system—for building hallucination-controlled, provenance-tracked LLM-agent pipelines that are designed to improve auditability in high-stakes settings; validation on real institutional data is left to future work.",
+        "distance": 0.7403
+      }
+    ]
+  }
+}

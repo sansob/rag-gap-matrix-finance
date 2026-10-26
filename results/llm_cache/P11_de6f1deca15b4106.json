@@ -1,0 +1,204 @@
+{
+  "paper_id": "P11",
+  "model": "openai/gpt-oss-120b",
+  "seed": 42,
+  "usage": {
+    "completion_tokens": 1144,
+    "prompt_tokens": 3935,
+    "total_tokens": 5079,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 410,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 0.366769558,
+    "prompt_time": 0.28172306,
+    "completion_time": 2.40883651,
+    "total_time": 2.69055957
+  },
+  "raw": {
+    "Problem": {
+      "content": "Paper ini mengusulkan kerangka Bayesian RAG untuk mengukur ketidakpastian pada proses retrieval demi menjamin jawaban keuangan yang dapat diandalkan.",
+      "evidence_ids": [
+        "P11:pdf:0"
+      ],
+      "quote": "Bayesian RAG: uncertainty-aware retrieval for reliable financial question answering"
+    },
+    "Domain & Data": {
+      "content": "Fokus pada analisis dokumen keuangan regulasi berbahasa Inggris, menggunakan dataset seperti FinanceBench dengan dokumen laporan tahunan perusahaan.",
+      "evidence_ids": [
+        "P11:pdf:16",
+        "P11:pdf:2"
+      ],
+      "quote": "Financial document analysis demands precise factual extraction from complex regulatory filings"
+    },
+    "RAG Method": {
+      "content": "Menggunakan pipeline lima tahap dengan embedding dense, retrieval semantik via FAISS, dan Monte Carlo dropout (n=10) untuk mengkuantifikasi ketidakpastian pada tahap retrieval.",
+      "evidence_ids": [
+        "P11:pdf:30",
+        "P11:pdf:23",
+        "P11:pdf:80"
+      ],
+      "quote": "Traditional RAG systems use deterministic embeddings that cannot quantify retrieval confidence"
+    },
+    "Evaluation & Metrics": {
+      "content": "Dievaluasi dengan metrik faithfulness, hallucination rate, akurasi, AUC, ECE, serta Precision@3, Recall@5, dan MRR; dibandingkan dengan baseline BM25, DPR, dan ColBERT.",
+      "evidence_ids": [
+        "P11:pdf:76",
+        "P11:pdf:75",
+        "P11:pdf:77"
+      ],
+      "quote": "Bayesian RAG reduces hallucination by 27.8% (from 0.18 to 0.13) and improves faithfulness by 6.1% (from 0.82 to 0.87)"
+    },
+    "Main Results": {
+      "content": "Bayesian RAG meningkatkan faithfulness menjadi 0.87, menurunkan hallucination menjadi 0.13, dan memberikan kenaikan akurasi 25% dengan overhead latency 33 ms.",
+      "evidence_ids": [
+        "P11:pdf:52",
+        "P11:pdf:102",
+        "P11:pdf:50"
+      ],
+      "quote": "achieving 25% performance gains with 33 ms latency overhead"
+    },
+    "Limitations": {
+      "content": "Kerangka hanya diuji pada dokumen berbahasa Inggris, tidak memodelkan ketidakpastian aleatorik, dan hasilnya terbatas pada konteks regulasi keuangan.",
+      "evidence_ids": [
+        "P11:pdf:116",
+        "P11:pdf:2",
+        "P11:pdf:50"
+      ],
+      "quote": "Single language and format: Experiments are conducted exclusively on English-language structured financial reports"
+    },
+    "Gap": {
+      "content": "Inferensi: Meskipun paper menilai faithfulness, tidak ada evaluasi abstention atau analisis pada dokumen perbankan berbahasa Indonesia, sehingga belum menjawab fokus penelitian yang menuntut pengukuran abstention pada produk perbankan Indonesia.",
+      "evidence_ids": [
+        "P11:pdf:113",
+        "P11:pdf:2"
+      ],
+      "quote": "Single language and format: Experiments are conducted exclusively on English-language structured financial reports"
+    }
+  },
+  "retrieved": {
+    "Problem": [
+      {
+        "id": "P11:pdf:111",
+        "text": "alization to other high-stakes domains (healthcare, legal, and scientiﬁc literature) requires additional validation to conﬁrm eﬀectiveness across diverse document types and query patterns. Epistemic uncertainty focus: Our framework addresses epistemic uncertainty (model uncertainty) but does not explicitly model aleatoric uncertainty (irreducible data noise). Future work should investigate hybrid uncertainty quantiﬁcation approaches that capture both uncertainty types for more comprehensive reliability assessment. Monte Carlo dropout assumptions: Our uncertainty quantiﬁcation relies on Monte Carlo dropout, which assumes that dropout-induced stochasticity adequately captures model uncertainty. Alternative Bayesian neural network approaches (variational inference, deep ensembles) may provide",
+        "distance": 0.5884
+      },
+      {
+        "id": "P11:pdf:122",
+        "text": ", legal analysis, and other critical applications where accountability and explainability are non-negotiable. Our framework demonstrates that rigorous probabilistic foundations are not only theoretically elegant but practically essential for building trustworthy AI systems that meet the demands of enterprise adoption. Data availability statement The original contributions presented in the study are included in the article/supplementary material, further inquiries can be directed to the corresponding author. Author contributions LN: Writing – original draft, Writing – review & editing. SN: Writing – original draft, Writing – review & editing. RK: Writing – original draft, Writing – review & editing. Funding The author(s) declared that ﬁnancial support was not received for this work and/or i",
+        "distance": 0.61
+      },
+      {
+        "id": "P11:pdf:0",
+        "text": "TYPE Original Research PUBLISHED 27 January 2026 DOI 10.3389/frai.2025.1668172 OPEN ACCESS EDITED BY Joerg Osterrieder, University of Twente, Netherlands REVIEWED BY Alladoumbaye Ngueilbaye, Shenzhen University, China Abiola Babajide, James Hope University, Nigeria M. C. Sarath Chandran, Amrita Vishwa Vidyapeetham (Amritapuri Campus), India *CORRESPONDENCE Lebede Ngartera lebede@terasystems.ai Saralees Nadarajah mbbsssn2@manchester.ac.uk †PRESENT ADDRESS Rodoumta Koina, Applied Mathematics at the Ecole Nationale Supérieure des Travaux Publics (ENSTP), N’Djamena, Chad RECEIVED 17 July 2025 REVISED 01 December 2025 ACCEPTED 26 December 2025 PUBLISHED 27 January 2026 CITATION Ngartera L, Nadarajah S and Koina R (2026) Bayesian RAG: uncertainty-aware retrieval for reliable ﬁnancial question an",
+        "distance": 0.6119
+      }
+    ],
+    "Domain & Data": [
+      {
+        "id": "P11:pdf:16",
+        "text": "e methods produce deterministic similarity scores without uncertainty quantiﬁcation, limiting robustness under distributional shift or ambiguous queries. 2.1.2 Domain-speciﬁc RAG systems While general-purpose retrieval methods provide broad applicability, high-stakes domains demand specialized adaptations that account for domain-speciﬁc challenges. Specialized domains require task-speciﬁc RAG adaptations. Financial document analysis demands precise factual extraction from complex regulatory ﬁlings. FinSage (Setty et al., 2024) and FinRAG (Zhao et al., 2024) address ﬁnancial question answering using FinanceBench (Islam et al., 2023), incorporating domain-speciﬁc preprocessing for tables and regulatory language. These systems rely on deterministic similarity scores, failing to capture conﬁde",
+        "distance": 0.5181
+      },
+      {
+        "id": "P11:pdf:113",
+        "text": "soning, causal analysis, and queries requiring external knowledge or Frontiers in Artiﬁcial Intelligence 19 frontiersin.org Ngartera et al. 10.3389/frai.2025.1668172 cross-temporal synthesis. Our evaluation dataset focuses primarily on factual ﬁnancial queries, and complex reasoning tasks may exhibit diﬀerent uncertainty patterns and retrieval eﬀectiveness that require further investigation. Single language and format: Experiments are conducted exclusively on English-language structured ﬁnancial reports. Multilingual documents, unstructured text, and diverse formatting may require methodology adaptations. Ground truth dependency: Evaluation relies on manually annotated relevance judgments and factual answer veriﬁcation. Automated evaluation metrics, while convenient, may not capture all as",
+        "distance": 0.5351
+      },
+      {
+        "id": "P11:pdf:2",
+        "text": "e retrieval for reliable ﬁnancial question answering Lebede Ngartera1,2*, Saralees Nadarajah3* and Rodoumta Koina4† 1AI Strategy-Innovation Specialist, TeraSystemsAI LLC, Philadelphia, PA, United States, 2Independent Researcher, Department of Applied Mathematics, AI-Data Science, Philadelphia, PA, United States, 3Department of Mathematics, University of Manchester, Manchester, United Kingdom, 4Department of Computer Science, University of N’Djamena, N’Djamena, Chad Large language models excel at generating plausible responses but often produce factually incorrect answers in high-stakes ﬁnancial analysis, leading to regulatory violations and ﬁnancial losses, a critical challenge for deploying AI systems in production. Traditional Retrieval-Augmented Generation (RAG) systems rely on determin",
+        "distance": 0.5517
+      }
+    ],
+    "RAG Method": [
+      {
+        "id": "P11:pdf:30",
+        "text": "), and Generation (LLM synthesis of a grounded answer). Supporting document flow includes document collection, chunking, pre-embedding, and indexed vector storage. Color coding distinguishes input, processing, storage, and output stages. FIGURE 1 RAG pipeline architecture. A detailed ﬁve-stage pipeline showing the ﬂow from user input through embedding, retrieval, ranking, and generation. Each stage transforms data to produce grounded, factual answers: (1) Input captures user queries and document collections, (2) Embedding converts text to dense vectors via embedding models, (3) Retrieval performs semantic search comparing query vectors against chunk embeddings, (4) Ranking scores and selects top-k relevant chunks, and (5) Generation produces ﬁnal answers using LLMs conditioned on retrieved",
+        "distance": 0.4224
+      },
+      {
+        "id": "P11:pdf:80",
+        "text": "r implementation achieves practical eﬃciency suitable for production deployment. We provide a detailed breakdown of latency components, batching strategies, hardware utilization, and memory scaling characteristics. 4.3.12.1 Latency breakdown by component Table 9 decomposes the total query latency into individual pipeline stages, measured on both GPU (NVIDIA A100 40GB) and CPU (AMD EPYC 7742 64-core) conﬁgurations. Per-query latency measured across GPU and CPU conﬁgurations over 1,000 queries. Values reported as median [p25, p75] to capture distributional characteristics. MC Sampling refers to Monte Carlo Dropout forward passes (n = 10 samples). Retrieval includes FAISS similarity search and top-k selection. Cold start includes model loading and index initialization. Measurements over 1,000",
+        "distance": 0.5095
+      },
+      {
+        "id": "P11:pdf:23",
+        "text": " positioned our work within the literature, we now present the complete Bayesian RAG framework. This section formalizes the Frontiers in Artiﬁcial Intelligence 03 frontiersin.org Ngartera et al. 10.3389/frai.2025.1668172 mathematical principles underlying our approach and details the architectural components that enable uncertainty-aware retrieval. To provide architectural context, we ﬁrst illustrate the standard RAG pipeline and then introduce how Bayesian reasoning transforms each stage. As illustrated in Figure 1, the RAG pipeline comprises query processing, dense embedding, semantic retrieval, relevance ranking, and LLM-conditioned generation. Traditional RAG systems use deterministic embeddings that cannot quantify retrieval conﬁdence, limiting deployment in high-stakes applications. ",
+        "distance": 0.5163
+      }
+    ],
+    "Evaluation & Metrics": [
+      {
+        "id": "P11:pdf:76",
+        "text": "answers that are supported by retrieved evidence. We also measure hallucination rate as the percentage of unsupported claims. Table 7 presents these metrics across methods. Bayesian RAG reduces hallucination by 27.8% (from 0.18 to 0.13) and improves faithfulness by 6.1% (from 0.82 to 0.87), demonstrating uncertainty-aware retrieval translates to more reliable generation. 4.3.11 Ablation study: uncertainty penalty analysis We conduct a comprehensive ablation study to understand the impact of the uncertainty penalty parameter λ. Table 8 shows performance variations across diﬀerent penalty values. Moderate penalization (λ = 0.3) optimizes the accuracy- calibration tradeoﬀ, improving retrieval by 4.1% and reducing ECE by 14.3% vs. no penalty. Higher penalties degrade retrieval performance desp",
+        "distance": 0.3637
+      },
+      {
+        "id": "P11:pdf:75",
+        "text": " we supplement t-tests with Wilcoxon signed-rank tests for paired comparisons, conﬁrming statistical signiﬁcance across all metrics (all p < 0.001). To synthesize these ﬁndings, Table 6 presents an executive summary highlighting the best-performing model across key evaluation categories. 4.3.9.1 Key insights Bayesian RAG + GPT achieves 93.1% accuracy with AUC = 0.961 and ECE = 0.034. GPT-only (88.5%) beneﬁts from retrieval grounding. Standard RAG provides fastest inference (12 ms) vs. 15 ms, validating speed-accuracy tradeoﬀs. 4.3.10 Faithfulness and hallucination analysis To address the critical concern of generation quality, we evaluate faithfulness - the percentage of claims in generated answers that are supported by retrieved evidence. We also measure hallucination rate as the percenta",
+        "distance": 0.3776
+      },
+      {
+        "id": "P11:pdf:77",
+        "text": "y 4.1% and reducing ECE by 14.3% vs. no penalty. Higher penalties degrade retrieval performance despite better calibration. TABLE 7 Faithfulness analysis measuring generation quality. Method Faithfulness Hallucination Claim Evidence ↑ ↓ Coverage sSupport BM25 0.72 0.28 0.85 0.61 DPR 0.79 0.21 0.87 0.69 ColBERT 0.82 0.18 0.89 0.73 Bayesian RAG (λ = 0.3) 0.87 0.13 0.91 0.79 Bayesian RAG signiﬁcantly reduces hallucination rate by 27.8% compared to ColBERT while improving claim coverage and evidence support. Bold values indicate the best-performing result for each metric. Frontiers in Artiﬁcial Intelligence 13 frontiersin.org Ngartera et al. 10.3389/frai.2025.1668172 TABLE 8 Ablation study: uncertainty penalty parameter λ. λ Precision at 3 MRR NDCG at 10 ECE Latency (ms) 0.0 (No penalty) 0.73 ",
+        "distance": 0.4394
+      }
+    ],
+    "Main Results": [
+      {
+        "id": "P11:pdf:52",
+        "text": " summarizes the primary performance metrics, demonstrating consistent improvements in retrieval quality and uncertainty calibration. Frontiers in Artiﬁcial Intelligence 09 frontiersin.org Ngartera et al. 10.3389/frai.2025.1668172 TABLE 1 Performance comparison across datasets and baselines with conﬁdence intervals. Method Dataset P@3 [95% CI] R@5 [95% CI] MRR [95% CI] NDCG@10 [95% CI] BM25 AAPL 10-K 0.62 [0.58, 0.66] 0.78 [0.74, 0.82] 0.65 [0.61, 0.69] 0.58 [0.54, 0.62] BM25 MSFT 10-K 0.65 [0.61, 0.69] 0.81 [0.77, 0.85] 0.68 [0.64, 0.72] 0.61 [0.57, 0.65] BM25 FinSage 0.63 [0.59, 0.67] 0.79 [0.75, 0.83] 0.66 [0.62, 0.70] 0.59 [0.55, 0.63] BM25 Average – 0.63 [0.60, 0.66] 0.79 [0.76, 0.82] 0.66 [0.63, 0.69] 0.59 [0.56, 0.62] DPR AAPL 10-K 0.68 [0.64, 0.72] 0.84 [0.80, 0.88] 0.72 [0.68, 0.76",
+        "distance": 0.4581
+      },
+      {
+        "id": "P11:pdf:102",
+        "text": "es that λ = 0.3 provides optimal performance for ﬁnancial document analysis applications. 4.4.1 Performance vs. latency trade-off analysis To address the critical concern regarding computational trade-oﬀs, we provide a comprehensive analysis of performance gains versus latency costs. Figure 6 illustrates the Pareto frontier of accuracy vs. latency across diﬀerent hyperparameter conﬁgurations. The performance-latency analysis reveals three key deployment zones with clear trade-oﬀimplications: (1) Low-latency zone (<50 ms): Standard RAG remains optimal for real-time applications where speed is critical; (2) Balanced zone (50–100 ms): Bayesian RAG with λ = 0.3 provides optimal accuracy-eﬃciency trade-oﬀ, achieving 25% performance gains with 33 ms latency overhead; (3) High-accuracy zone (>100",
+        "distance": 0.5264
+      },
+      {
+        "id": "P11:pdf:50",
+        "text": "ected baseline P@3 <0.60. This distribution reﬂects realistic enterprise workloads where 70% of queries are easy-to-medium diﬃculty, while 30% require sophisticated reasoning. Our results are reported as macro-averages across complexity tiers to prevent easy-query dominance. 4.1.3 Evaluation methodology Ground truth from two ﬁnancial experts (Cohen’s κ = 0.87). Parameters: n = 10 Monte Carlo samples, λ = 0.5 penalty (Section 4.3.4). 4.2 Experimental setup Having described the evaluation datasets and methodology, we now detail the experimental conﬁguration, including baseline systems, evaluation metrics, and implementation parameters that ensure reproducible results. Baselines: BM25, DPR, ColBERT, and GPT-5 zero-shot (October 2024 release). Evaluation metrics: Precision@3, Recall@5, Mean Re",
+        "distance": 0.5364
+      }
+    ],
+    "Limitations": [
+      {
+        "id": "P11:pdf:116",
+        "text": "loping theoretical guarantees for uncertainty quantiﬁcation quality. These limitations provide important context for interpreting our results and establishing realistic expectations for practical deployment. The suggested future work directions oﬀer concrete pathways for extending Bayesian RAG’s capabilities and broader scientiﬁc impact. Recognizing that technological advances carry responsibilities beyond technical performance, we now examine the societal and ethical dimensions of deploying uncertainty-aware retrieval in high-stakes domains. 7 Broader impact and ethical considerations Beyond technical contributions, the deployment of uncertainty-aware retrieval systems in high-stakes ﬁnancial applications carries signiﬁcant societal implications that warrant careful consideration. Financi",
+        "distance": 0.5003
+      },
+      {
+        "id": "P11:pdf:2",
+        "text": "e retrieval for reliable ﬁnancial question answering Lebede Ngartera1,2*, Saralees Nadarajah3* and Rodoumta Koina4† 1AI Strategy-Innovation Specialist, TeraSystemsAI LLC, Philadelphia, PA, United States, 2Independent Researcher, Department of Applied Mathematics, AI-Data Science, Philadelphia, PA, United States, 3Department of Mathematics, University of Manchester, Manchester, United Kingdom, 4Department of Computer Science, University of N’Djamena, N’Djamena, Chad Large language models excel at generating plausible responses but often produce factually incorrect answers in high-stakes ﬁnancial analysis, leading to regulatory violations and ﬁnancial losses, a critical challenge for deploying AI systems in production. Traditional Retrieval-Augmented Generation (RAG) systems rely on determin",
+        "distance": 0.5144
+      },
+      {
+        "id": "P11:pdf:50",
+        "text": "ected baseline P@3 <0.60. This distribution reﬂects realistic enterprise workloads where 70% of queries are easy-to-medium diﬃculty, while 30% require sophisticated reasoning. Our results are reported as macro-averages across complexity tiers to prevent easy-query dominance. 4.1.3 Evaluation methodology Ground truth from two ﬁnancial experts (Cohen’s κ = 0.87). Parameters: n = 10 Monte Carlo samples, λ = 0.5 penalty (Section 4.3.4). 4.2 Experimental setup Having described the evaluation datasets and methodology, we now detail the experimental conﬁguration, including baseline systems, evaluation metrics, and implementation parameters that ensure reproducible results. Baselines: BM25, DPR, ColBERT, and GPT-5 zero-shot (October 2024 release). Evaluation metrics: Precision@3, Recall@5, Mean Re",
+        "distance": 0.5177
+      }
+    ],
+    "Gap": [
+      {
+        "id": "P11:pdf:116",
+        "text": "loping theoretical guarantees for uncertainty quantiﬁcation quality. These limitations provide important context for interpreting our results and establishing realistic expectations for practical deployment. The suggested future work directions oﬀer concrete pathways for extending Bayesian RAG’s capabilities and broader scientiﬁc impact. Recognizing that technological advances carry responsibilities beyond technical performance, we now examine the societal and ethical dimensions of deploying uncertainty-aware retrieval in high-stakes domains. 7 Broader impact and ethical considerations Beyond technical contributions, the deployment of uncertainty-aware retrieval systems in high-stakes ﬁnancial applications carries signiﬁcant societal implications that warrant careful consideration. Financi",
+        "distance": 0.5735
+      },
+      {
+        "id": "P11:pdf:2",
+        "text": "e retrieval for reliable ﬁnancial question answering Lebede Ngartera1,2*, Saralees Nadarajah3* and Rodoumta Koina4† 1AI Strategy-Innovation Specialist, TeraSystemsAI LLC, Philadelphia, PA, United States, 2Independent Researcher, Department of Applied Mathematics, AI-Data Science, Philadelphia, PA, United States, 3Department of Mathematics, University of Manchester, Manchester, United Kingdom, 4Department of Computer Science, University of N’Djamena, N’Djamena, Chad Large language models excel at generating plausible responses but often produce factually incorrect answers in high-stakes ﬁnancial analysis, leading to regulatory violations and ﬁnancial losses, a critical challenge for deploying AI systems in production. Traditional Retrieval-Augmented Generation (RAG) systems rely on determin",
+        "distance": 0.602
+      },
+      {
+        "id": "P11:pdf:0",
+        "text": "TYPE Original Research PUBLISHED 27 January 2026 DOI 10.3389/frai.2025.1668172 OPEN ACCESS EDITED BY Joerg Osterrieder, University of Twente, Netherlands REVIEWED BY Alladoumbaye Ngueilbaye, Shenzhen University, China Abiola Babajide, James Hope University, Nigeria M. C. Sarath Chandran, Amrita Vishwa Vidyapeetham (Amritapuri Campus), India *CORRESPONDENCE Lebede Ngartera lebede@terasystems.ai Saralees Nadarajah mbbsssn2@manchester.ac.uk †PRESENT ADDRESS Rodoumta Koina, Applied Mathematics at the Ecole Nationale Supérieure des Travaux Publics (ENSTP), N’Djamena, Chad RECEIVED 17 July 2025 REVISED 01 December 2025 ACCEPTED 26 December 2025 PUBLISHED 27 January 2026 CITATION Ngartera L, Nadarajah S and Koina R (2026) Bayesian RAG: uncertainty-aware retrieval for reliable ﬁnancial question an",
+        "distance": 0.6172
+      }
+    ]
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "paper_id": "P15",
+  "model": "openai/gpt-oss-120b",
+  "seed": 42,
+  "usage": {
+    "completion_tokens": 1121,
+    "prompt_tokens": 4232,
+    "total_tokens": 5353,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 412,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 3.617076568,
+    "prompt_time": 0.205833591,
+    "completion_time": 2.361641924,
+    "total_time": 2.567475515
+  },
+  "raw": {
+    "Problem": {
+      "content": "Paper mengatasi kebutuhan sistem RAG yang dapat memberikan jawaban yang akurat dan menolak menjawab bila konteks tidak cukup, untuk mengurangi risiko regulasi di perbankan.",
+      "evidence_ids": [
+        "P15:pdf:4"
+      ],
+      "quote": "model must explicitly refrain from answering rather than fabricate an answer"
+    },
+    "Domain & Data": {
+      "content": "tidak disebut",
+      "evidence_ids": [],
+      "quote": ""
+    },
+    "RAG Method": {
+      "content": "Menggunakan model dasar Gemma 3 12B-IT dengan jendela konteks 128K, pipeline kurasi data multi‑tahap, dan strategi pelatihan dua‑tahap termasuk contoh tidak dapat dijawab untuk kalibrasi abstensi.",
+      "evidence_ids": [
+        "P15:pdf:11",
+        "P15:pdf:12",
+        "P15:pdf:1"
+      ],
+      "quote": "we select Gemma 3 12B-IT ... 128K context window"
+    },
+    "Evaluation & Metrics": {
+      "content": "Dievaluasi dengan tiga dimensi: kualitas jawaban (QA F1), kalibrasi penolakan (refusal rate), dan latency, serta metrik kualitas kutipan (Citation Quality).",
+      "evidence_ids": [
+        "P15:pdf:31",
+        "P15:pdf:5",
+        "P15:pdf:45"
+      ],
+      "quote": "We evaluate along three dimensions: answer quality, refusal calibration, and latency"
+    },
+    "Main Results": {
+      "content": "FinRAG-12B meningkatkan resolution rate sebesar 7.1 poin persentase, mencapai F1 0.284 pada FinanceBench dengan tingkat kutipan 97.3%, serta menurunkan tingkat penolakan yang tidak tepat.",
+      "evidence_ids": [
+        "P15:pdf:38",
+        "P15:pdf:40",
+        "P15:pdf:34"
+      ],
+      "quote": "FinRAG-12B improves the resolution rate by 7.1 percentage points"
+    },
+    "Limitations": {
+      "content": "Rasio contoh negatif yang tidak optimal dapat menyebabkan respons tidak berdasar atau over‑refusal; evaluasi penolakan tidak sepenuhnya menangkap ungkapan penolakan yang bersifat hedged atau parsial.",
+      "evidence_ids": [
+        "P15:pdf:26",
+        "P15:pdf:35",
+        "P15:pdf:38"
+      ],
+      "quote": "An insufficient proportion of negative samples causes the model to default to its sycophantic prior"
+    },
+    "Gap": {
+      "content": "Inferensi: Meskipun paper menilai faithfulness melalui citation quality dan abstention pada data bahasa Inggris, tidak ada evaluasi pada dokumen produk perbankan berbahasa Indonesia, sehingga belum menjawab fokus penelitian tentang faithfulness dan abstention pada konteks bahasa Indonesia.",
+      "evidence_ids": [
+        "P15:pdf:43",
+        "P15:pdf:46",
+        "P15:pdf:30"
+      ],
+      "quote": "our refusal evaluation captures explicit “I don’t know” responses and close variants, but may not fully account for hedged or partial uncertainty expressions"
+    }
+  },
+  "retrieved": {
+    "Problem": [
+      {
+        "id": "P15:pdf:23",
+        "text": "ible and to abstain when that context is insufficient, rather than rely- ing on potentially outdated or incorrect parametric knowledge. 3.3 Positional Bias RAG models exhibit positional bias, disproportion- ately attending to earlier or later context segments (Liu et al., 2024a). To mitigate this, we randomize the placement of relevant passages among distrac- tors during training. Specifically, we sample posi- tions from a mixture of discrete right trapezoidal harmonic decay distribution defined as: P(X = x) = 1 N −Kmin + 1 N X K=max(x, Kmin) 1 K This strategy reduces systematic bias toward fixed context positions and encourages more uniform attention over retrieved evidence. 3.4 Model Training We adopt a two-stage curriculum inspired by domain-adaptive pretraining (Gururangan et al., 2020",
+        "distance": 0.6048
+      },
+      {
+        "id": "P15:pdf:7",
+        "text": "., LoRA) can achieve competitive results on financial sen- timent analysis at low cost, but focuses primarily on classification tasks rather than generative RAG with citation requirements. Earlier work such as FinBERT (Araci, 2019) established the importance of domain adaptation, showing that continued pre- training on financial corpora improves downstream performance. Retrieval-augmented generation (RAG) has emerged as a standard approach for improving factuality by grounding model outputs in external knowledge sources (Lewis et al., 2020). While RAG reduces hallucinations, it introduces new failure modes: models may ignore retrieved con- text, rely on irrelevant passages, or generate un- supported claims. Liu et al. (2024a) further show that LLMs exhibit positional bias in long contexts,",
+        "distance": 0.6071
+      },
+      {
+        "id": "P15:pdf:4",
+        "text": "s unavailable, the model must explicitly refrain from answering rather than fab- ricate an answer, as incorrect responses may lead to regulatory and financial risk. Achieving this level of reliability and responsiveness requires mov- ing beyond off-the-shelf LLMs toward domain- specialized, grounded systems. To address these challenges, we introduce FinRAG-12B, a 12B-parameter LLM optimized for retrieval-augmented generation (RAG) in bank- ing. We propose a unified, data-efficient training framework that jointly improves answer quality, citation grounding, and calibrated refusal. Our approach centers on a multi-stage data curation pipeline combining LLM-as-a-Judge filtering, cita- tion annotation, and curriculum learning, achieving 73% citation quality with only 143M tokens. Through system",
+        "distance": 0.6216
+      }
+    ],
+    "Domain & Data": [
+      {
+        "id": "P15:pdf:0",
+        "text": "FinRAG-12B: A Production-Validated Recipe for Grounded Question Answering in Banking Denys Katerenchuk1, Pablo Duboue2*, Keelan Evanini3*, David Gondek*, Nithin Govindugari1, Olivier Allauzen1, Joshua Baptiste1, David J More1, Joshua Schechter1 1Backbase, New York, NY 2Textualization, Vancouver, Canada 3NBME, Philadelphia, PA denys.katerenchuk@backbase.com, pablo.duboue@gmail.com, kevanini@nbme.org Abstract Large language models (LLMs) are rapidly being adopted across various domains. How- ever, their adoption in banking industry faces resistance due to demands for high accuracy, regulatory compliance, and the need for ver- ifiable and grounded responses. We present a unified, data-efficient framework for train- ing grounded domain-specific LLMs that opti- mizes answer quality, citation gr",
+        "distance": 0.4899
+      },
+      {
+        "id": "P15:pdf:30",
+        "text": "t contain sufficient information, making “I don’t know” the correct response. Each example con- sists of a user query, five retrieved passages (1–2 relevant and 3–4 distractors), human-annotated ref- erence answers with citation labels, and a binary answerability label. This design enables joint eval- uation of grounding quality and refusal behavior under realistic RAG settings. Public Benchmark. To assess generalization be- yond proprietary data, we additionally evaluate on FinanceBench (Islam et al., 2023), which consists of 150 questions over SEC filings requiring free- form, grounded responses. FinanceBench evaluates both factual retrieval and citation grounding, pro- viding a standardized benchmark for comparison. 4.2 Metrics We evaluate along three dimensions: answer qual- ity, refus",
+        "distance": 0.4921
+      },
+      {
+        "id": "P15:abstract:0",
+        "text": "Large language models (LLMs) are rapidly being adopted across various domains. However, their adoption in banking industry faces resistance due to demands for high accuracy, regulatory compliance, and the need for verifiable and grounded responses. We present a unified, data-efficient framework for training grounded domain-specific LLMs that optimizes answer quality, citation grounding, and calibrated refusal under real-world deployment constraints. First, we describe a data generation pipeline that combines LLM-as-a-Judge filtering, citation annotation, and curriculum learning with only 143M tokens. The resulting 12B model achieves high answer quality outperforming GPT-4.1 on citation grounding, with a modest citation tradeoff versus the untuned base. Second, we propose a calibrated refus",
+        "distance": 0.5085
+      }
+    ],
+    "RAG Method": [
+      {
+        "id": "P15:pdf:11",
+        "text": "erac- tions. This design also enhances reproducibility, as Stage 1 can be replicated using publicly avail- able datasets. Unlike prior work, we integrate data curation, grounding, and refusal calibration into a unified framework optimized for real-world deploy- ment in regulated environments. 3 System Architecture 3.1 Base Model Selection The choice of base model is critical for balancing performance and deployment constraints. We re- quire strong instruction-following capabilities, with low hallucination rates alongside efficiency in la- tency and cost. After surveying models such as Phi- 4 14B and Qwen3 14B, we select Gemma 3 12B-IT (Gemma Team et al., 2024) as it provides compet- itive instruction-following performance, a 128K context window, and permissive commercial licens- ing while ",
+        "distance": 0.5046
+      },
+      {
+        "id": "P15:pdf:12",
+        "text": "struction-following performance, a 128K context window, and permissive commercial licens- ing while remaining computationally efficient. 3.2 Training Data Pipeline Training data quality is a primary determinant of LLM performance, particularly in high-stakes do- mains such as banking. While financial institutions possess large volumes of data, much of it is noisy, outdated, or contains personally identifiable infor- mation (PII), limiting its usability. To address this, we design a multi-stage data curation pipeline that prioritizes quality over scale. The final corpus consists of 98,648 samples (143M tokens) drawn from a combination of open-source and proprietary data, filtered and processed through multiple quality control stages. The entire training data set is shown in Table 1. Each da",
+        "distance": 0.5128
+      },
+      {
+        "id": "P15:pdf:1",
+        "text": " framework for train- ing grounded domain-specific LLMs that opti- mizes answer quality, citation grounding, and calibrated refusal under real-world deployment constraints. First, we describe a data genera- tion pipeline that combines LLM-as-a-Judge filtering, citation annotation, and curriculum learning with only 143M tokens. The resulting 12B model achieves high answer quality outper- forming GPT-4.1 on citation grounding, with a modest citation tradeoff versus the untuned base. Second, we propose a calibrated refusal mechanism: training on 22% unanswerable ex- amples yield a 12% “I don’t know” rate, sub- stantially improving over the base model’s un- safe 4.3% rate while avoiding GPT-4.1’s over- refusal (20.2%). Third, we present an end-to- end methodology spanning from data curation to",
+        "distance": 0.5248
+      }
+    ],
+    "Evaluation & Metrics": [
+      {
+        "id": "P15:pdf:31",
+        "text": "ed benchmark for comparison. 4.2 Metrics We evaluate along three dimensions: answer qual- ity, refusal calibration, and latency. JudgeLM (Zhu et al., 2023) scores each response on a 1–10 scale using an LLM judge that assesses correctness, completeness, and coherence given the retrieved sources. Citation Quality (Es et al., 2024) (0–100) is a composite of faithfulness, source rel- evance, information synthesis, and source usage (evaluation prompts in Appendix E). We report QA F1, which combines precision (fraction of generated answers that are correct) and recall (fraction of answerable queries that receive an answer). F1 captures the tension between hallu- cination risk (low precision) and over-caution (low recall). We additionally report the refusal rate and the fraction of abstentions th",
+        "distance": 0.3978
+      },
+      {
+        "id": "P15:pdf:5",
+        "text": "ation, and curriculum learning, achieving 73% citation quality with only 143M tokens. Through systematic ablations, we show that in- corporating 22% unanswerable examples enables calibrated “I don’t know” responses, substantially reducing hallucinations while avoiding excessive refusal on answerable queries. Finally, we present a complete, production-ready methodology from data curation to quantized serving that was val- idated through deployment across 40+ financial institutions. Our contributions are threefold: (1) a high-quality, data-efficient pipeline for generating grounded training data; (2) a calibrated refusal strat- egy based on controlled negative sampling to mit- igate hallucinations; and (3) an end-to-end frame- work for training and deploying LLMs in produc- arXiv:2605.05482v",
+        "distance": 0.4623
+      },
+      {
+        "id": "P15:pdf:45",
+        "text": "hter, and Lance Berks. We are grateful for their support, trust, and vision. Ethics Statement This work targets deployment in regulated financial services, where accuracy and reliability are criti- cal. All proprietary training data was anonymized to remove personally identifiable information (PII) prior to use. To mitigate the risks of hallucina- tion, the model is explicitly trained to abstain when sufficient evidence is not available, aligning with regulatory requirements for verifiable responses. As with all LLMs, there is a risk of inheriting bi- ases present in training data. We monitor model behavior across user segments and continuously evaluate response quality to identify and mitigate potential disparities.",
+        "distance": 0.4823
+      }
+    ],
+    "Main Results": [
+      {
+        "id": "P15:pdf:38",
+        "text": "on curated benchmarks, production deployment provides the ultimate test of whether improvements translate into real-world outcomes. We analyze 3,297 randomly sampled user queries collected over seven months (May–December 2025) from a large U.S. credit union serving millions of retail banking customers, comparing a legacy production model against FinRAG-12B. Both models oper- ate within the same RAG pipeline and share an identical knowledge base, ensuring that observed differences are attributable to the LLM rather than retrieval or data changes. As shown in Table 7, FinRAG-12B improves the resolution rate by 7.1 percentage points (χ2=24.4, p<0.001, Cramer’s V =0.09). This corresponds to 7 additional queries per 100 being resolved without human escalation. The unresolved rate decreases by a",
+        "distance": 0.4484
+      },
+      {
+        "id": "P15:pdf:40",
+        "text": "icant (χ2=1.3, p=0.26; 95% bootstrap CI [−2.5, +9.3] pp). To better understand this effect, we decompose satisfaction by outcome. Sat- isfaction remains nearly unchanged for both re- solved queries (65.0% vs. 66.7%) and unresolved queries (23.7% vs. 25.9%), suggesting that per- response quality is largely comparable across mod- els. Instead, the overall improvement is driven by a distributional shift: a larger proportion of queries are resolved, moving users into a higher- satisfaction regime. This indicates that, in produc- tion RAG systems, increasing resolution rate rather than marginal improvements in response quality is the primary driver of user satisfaction. 6 Conclusion We present FinRAG-12B, a citation-grounded LLM for banking RAG systems. We show that a data-efficient training pi",
+        "distance": 0.5126
+      },
+      {
+        "id": "P15:pdf:34",
+        "text": "efusal in GPT-4.1 (20.2%). This demonstrates effective calibration between answerability and ab- stention. 5.2 Public Benchmark Results Model FinanceBench F1 Gemma 3 12B (base) 0.249 GPT-4.1 (API) 0.238 FinRAG-12B 0.284 Table 5: Results on FinanceBench (150 SEC filing ques- tions). FinRAG-12B achieves the highest F1 with a 97.3% citation rate. On FinanceBench (Islam et al., 2023), FinRAG- 12B generalizes beyond proprietary data, achieving the highest F1 score (0.284) with a 97.3% citation rate, outperforming both the base model (0.249) and GPT-4.1 (0.238). 5.3 Curriculum Learning Ablation Data Strategy Jud. QA F1 Cit.Q IDK% TN% External only 5.72 .972 76.1 0.4 0 Internal only 5.62 .913 69.2 17.4 53 Combined (all) 3.28 .706 51.2 46.5 39 Curriculum (staged) 5.91 .938 74.7 13.2 56 Table 6: Da",
+        "distance": 0.5293
+      }
+    ],
+    "Limitations": [
+      {
+        "id": "P15:pdf:26",
+        "text": "uses grounded, reproducible data for domain adaptation; Stage 2 introduces real-world and proprietary data for task specialization. 3.5 Refusal Calibration Calibrating a model to abstain when retrieved con- text is insufficient requires careful control of the negative-example ratio. An insufficient proportion of negative samples causes the model to default to its sycophantic prior (Sharma et al., 2024), produc- ing plausible but unsupported responses (high false- positive rate). Conversely, an excessive proportion leads to over-refusal, where the model abstains even when sufficient evidence is available (high false-negative rate). To identify the optimal bal- ance, we sweep the negative ratio from 10% to 30% in 2-percentage-point increments. We find that a ratio of 22% yields the best trad",
+        "distance": 0.5448
+      },
+      {
+        "id": "P15:pdf:38",
+        "text": "on curated benchmarks, production deployment provides the ultimate test of whether improvements translate into real-world outcomes. We analyze 3,297 randomly sampled user queries collected over seven months (May–December 2025) from a large U.S. credit union serving millions of retail banking customers, comparing a legacy production model against FinRAG-12B. Both models oper- ate within the same RAG pipeline and share an identical knowledge base, ensuring that observed differences are attributable to the LLM rather than retrieval or data changes. As shown in Table 7, FinRAG-12B improves the resolution rate by 7.1 percentage points (χ2=24.4, p<0.001, Cramer’s V =0.09). This corresponds to 7 additional queries per 100 being resolved without human escalation. The unresolved rate decreases by a",
+        "distance": 0.5537
+      },
+      {
+        "id": "P15:pdf:35",
+        "text": "17.4 53 Combined (all) 3.28 .706 51.2 46.5 39 Curriculum (staged) 5.91 .938 74.7 13.2 56 Table 6: Data strategy ablation on 258 banking QA examples. Jud.: JudgeLM answer quality (1–10); Cit.Q: citation quality (0–100); IDK%: % of queries refused; TN%: % of refusals that are correct. Table 6 isolates the contribution of each data source. Training on external data alone yields high QA F1 (0.972) but the model almost never refuses (0.4% IDK), making it unsafe for unan- swerable queries. Internal data alone teaches re- fusal (17.4% IDK) but citation quality drops to 69.2. Mixing all data simultaneously collapses perfor- mance: JudgeLM falls to 3.28 and the model over- refuses at 46.5%, with only 39% of refusals correct. The two-stage curriculum resolves this conflict— external data first estab",
+        "distance": 0.5565
+      }
+    ],
+    "Gap": [
+      {
+        "id": "P15:pdf:43",
+        "text": "vacy and regulatory constraints. However, Stage 1 relies entirely on open-source dataset (RAG-v1), and we can pro- vide all training configurations. This enables re- searchers to reproduce our curriculum and adapt it to their own proprietary data. Finally, our refusal evaluation captures explicit “I don’t know” responses and close variants, but may not fully account for hedged or partial un- certainty expressions (e.g., indirect or softened re- fusals), potentially underestimating nuanced ab- stention behavior. Acknowledgements The authors thank David Gondek, Nithin Govin- dugari, Olivier Allauzen, Joshua Baptiste, DJ More, Binod Gyawali, Bob Stewart, George Trad, Jon Phillips, Priti Khanna, Victoria Povolotsky, Jared Kim, Samar Batra, Romain Lebolloch, Gerard Benavides, Martin Lopez, Alli",
+        "distance": 0.6048
+      },
+      {
+        "id": "P15:pdf:46",
+        "text": "ate potential disparities.",
+        "distance": 0.6074
+      },
+      {
+        "id": "P15:pdf:30",
+        "text": "t contain sufficient information, making “I don’t know” the correct response. Each example con- sists of a user query, five retrieved passages (1–2 relevant and 3–4 distractors), human-annotated ref- erence answers with citation labels, and a binary answerability label. This design enables joint eval- uation of grounding quality and refusal behavior under realistic RAG settings. Public Benchmark. To assess generalization be- yond proprietary data, we additionally evaluate on FinanceBench (Islam et al., 2023), which consists of 150 questions over SEC filings requiring free- form, grounded responses. FinanceBench evaluates both factual retrieval and citation grounding, pro- viding a standardized benchmark for comparison. 4.2 Metrics We evaluate along three dimensions: answer qual- ity, refus",
+        "distance": 0.6086
+      }
+    ]
+  }
+}

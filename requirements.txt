@@ -1,0 +1,11 @@
+fastembed            # local ONNX embeddings on CPU (no torch, no GPU)
+chromadb
+pymupdf<2
+openai               # OpenAI-compatible client for the Groq API
+pandas
+openpyxl
+tabulate
+pyyaml
+python-dotenv
+requests
+numpy

@@ -1,0 +1,193 @@
+{
+  "paper_id": "P06",
+  "model": "openai/gpt-oss-120b",
+  "seed": 42,
+  "usage": {
+    "completion_tokens": 992,
+    "prompt_tokens": 1113,
+    "total_tokens": 2105,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 371,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 0.508895532,
+    "prompt_time": 0.076775971,
+    "completion_time": 2.047551547,
+    "total_time": 2.124327518
+  },
+  "raw": {
+    "Problem": {
+      "content": "Penelitian ini mengeksplorasi penerapan retrieval-augmented generation (RAG) untuk meningkatkan akurasi dan keandalan model bahasa besar dalam analisis laporan keuangan bank.",
+      "evidence_ids": [
+        "P06:abstract:0"
+      ],
+      "quote": "This study explores the application of retrieval-augmented generation (RAG) to improve the accuracy and reliability of large language models (LLMs) in the context of financial report analysis."
+    },
+    "Domain & Data": {
+      "content": "Domainnya adalah laporan keuangan bank (setengah tahunan atau kuartalan) untuk investor pribadi; bahasa tidak disebutkan dalam abstrak.",
+      "evidence_ids": [
+        "P06:abstract:0"
+      ],
+      "quote": "enhancing the question-and-answering capabilities regarding the half-yearly or quarterly financial reports of banks."
+    },
+    "RAG Method": {
+      "content": "Sistem RAG menggunakan retriever OpenAI ADA, embedder MiniLM pada model tiga, dan generator OpenAI GPT-4; variasi komponen diuji dalam beberapa model.",
+      "evidence_ids": [
+        "P06:abstract:0",
+        "P06:abstract:1"
+      ],
+      "quote": "model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance"
+    },
+    "Evaluation & Metrics": {
+      "content": "Evaluasi dilakukan dengan mengukur akurasi, relevansi jawaban, serta perbandingan kinerja pada laporan terstruktur vs tidak terstruktur dan pertanyaan kualitatif vs kuantitatif.",
+      "evidence_ids": [
+        "P06:abstract:1"
+      ],
+      "quote": "showing robust accuracy and relevance in response"
+    },
+    "Main Results": {
+      "content": "Model satu (OpenAI ADA + GPT-4) memberikan performa tertinggi, sedangkan model tiga (MiniLM + GPT-4) jauh lebih rendah; laporan terstruktur meningkatkan kinerja RAG, dan pertanyaan kualitatif memperoleh skor lebih tinggi.",
+      "evidence_ids": [
+        "P06:abstract:1"
+      ],
+      "quote": "Model three (MiniLM Embedder and OpenAI GPT-4) scored significantly lower, indicating the importance of high-quality components."
+    },
+    "Limitations": {
+      "content": "tidak disebut",
+      "evidence_ids": [],
+      "quote": ""
+    },
+    "Gap": {
+      "content": "Inferensi: Meskipun studi ini menyebutkan peningkatan answer faithfulness, tidak mengevaluasi abstention atau penggunaan dokumen bahasa Indonesia, sehingga belum menjawab fokus penelitian tentang faithfulness dan abstention pada dokumen produk perbankan berbahasa Indonesia.",
+      "evidence_ids": [
+        "P06:abstract:0"
+      ],
+      "quote": "aim is to enhance context relevance, answer faithfulness, and answer relevance"
+    }
+  },
+  "retrieved": {
+    "Problem": [
+      {
+        "id": "P06:abstract:0",
+        "text": "This study explores the application of retrieval-augmented generation (RAG) to improve the accuracy and reliability of large language models (LLMs) in the context of financial report analysis. The focus is on enabling private investors to make informed decisions by enhancing the question-and-answering capabilities regarding the half-yearly or quarterly financial reports of banks. The study adopts a Design Science Research (DSR) methodology to develop and evaluate an RAG system tailored for this use case. The study conducts a series of experiments to explore models in which different RAG components are used. The aim is to enhance context relevance, answer faithfulness, and answer relevance. The results indicate that model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance, s",
+        "distance": 0.5969
+      },
+      {
+        "id": "P06:abstract:1",
+        "text": "he results indicate that model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance, showing robust accuracy and relevance in response. Model three (MiniLM Embedder and OpenAI GPT-4) scored significantly lower, indicating the importance of high-quality components. The evaluation also revealed that well-structured reports result in better RAG performance than less coherent reports. Qualitative questions received higher scores than the quantitative ones, demonstrating the RAG’s proficiency in handling descriptive data. In conclusion, a tailored RAG can aid investors in providing accurate and contextually relevant information from financial reports, thereby enhancing decision making.",
+        "distance": 0.6775
+      },
+      {
+        "id": "P06:abstract:2",
+        "text": "ng.",
+        "distance": 0.7831
+      }
+    ],
+    "Domain & Data": [
+      {
+        "id": "P06:abstract:0",
+        "text": "This study explores the application of retrieval-augmented generation (RAG) to improve the accuracy and reliability of large language models (LLMs) in the context of financial report analysis. The focus is on enabling private investors to make informed decisions by enhancing the question-and-answering capabilities regarding the half-yearly or quarterly financial reports of banks. The study adopts a Design Science Research (DSR) methodology to develop and evaluate an RAG system tailored for this use case. The study conducts a series of experiments to explore models in which different RAG components are used. The aim is to enhance context relevance, answer faithfulness, and answer relevance. The results indicate that model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance, s",
+        "distance": 0.5531
+      },
+      {
+        "id": "P06:abstract:1",
+        "text": "he results indicate that model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance, showing robust accuracy and relevance in response. Model three (MiniLM Embedder and OpenAI GPT-4) scored significantly lower, indicating the importance of high-quality components. The evaluation also revealed that well-structured reports result in better RAG performance than less coherent reports. Qualitative questions received higher scores than the quantitative ones, demonstrating the RAG’s proficiency in handling descriptive data. In conclusion, a tailored RAG can aid investors in providing accurate and contextually relevant information from financial reports, thereby enhancing decision making.",
+        "distance": 0.6473
+      },
+      {
+        "id": "P06:abstract:2",
+        "text": "ng.",
+        "distance": 0.8992
+      }
+    ],
+    "RAG Method": [
+      {
+        "id": "P06:abstract:0",
+        "text": "This study explores the application of retrieval-augmented generation (RAG) to improve the accuracy and reliability of large language models (LLMs) in the context of financial report analysis. The focus is on enabling private investors to make informed decisions by enhancing the question-and-answering capabilities regarding the half-yearly or quarterly financial reports of banks. The study adopts a Design Science Research (DSR) methodology to develop and evaluate an RAG system tailored for this use case. The study conducts a series of experiments to explore models in which different RAG components are used. The aim is to enhance context relevance, answer faithfulness, and answer relevance. The results indicate that model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance, s",
+        "distance": 0.6267
+      },
+      {
+        "id": "P06:abstract:1",
+        "text": "he results indicate that model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance, showing robust accuracy and relevance in response. Model three (MiniLM Embedder and OpenAI GPT-4) scored significantly lower, indicating the importance of high-quality components. The evaluation also revealed that well-structured reports result in better RAG performance than less coherent reports. Qualitative questions received higher scores than the quantitative ones, demonstrating the RAG’s proficiency in handling descriptive data. In conclusion, a tailored RAG can aid investors in providing accurate and contextually relevant information from financial reports, thereby enhancing decision making.",
+        "distance": 0.69
+      },
+      {
+        "id": "P06:abstract:2",
+        "text": "ng.",
+        "distance": 0.8655
+      }
+    ],
+    "Evaluation & Metrics": [
+      {
+        "id": "P06:abstract:1",
+        "text": "he results indicate that model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance, showing robust accuracy and relevance in response. Model three (MiniLM Embedder and OpenAI GPT-4) scored significantly lower, indicating the importance of high-quality components. The evaluation also revealed that well-structured reports result in better RAG performance than less coherent reports. Qualitative questions received higher scores than the quantitative ones, demonstrating the RAG’s proficiency in handling descriptive data. In conclusion, a tailored RAG can aid investors in providing accurate and contextually relevant information from financial reports, thereby enhancing decision making.",
+        "distance": 0.5634
+      },
+      {
+        "id": "P06:abstract:0",
+        "text": "This study explores the application of retrieval-augmented generation (RAG) to improve the accuracy and reliability of large language models (LLMs) in the context of financial report analysis. The focus is on enabling private investors to make informed decisions by enhancing the question-and-answering capabilities regarding the half-yearly or quarterly financial reports of banks. The study adopts a Design Science Research (DSR) methodology to develop and evaluate an RAG system tailored for this use case. The study conducts a series of experiments to explore models in which different RAG components are used. The aim is to enhance context relevance, answer faithfulness, and answer relevance. The results indicate that model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance, s",
+        "distance": 0.6111
+      },
+      {
+        "id": "P06:abstract:2",
+        "text": "ng.",
+        "distance": 0.7827
+      }
+    ],
+    "Main Results": [
+      {
+        "id": "P06:abstract:1",
+        "text": "he results indicate that model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance, showing robust accuracy and relevance in response. Model three (MiniLM Embedder and OpenAI GPT-4) scored significantly lower, indicating the importance of high-quality components. The evaluation also revealed that well-structured reports result in better RAG performance than less coherent reports. Qualitative questions received higher scores than the quantitative ones, demonstrating the RAG’s proficiency in handling descriptive data. In conclusion, a tailored RAG can aid investors in providing accurate and contextually relevant information from financial reports, thereby enhancing decision making.",
+        "distance": 0.5056
+      },
+      {
+        "id": "P06:abstract:0",
+        "text": "This study explores the application of retrieval-augmented generation (RAG) to improve the accuracy and reliability of large language models (LLMs) in the context of financial report analysis. The focus is on enabling private investors to make informed decisions by enhancing the question-and-answering capabilities regarding the half-yearly or quarterly financial reports of banks. The study adopts a Design Science Research (DSR) methodology to develop and evaluate an RAG system tailored for this use case. The study conducts a series of experiments to explore models in which different RAG components are used. The aim is to enhance context relevance, answer faithfulness, and answer relevance. The results indicate that model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance, s",
+        "distance": 0.6868
+      },
+      {
+        "id": "P06:abstract:2",
+        "text": "ng.",
+        "distance": 0.7129
+      }
+    ],
+    "Limitations": [
+      {
+        "id": "P06:abstract:2",
+        "text": "ng.",
+        "distance": 0.6627
+      },
+      {
+        "id": "P06:abstract:1",
+        "text": "he results indicate that model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance, showing robust accuracy and relevance in response. Model three (MiniLM Embedder and OpenAI GPT-4) scored significantly lower, indicating the importance of high-quality components. The evaluation also revealed that well-structured reports result in better RAG performance than less coherent reports. Qualitative questions received higher scores than the quantitative ones, demonstrating the RAG’s proficiency in handling descriptive data. In conclusion, a tailored RAG can aid investors in providing accurate and contextually relevant information from financial reports, thereby enhancing decision making.",
+        "distance": 0.6633
+      },
+      {
+        "id": "P06:abstract:0",
+        "text": "This study explores the application of retrieval-augmented generation (RAG) to improve the accuracy and reliability of large language models (LLMs) in the context of financial report analysis. The focus is on enabling private investors to make informed decisions by enhancing the question-and-answering capabilities regarding the half-yearly or quarterly financial reports of banks. The study adopts a Design Science Research (DSR) methodology to develop and evaluate an RAG system tailored for this use case. The study conducts a series of experiments to explore models in which different RAG components are used. The aim is to enhance context relevance, answer faithfulness, and answer relevance. The results indicate that model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance, s",
+        "distance": 0.6911
+      }
+    ],
+    "Gap": [
+      {
+        "id": "P06:abstract:2",
+        "text": "ng.",
+        "distance": 0.6542
+      },
+      {
+        "id": "P06:abstract:0",
+        "text": "This study explores the application of retrieval-augmented generation (RAG) to improve the accuracy and reliability of large language models (LLMs) in the context of financial report analysis. The focus is on enabling private investors to make informed decisions by enhancing the question-and-answering capabilities regarding the half-yearly or quarterly financial reports of banks. The study adopts a Design Science Research (DSR) methodology to develop and evaluate an RAG system tailored for this use case. The study conducts a series of experiments to explore models in which different RAG components are used. The aim is to enhance context relevance, answer faithfulness, and answer relevance. The results indicate that model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance, s",
+        "distance": 0.7659
+      },
+      {
+        "id": "P06:abstract:1",
+        "text": "he results indicate that model one (OpenAI ADA and OpenAI GPT-4) achieved the highest performance, showing robust accuracy and relevance in response. Model three (MiniLM Embedder and OpenAI GPT-4) scored significantly lower, indicating the importance of high-quality components. The evaluation also revealed that well-structured reports result in better RAG performance than less coherent reports. Qualitative questions received higher scores than the quantitative ones, demonstrating the RAG’s proficiency in handling descriptive data. In conclusion, a tailored RAG can aid investors in providing accurate and contextually relevant information from financial reports, thereby enhancing decision making.",
+        "distance": 0.7857
+      }
+    ]
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "paper_id": "P16",
+  "model": "openai/gpt-oss-120b",
+  "seed": 42,
+  "usage": {
+    "completion_tokens": 1267,
+    "prompt_tokens": 3096,
+    "total_tokens": 4363,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 574,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 0.312809158,
+    "prompt_time": 0.151919444,
+    "completion_time": 2.658243528,
+    "total_time": 2.810162972
+  },
+  "raw": {
+    "Problem": {
+      "content": "Masalahnya adalah mengevaluasi output LLM pada dokumen keuangan multimodal dengan metrik yang tepat.",
+      "evidence_ids": [
+        "P16:pdf:32"
+      ],
+      "quote": "Evaluating the output of LLM frameworks remains a significant open research area."
+    },
+    "Domain & Data": {
+      "content": "Dataset terdiri dari 300 pertanyaan QA yang dibuat dari dokumen keuangan SEC seperti Form 10-K, 10-Q, 8-K, dan DEF 14A, semuanya berbahasa Inggris.",
+      "evidence_ids": [
+        "P16:pdf:25"
+      ],
+      "quote": "For our evaluation, we collected financial documents from various companies, including Form 10-Q (Quarterly Report), Form 10-K (Annual Report), Form 8-K with EX-99.1 (Current Report), and DEF 14A (Proxy Statement)."
+    },
+    "RAG Method": {
+      "content": "MultiFinRAG menggunakan ekstraksi multimodal, embedding dengan threshold kesamaan modalitas, dan strategi fallback bertingkat dari teks ke tabel/gambar, serta DPR sebagai retriever.",
+      "evidence_ids": [
+        "P16:pdf:1"
+      ],
+      "quote": "These outputs, along with narrative text, are embedded and indexed with modality-aware similarity thresholds for precise retrieval."
+    },
+    "Evaluation & Metrics": {
+      "content": "Evaluasi dilakukan secara manual karena ukuran dataset, mengukur akurasi akhir QA tanpa metrik presisi‑recall terperinci.",
+      "evidence_ids": [
+        "P16:pdf:34"
+      ],
+      "quote": "we opt for manual evaluations. This approach ensures more accurate assessments and minimizes the risk of misjudgments."
+    },
+    "Main Results": {
+      "content": "MultiFinRAG mencapai akurasi 90.4% pada pertanyaan berbasis teks, meningkat 15.1 poin persentase dibanding baseline.",
+      "evidence_ids": [
+        "P16:pdf:34"
+      ],
+      "quote": "accuracy for text-based questions using MultiFinRAG with Gemma 3 is 90.4%, representing an improvement of 15.1% compared to the Baseline framework"
+    },
+    "Limitations": {
+      "content": "Penulis menyatakan bahwa metrik retrieval detail tidak dilaporkan dan evaluasi modul masih terbuka untuk studi lanjutan.",
+      "evidence_ids": [
+        "P16:pdf:32"
+      ],
+      "quote": "Detailed information-retrieval statistics (precision, recall, etc.) for the retrieval components were collected during development but are omitted here due to space constraints"
+    },
+    "Gap": {
+      "content": "Tidak disebutkan evaluasi faithfulness atau abstention pada dokumen perbankan berbahasa Indonesia. Inferensi: Karena studi hanya menggunakan dokumen SEC berbahasa Inggris dan tidak menguji kemampuan menolak pertanyaan ketika konteks tidak ada, terdapat gap dalam evaluasi faithfulness dan abstention untuk dokumen perbankan Indonesia.",
+      "evidence_ids": [
+        "P16:pdf:31"
+      ],
+      "quote": "Questions require both text and image/table are the most challenging, as they require information from both text and images or tables."
+    }
+  },
+  "retrieved": {
+    "Problem": [
+      {
+        "id": "P16:pdf:33",
+        "text": "cies in units can arise, such as a reference answer of \"1 billion\" versus a generated answer of \"1,000 million.\" Another popular evaluation method, BERTScore [30], computes a similarity score between the generated answer and the reference answer. However, this approach is not suitable for our study. This limitation arises because many of the questions we create pertain to numerical values, making it illogical to embed numbers and compare their semantic similarities. Recently, there has been an increasing interest in evaluating GenAI results using LLMs [13, 14]. However, these studies all high- light a downside: the inherent bias of the LLMs used for the eval- uation tasks. While LLMs can be employed for evaluating large volumes of QA pairs, the size of our dataset and resource constraints ",
+        "distance": 0.6252
+      },
+      {
+        "id": "P16:pdf:32",
+        "text": "uly 31, 2023 (in dollars)?\" This requires rec- ognizing that the Non-Qualified Deferred Compensation Plan is abbreviated as \"NQDCP\" in the table, and then locating that Sasan K. Goodarzi’s NQDCP balance at the specified time was \"$11,400,690.\" 4.2 Evaluation Strategy Evaluating the output of LLM frameworks remains a significant open research area. Traditional methods that assess whether the generated answer exactly matches the reference answer are increas- ingly unsuitable for evaluating LLM results. This is because it is challenging to ensure that generated answers precisely replicate reference answers. For instance, even when most answers in our dataset are simple numeric values, discrepancies in units can arise, such as a reference answer of \"1 billion\" versus a generated answer of \"1,0",
+        "distance": 0.6863
+      },
+      {
+        "id": "P16:pdf:26",
+        "text": "nts were obtained by accessing the SEC’s EDGAR database at https://www.sec.gov/edgar/ search/ and utilizing the SEC API to download and convert the forms into PDF files. We then manually crafted questions to ensure they met our expected difficulty levels and quality standards. To ensure that the pipeline accurately comprehends the files, we developed four distinct types of questions with varying levels of difficulty. The simplest are text-based questions, followed by image- based and table-based questions. The most challenging category involves questions that require the interpretation of both text and images or tables. Details of each question type are provided below. Question Distribution - We created a total of 300 evaluation questions, distributed as follows (see Table 1): • 146 text-b",
+        "distance": 0.6987
+      }
+    ],
+    "Domain & Data": [
+      {
+        "id": "P16:pdf:48",
+        "text": "ds can generalize to other financial and regulatory documents—S-1 filings, prospectuses, and earnings-call tran- scripts. Each domain brings new layout conventions, metadata fields, and entity types that we plan to accommodate via modular extraction components. • Fine-Tuning & Domain Adaptation: Finally, we plan to fine- tune both our retrieval and generation models on proprietary, high-quality financial QA datasets, exploring supervised con- trastive training for retrieval and very-low-rank adapters (LoRA) for generator customization. • Web-Article Ingestion & Real-Time Multimodal Q&A: While MultiFinRAG is optimized for long-form PDF filings, many financial insights also reside in online news articles and blogs, which often include embedded tables and charts. We propose extending our pipe",
+        "distance": 0.4357
+      },
+      {
+        "id": "P16:abstract:0",
+        "text": "Financial documents--such as 10-Ks, 10-Qs, and investor presentations--span hundreds of pages and combine diverse modalities, including dense narrative text, structured tables, and complex figures. Answering questions over such content often requires joint reasoning across modalities, which strains traditional large language models (LLMs) and retrieval-augmented generation (RAG) pipelines due to token limitations, layout loss, and fragmented cross-modal context. We introduce MultiFinRAG, a retrieval-augmented generation framework purpose-built for financial QA. MultiFinRAG first performs multimodal extraction by grouping table and figure images into batches and sending them to a lightweight, quantized open-source multimodal LLM, which produces both structured JSON outputs and concise textu",
+        "distance": 0.4834
+      },
+      {
+        "id": "P16:pdf:46",
+        "text": "to assess usability and workflow integration. • Structured-Data Pipeline: To handle large tabular attachments (e.g. CSV/Excel) beyond our current JSON-and-summary stage, we are prototyping an ingestion-and-query system. It will nor- malize heterogeneous table formats into a lightweight database, expose a natural-language interface for precise data retrieval, and feed the resulting rows and aggregates directly into our RAG generator as structured context. • Cross-Document & Longitudinal Analysis: Many financial queries require comparisons over multiple time periods or across related filings (e.g., 10-K vs. 10-Q). Future work will: – Build a unified multi-document index supporting temporal joins and trend detection; – Develop specialized retrieval that pulls “paired” chunks (e.g., Q1 vs. Q2)",
+        "distance": 0.5028
+      }
+    ],
+    "RAG Method": [
+      {
+        "id": "P16:pdf:7",
+        "text": "ent advancements in open-source multimodal models—such as Meta’s Llama-3.2-11B- Vision-Instruct [24], Google’s Gemma [23], and DeepSeek [12]-have made it feasible to build robust, multimodal RAG pipelines without relying on proprietary tools. RAG has matured significantly from its early design as a simple retrieval-augmented QA pipeline. Modern 1 arXiv:2506.20821v1 [cs.CL] 25 Jun 2025 Chinmay Gondhalekar, Urjitkumar Patel, and Fang-Chun Yeh Figure 1: MultiFinRAG pipeline: knowledge base construc- tion from PDF text, tables, and figures frameworks have introduced dynamic retrieval strategies, smarter chunking mechanisms, and hierarchical or adaptive organization of retrieved content. Approaches like SELF-RAG [2] empower LLMs to assess and refine their own retrievals through self-reflection.",
+        "distance": 0.414
+      },
+      {
+        "id": "P16:pdf:8",
+        "text": "es like SELF-RAG [2] empower LLMs to assess and refine their own retrievals through self-reflection. T-RAG [5] orga- nizes retrieval hierarchically through tree-based entity structures, while MoG (Mix-of-Granularity) [31] and DRAGIN [22] dynamically control chunk sizes and retrieval timing based on query character- istics and generation behavior. Late Chunking [7] further enhances retrieval alignment by deferring chunk segmentation until after document embedding. Dense Passage Retrieval (DPR) [9], built on a dual-encoder ar- chitecture, remains a cornerstone in RAG systems for open-domain QA, outperforming sparse retrieval baselines. Evaluation frame- works like eRAG [19] and DPA-RAG [3] assess retrieval relevance in the context of downstream generation, while ClashEval [26] and vRAG-Eval[",
+        "distance": 0.4448
+      },
+      {
+        "id": "P16:pdf:1",
+        "text": "anguage mod- els (LLMs) and retrieval-augmented generation (RAG)[10] pipelines due to token limitations, layout loss, and fragmented cross-modal context. We introduce MultiFinRAG, a retrieval-augmented genera- tion framework purpose-built for financial QA. MultiFinRAG first performs multimodal extraction by grouping table and figure images into batches and sending them to a lightweight, quantized open- source multimodal LLM, which produces both structured JSON outputs and concise textual summaries. These outputs, along with narrative text, are embedded and indexed with modality-aware similarity thresholds for precise retrieval. A tiered fallback strat- egy then dynamically escalates from text-only to text+table+image contexts when necessary, enabling cross-modal reasoning while reducing ir",
+        "distance": 0.4813
+      }
+    ],
+    "Evaluation & Metrics": [
+      {
+        "id": "P16:pdf:25",
+        "text": " precision and coverage, ensuring text-only retrieval succeeds when possible, and gracefully falling back to richer table/image contexts when needed. 4 Evaluation Note on Retrieval Metrics. This study focuses on end-to-end QA accuracy. Detailed information-retrieval statistics (precision, recall, etc.) for the retrieval components were collected during develop- ment but are omitted here due to space constraints; we plan to report them in a follow-up paper. 4.1 Dataset For our evaluation, we collected financial documents from various companies, including Form 10-Q (Quarterly Report), Form 10-K (Annual Report), Form 8-K with EX-99.1 (Current Report), and DEF 14A (Proxy Statement). These documents were obtained by accessing the SEC’s EDGAR database at https://www.sec.gov/edgar/ search/ and ut",
+        "distance": 0.5095
+      },
+      {
+        "id": "P16:pdf:33",
+        "text": "cies in units can arise, such as a reference answer of \"1 billion\" versus a generated answer of \"1,000 million.\" Another popular evaluation method, BERTScore [30], computes a similarity score between the generated answer and the reference answer. However, this approach is not suitable for our study. This limitation arises because many of the questions we create pertain to numerical values, making it illogical to embed numbers and compare their semantic similarities. Recently, there has been an increasing interest in evaluating GenAI results using LLMs [13, 14]. However, these studies all high- light a downside: the inherent bias of the LLMs used for the eval- uation tasks. While LLMs can be employed for evaluating large volumes of QA pairs, the size of our dataset and resource constraints ",
+        "distance": 0.5356
+      },
+      {
+        "id": "P16:pdf:34",
+        "text": "employed for evaluating large volumes of QA pairs, the size of our dataset and resource constraints lead us to opt for manual evaluations. This approach ensures more accurate assessments and minimizes the risk of misjudgments. 4.3 Performance Comparison: Baselines vs. MultiFinRAG 4.3.1 Text-based Questions. When examining the accuracy for text- based questions in Table 1, two key observations emerge: Firstly, there is a significant improvement in accuracy when transitioning from the Baseline framework to MultiFinRAG. For example, the accuracy for text-based questions using MultiFinRAG with Gemma 3 is 90.4%, representing an improvement of 15.1% compared to the Baseline framework with Gemma 3 (75.3%). This increase indicates that embedding refined chunks into an IVF/PQ FAISS index, which ena",
+        "distance": 0.5862
+      }
+    ],
+    "Main Results": [
+      {
+        "id": "P16:pdf:25",
+        "text": " precision and coverage, ensuring text-only retrieval succeeds when possible, and gracefully falling back to richer table/image contexts when needed. 4 Evaluation Note on Retrieval Metrics. This study focuses on end-to-end QA accuracy. Detailed information-retrieval statistics (precision, recall, etc.) for the retrieval components were collected during develop- ment but are omitted here due to space constraints; we plan to report them in a follow-up paper. 4.1 Dataset For our evaluation, we collected financial documents from various companies, including Form 10-Q (Quarterly Report), Form 10-K (Annual Report), Form 8-K with EX-99.1 (Current Report), and DEF 14A (Proxy Statement). These documents were obtained by accessing the SEC’s EDGAR database at https://www.sec.gov/edgar/ search/ and ut",
+        "distance": 0.5863
+      },
+      {
+        "id": "P16:pdf:45",
+        "text": "arly, the results obtained from ChatGPT- 4o, used as a comparative benchmark, were achieved using its free tier, incurring no additional costs. 5 Discussion and Future Work MultiFinRAG demonstrates strong performance and efficiency in extracting insights from complex financial documents. However, several avenues remain open for future enhancements, as men- tioned below: • Module-wise evaluation: Systematic ablations (e.g., disabling batch extraction or tiered fallback) will help quantify each com- ponent’s individual impact. • User feedback scope: All 300 QA pairs were manually verified by our team of domain experts, ensuring answer correctness; future work will include broader user studies to assess usability and workflow integration. • Structured-Data Pipeline: To handle large tabular at",
+        "distance": 0.6082
+      },
+      {
+        "id": "P16:pdf:32",
+        "text": "uly 31, 2023 (in dollars)?\" This requires rec- ognizing that the Non-Qualified Deferred Compensation Plan is abbreviated as \"NQDCP\" in the table, and then locating that Sasan K. Goodarzi’s NQDCP balance at the specified time was \"$11,400,690.\" 4.2 Evaluation Strategy Evaluating the output of LLM frameworks remains a significant open research area. Traditional methods that assess whether the generated answer exactly matches the reference answer are increas- ingly unsuitable for evaluating LLM results. This is because it is challenging to ensure that generated answers precisely replicate reference answers. For instance, even when most answers in our dataset are simple numeric values, discrepancies in units can arise, such as a reference answer of \"1 billion\" versus a generated answer of \"1,0",
+        "distance": 0.649
+      }
+    ],
+    "Limitations": [
+      {
+        "id": "P16:pdf:32",
+        "text": "uly 31, 2023 (in dollars)?\" This requires rec- ognizing that the Non-Qualified Deferred Compensation Plan is abbreviated as \"NQDCP\" in the table, and then locating that Sasan K. Goodarzi’s NQDCP balance at the specified time was \"$11,400,690.\" 4.2 Evaluation Strategy Evaluating the output of LLM frameworks remains a significant open research area. Traditional methods that assess whether the generated answer exactly matches the reference answer are increas- ingly unsuitable for evaluating LLM results. This is because it is challenging to ensure that generated answers precisely replicate reference answers. For instance, even when most answers in our dataset are simple numeric values, discrepancies in units can arise, such as a reference answer of \"1 billion\" versus a generated answer of \"1,0",
+        "distance": 0.5558
+      },
+      {
+        "id": "P16:pdf:31",
+        "text": "content. 4.1.4 Questions require both text and image/table. Questions re- quire both text and image/table are the most challenging, as they require information from both text and images or tables. For ex- ample, in Figure 6, the first example is: \"What were the net sales, in millions, for the Lighting department’s product line as of April 28, 2024?\" To answer this, one must first identify that the Lighting department’s product line is \"Decor\" from the text, and then refer to the related table to find that the value for the Decor product line is \"12,344.\" Another example from Figure 6 is: \"What was Sasan K. Goodarzi’s aggregate balance in the Non-Qualified Deferred Com- pensation Plan as of July 31, 2023 (in dollars)?\" This requires rec- ognizing that the Non-Qualified Deferred Compensation",
+        "distance": 0.6593
+      },
+      {
+        "id": "P16:pdf:45",
+        "text": "arly, the results obtained from ChatGPT- 4o, used as a comparative benchmark, were achieved using its free tier, incurring no additional costs. 5 Discussion and Future Work MultiFinRAG demonstrates strong performance and efficiency in extracting insights from complex financial documents. However, several avenues remain open for future enhancements, as men- tioned below: • Module-wise evaluation: Systematic ablations (e.g., disabling batch extraction or tiered fallback) will help quantify each com- ponent’s individual impact. • User feedback scope: All 300 QA pairs were manually verified by our team of domain experts, ensuring answer correctness; future work will include broader user studies to assess usability and workflow integration. • Structured-Data Pipeline: To handle large tabular at",
+        "distance": 0.661
+      }
+    ],
+    "Gap": [
+      {
+        "id": "P16:pdf:32",
+        "text": "uly 31, 2023 (in dollars)?\" This requires rec- ognizing that the Non-Qualified Deferred Compensation Plan is abbreviated as \"NQDCP\" in the table, and then locating that Sasan K. Goodarzi’s NQDCP balance at the specified time was \"$11,400,690.\" 4.2 Evaluation Strategy Evaluating the output of LLM frameworks remains a significant open research area. Traditional methods that assess whether the generated answer exactly matches the reference answer are increas- ingly unsuitable for evaluating LLM results. This is because it is challenging to ensure that generated answers precisely replicate reference answers. For instance, even when most answers in our dataset are simple numeric values, discrepancies in units can arise, such as a reference answer of \"1 billion\" versus a generated answer of \"1,0",
+        "distance": 0.5991
+      },
+      {
+        "id": "P16:pdf:31",
+        "text": "content. 4.1.4 Questions require both text and image/table. Questions re- quire both text and image/table are the most challenging, as they require information from both text and images or tables. For ex- ample, in Figure 6, the first example is: \"What were the net sales, in millions, for the Lighting department’s product line as of April 28, 2024?\" To answer this, one must first identify that the Lighting department’s product line is \"Decor\" from the text, and then refer to the related table to find that the value for the Decor product line is \"12,344.\" Another example from Figure 6 is: \"What was Sasan K. Goodarzi’s aggregate balance in the Non-Qualified Deferred Com- pensation Plan as of July 31, 2023 (in dollars)?\" This requires rec- ognizing that the Non-Qualified Deferred Compensation",
+        "distance": 0.6307
+      },
+      {
+        "id": "P16:pdf:45",
+        "text": "arly, the results obtained from ChatGPT- 4o, used as a comparative benchmark, were achieved using its free tier, incurring no additional costs. 5 Discussion and Future Work MultiFinRAG demonstrates strong performance and efficiency in extracting insights from complex financial documents. However, several avenues remain open for future enhancements, as men- tioned below: • Module-wise evaluation: Systematic ablations (e.g., disabling batch extraction or tiered fallback) will help quantify each com- ponent’s individual impact. • User feedback scope: All 300 QA pairs were manually verified by our team of domain experts, ensuring answer correctness; future work will include broader user studies to assess usability and workflow integration. • Structured-Data Pipeline: To handle large tabular at",
+        "distance": 0.6624
+      }
+    ]
+  }
+}

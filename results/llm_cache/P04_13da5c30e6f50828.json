@@ -1,0 +1,203 @@
+{
+  "paper_id": "P04",
+  "model": "openai/gpt-oss-120b",
+  "seed": 42,
+  "usage": {
+    "completion_tokens": 1028,
+    "prompt_tokens": 2817,
+    "total_tokens": 3845,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 241,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 0.353097031,
+    "prompt_time": 0.132712403,
+    "completion_time": 2.130924488,
+    "total_time": 2.263636891
+  },
+  "raw": {
+    "Problem": {
+      "content": "Penulis menilai faktor-faktor yang memengaruhi kualitas jawaban dalam sistem RAG LLM pada domain keuangan, termasuk sensitivitas terhadap kualitas retrieval dan dampak prompt.",
+      "evidence_ids": [
+        "P04:pdf:9"
+      ],
+      "quote": "We comprehensively assess various factors that contribute to the answer generation quality in LLM RAG systems, ranging from sensitivity to retrieval quality to the impact of different prompts"
+    },
+    "Domain & Data": {
+      "content": "Studi menggunakan dua dataset RAG dari sektor perbankan: halaman web publik tentang produk perbankan dan panduan kebijakan internal, keduanya berbahasa Inggris.",
+      "evidence_ids": [
+        "P04:pdf:0",
+        "P04:pdf:1",
+        "P04:pdf:4"
+      ],
+      "quote": "Banking webpages: Public webpages with general information on banking products, and Banking policy guides: internal guides for customer service executives"
+    },
+    "RAG Method": {
+      "content": "Retriever menggunakan OpenAI Embeddings, dokumen dipotong menjadi chunk, dan generator berupa model LLM seperti GPT‑4 dan Llama‑2; variasi kualitas retrieval diuji dengan manipulasi list hasil retrieval.",
+      "evidence_ids": [
+        "P04:pdf:12",
+        "P04:pdf:29"
+      ],
+      "quote": "We sampled 800 user queries for each dataset and obtained retrieved document chunks using a retriever(OpenAI Embeddings2)"
+    },
+    "Evaluation & Metrics": {
+      "content": "Evaluasi mencakup kemampuan LLM mengikuti instruksi, kualitas jawaban, serta metrik ekstraktivitas, dengan perbandingan antar model seperti GPT‑4, GPT‑3.5‑Turbo, dan Llama‑2.",
+      "evidence_ids": [
+        "P04:pdf:7",
+        "P04:pdf:29"
+      ],
+      "quote": "Our findings reveal that generative LLMs outperform baseline models in answer quality, even on metrics emphasizing extractiveness"
+    },
+    "Main Results": {
+      "content": "Optimasi retrieval terbukti penting; peningkatan recall dan precision meningkatkan kualitas jawaban, sementara LLM cenderung memberikan jawaban meski dokumen relevan tidak ada, terutama pada model kecil.",
+      "evidence_ids": [
+        "P04:pdf:30",
+        "P04:pdf:29",
+        "P04:pdf:22"
+      ],
+      "quote": "We recommend prioritizing retrieval recall, while tuning retrieval systems, as LLMs exhibit pseudo-helpfulness when relevant gold document(s) are not retrieved"
+    },
+    "Limitations": {
+      "content": "Penulis mengakui kurangnya investigasi sistematis pada tiap komponen RAG dan bahwa studi terbatas pada data internal serta bahasa Inggris, sehingga generalisasi masih terbatas.",
+      "evidence_ids": [
+        "P04:pdf:2",
+        "P04:pdf:9",
+        "P04:pdf:4"
+      ],
+      "quote": "there is a lack of systematic investigations of the impact of each component (retriever, prompts, models) on answer generation quality"
+    },
+    "Gap": {
+      "content": "Inferensi: Meskipun menilai kualitas jawaban, studi tidak mengevaluasi abstensi (menolak menjawab) ketika konteks tidak mengandung jawaban, dan tidak menggunakan dokumen perbankan berbahasa Indonesia, sehingga belum menjawab fokus penelitian tentang faithfulness dan abstention pada dokumen bahasa Indonesia.",
+      "evidence_ids": [
+        "P04:pdf:7",
+        "P04:pdf:0"
+      ],
+      "quote": "LLMs tend to provide answers even when relevant source information is missing"
+    }
+  },
+  "retrieved": {
+    "Problem": [
+      {
+        "id": "P04:pdf:9",
+        "text": "ma-2 mod- els struggle to follow instructions. To summarize, the main contributions of the current studies are as follows: • We comprehensively assess various factors that contribute to the answer generation qual- ity in LLM RAG systems, ranging from sensi- tivity to retrieval quality to the impact of dif- ferent prompts, conducted across 6 LLMs on two datasets in the financial (banking) sector with real user queries, enabling the testing of RAG systems in realistic scenarios 1. Our eval- uations on internal data absent in the LLMs’ pre-training also represents a better estimate of real-world generalization of LLMs. • We conclude with specific recommendations for the design of RAG systems, grounded in the insights and findings derived from our em- pirical results. 2 Experiment Framework Th",
+        "distance": 0.5776
+      },
+      {
+        "id": "P04:pdf:2",
+        "text": "on et al., 2023) to address users’ ques- tions/queries in diverse domains (medical ques- tions, math problems, code assistants etc). De- spite LLMs acquiring immense parametric world knowledge during the pre-training, when adapting to real-world applications, their lack of customized domain-specific knowledge or knowledge of recent events (Kandpal et al., 2023; Sun et al., 2023), fre- quently results in outdated responses or baseless responses not grounded in the user’s domain of interest, also termed hallucinations (Bang et al., 2023; Rawte et al., 2023; Li et al., 2023). Halluci- nations contribute to a lack of trust with users, and this unreliability is one of the biggest hindrances in the responsible deployment of LLM based systems for critical business applications in the financial do",
+        "distance": 0.5873
+      },
+      {
+        "id": "P04:pdf:10",
+        "text": "rounded in the insights and findings derived from our em- pirical results. 2 Experiment Framework This section introduces the design of the evaluation framework (see Figure 1). To summarize, we ran 1620 experiments to assess 6 LLMs in 15 retrieval conditions using 9 prompts over 2 datasets for 2 performance aspects. 2.1 Evaluation Dataset Construction In our experiments, we developed two RAG datasets from queries against two corpora: (1) Banking webpages: Public webpages with general information on banking products, and (2) Banking policy guides: internal guides for customer ser- vice executives detailing policies and protocols for customer assistance. For both the corpora, we had associated questions, which were either generated by the actual users and gathered from production system logs",
+        "distance": 0.5982
+      }
+    ],
+    "Domain & Data": [
+      {
+        "id": "P04:pdf:1",
+        "text": "ate and domain-specific knowledge. However, there is a lack of system- atic investigations of the impact of each com- ponent (retrieval pipeline, prompts, generation models) on the generation quality of a RAG pipeline in real world scenarios. In this study, we benchmark 6 LLMs in 15 retrieval scenarios, exploring 9 prompts over 2 real world financial domain datasets. We thoroughly discuss the impact of each component in RAG pipeline on answer generation quality and formulate spe- cific recommendations for the design of RAG systems. 1 Introduction Recent years have seen tremendous improvement in the ability of large language models (LLM) such as GPT-4 (OpenAI et al., 2023) and Llama- 2 (Touvron et al., 2023) to address users’ ques- tions/queries in diverse domains (medical ques- tions, math",
+        "distance": 0.4878
+      },
+      {
+        "id": "P04:pdf:0",
+        "text": "Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 6: Industry Track), pages 279–294 June 16-21, 2024 ©2024 Association for Computational Linguistics Optimizing LLM Based Retrieval Augmented Generation Pipelines in the Financial Domain Yiyun Zhao1¶, Hanoz Bhathena1¶, Prateek Singh1¶, Saket Sharma1¶, Bernardo Ramos¶, Aviral Joshi¶, Swaroop Gadiyaram¶ ¶Machine Learning Center of Excellence, JPMorgan Chase & Co. hanoz.bhathena@jpmchase.com Abstract Retrieval Augmented Generation (RAG) is a prominent approach in real-word applications for grounding large language model (LLM) generations in up-to-date and domain-specific knowledge. However, there is a lack of system- atic investigations of the im",
+        "distance": 0.5517
+      },
+      {
+        "id": "P04:pdf:4",
+        "text": "xt of the LLM, with users’ query / conversation history, and specific in- structions / prompts on how to generate a response \"grounded\" in retrieved information (Generation). While there is growing number of proposals (Jiang et al., 2023; Siriwardhana et al., 2023) to improve RAG systems (see the survey from Gao et al. (2023)), very few studies (Chen et al., 2023b) systematically investigate the impact of each com- ponent (retriever, prompts, models) on answer gen- eration quality and interactions among these vari- ous components. Our goal of this paper is to eval- uate the efficacy and limits of RAG pipelines for Question Answering (Q&A) systems in the highly specialized financial domain. In this study, we benchmark LLMs’ answer gen- eration quality and explore the following aspects: (i) ",
+        "distance": 0.5782
+      }
+    ],
+    "RAG Method": [
+      {
+        "id": "P04:pdf:1",
+        "text": "ate and domain-specific knowledge. However, there is a lack of system- atic investigations of the impact of each com- ponent (retrieval pipeline, prompts, generation models) on the generation quality of a RAG pipeline in real world scenarios. In this study, we benchmark 6 LLMs in 15 retrieval scenarios, exploring 9 prompts over 2 real world financial domain datasets. We thoroughly discuss the impact of each component in RAG pipeline on answer generation quality and formulate spe- cific recommendations for the design of RAG systems. 1 Introduction Recent years have seen tremendous improvement in the ability of large language models (LLM) such as GPT-4 (OpenAI et al., 2023) and Llama- 2 (Touvron et al., 2023) to address users’ ques- tions/queries in diverse domains (medical ques- tions, math",
+        "distance": 0.4639
+      },
+      {
+        "id": "P04:pdf:12",
+        "text": "iewers to (i) assign a binary relevance label to every chunk and (ii) label an answer span within the chunk, served as reference answer. 2.2 Simulated Scenarios of Different Retrieval Quality The success of highly-customized RAG applica- tions hinges on the quality of the retriever compo- nent. Understanding how LLMs are affected by retrieved documents is vital for developing effec- tive enhancement strategies and further research in RAG systems. We tackle this by designing different test sets. We sampled 800 user queries for each dataset and obtained retrieved document chunks using a re- triever(OpenAI Embeddings2). We then manipu- late the retrieved list to mimic retrievers of different qualities to address scenarios listed below. Q1. How does absence of retrieved \"gold\" docu- ment influ",
+        "distance": 0.529
+      },
+      {
+        "id": "P04:pdf:29",
+        "text": "elevance to the question, thereby, cheating the metric. This can also be observed by comparing the completion to reference ratio (Figure 5): A high value of 2.9 and 3 indicates that Llama2 base models repeat up to 3 times of the expected completion. 4 Conclusion We conducted thorough investigation of the influ- ence of several components of a RAG pipeline on the overall generation quality. Based on our find- ings, we find retrieval optimization is an important part of the RAG pipeline design, even with high quality LLMs like GPT-4. Firstly, we recommend prioritizing retrieval recall, while tuning retrieval systems, as LLMs exhibit pseudo-helpfulness when relevant gold document(s) are not retrieved. Ad- ditionally, improving precision of retrieval, either by using re-rankers or fine-tuned r",
+        "distance": 0.5409
+      }
+    ],
+    "Evaluation & Metrics": [
+      {
+        "id": "P04:pdf:7",
+        "text": "tion quality, we also evaluate LLMs’ ability to adhere to in- structions on aspects such as answer style, citation output format etc. Our findings reveal that generative LLMs out- perform baseline models in answer quality, even on metrics emphasizing extractiveness which could ideally have given extractive models an advantage. As expected, GPT-4 demonstrates superior perfor- mance over GPT-3.5-Turbo, which in turn outper- forms the LLama-2 models. We observed that the generation quality is highly influenced by the qual- ity of retrieval: LLMs tend to provide answers even when relevant source information is miss- ing, a form of pseudo-helpfulness varying from responding with content present in the context that is somewhat related but not addressing the user question, to hallucinations. The ",
+        "distance": 0.455
+      },
+      {
+        "id": "P04:pdf:2",
+        "text": "on et al., 2023) to address users’ ques- tions/queries in diverse domains (medical ques- tions, math problems, code assistants etc). De- spite LLMs acquiring immense parametric world knowledge during the pre-training, when adapting to real-world applications, their lack of customized domain-specific knowledge or knowledge of recent events (Kandpal et al., 2023; Sun et al., 2023), fre- quently results in outdated responses or baseless responses not grounded in the user’s domain of interest, also termed hallucinations (Bang et al., 2023; Rawte et al., 2023; Li et al., 2023). Halluci- nations contribute to a lack of trust with users, and this unreliability is one of the biggest hindrances in the responsible deployment of LLM based systems for critical business applications in the financial do",
+        "distance": 0.5113
+      },
+      {
+        "id": "P04:pdf:29",
+        "text": "elevance to the question, thereby, cheating the metric. This can also be observed by comparing the completion to reference ratio (Figure 5): A high value of 2.9 and 3 indicates that Llama2 base models repeat up to 3 times of the expected completion. 4 Conclusion We conducted thorough investigation of the influ- ence of several components of a RAG pipeline on the overall generation quality. Based on our find- ings, we find retrieval optimization is an important part of the RAG pipeline design, even with high quality LLMs like GPT-4. Firstly, we recommend prioritizing retrieval recall, while tuning retrieval systems, as LLMs exhibit pseudo-helpfulness when relevant gold document(s) are not retrieved. Ad- ditionally, improving precision of retrieval, either by using re-rankers or fine-tuned r",
+        "distance": 0.5377
+      }
+    ],
+    "Main Results": [
+      {
+        "id": "P04:pdf:30",
+        "text": "rieved. Ad- ditionally, improving precision of retrieval, either by using re-rankers or fine-tuned retrievers, will likely improve performance as they improve the gold document(s) rank in the retrieved list. We also find RAG systems to be sensitive to the presence of distractors in the context. We find a big delta between vendor LLMs (OpenAI) and smaller scale open-source alternatives in our experiments, with respect to sensitivity to prompting, overall quality, and instruction following on a domain specific use cases. Finally, for smaller-sized LLama-2 models we recommend simple instructions as they often fail to follow longer or more complicated instruc- tions. Ethics Statement All the work done and discussed in this paper meets and upholds the ACL Code of Ethics. User data wherever used",
+        "distance": 0.5584
+      },
+      {
+        "id": "P04:pdf:29",
+        "text": "elevance to the question, thereby, cheating the metric. This can also be observed by comparing the completion to reference ratio (Figure 5): A high value of 2.9 and 3 indicates that Llama2 base models repeat up to 3 times of the expected completion. 4 Conclusion We conducted thorough investigation of the influ- ence of several components of a RAG pipeline on the overall generation quality. Based on our find- ings, we find retrieval optimization is an important part of the RAG pipeline design, even with high quality LLMs like GPT-4. Firstly, we recommend prioritizing retrieval recall, while tuning retrieval systems, as LLMs exhibit pseudo-helpfulness when relevant gold document(s) are not retrieved. Ad- ditionally, improving precision of retrieval, either by using re-rankers or fine-tuned r",
+        "distance": 0.5872
+      },
+      {
+        "id": "P04:pdf:22",
+        "text": "0). If the number of retrieved documents is irrelevant to answer generation quality for a model, we would expect the models’ performance to not vary across different top-k scenarios. From Figure 2, we observe across models the influence of top- K varies between Retriever-Only Conditions and Retriever-W-GT-X Conditions . • For Retriever-W-GT-X Conditions , models’ performance tends to decline when the num- ber of retrieved documents increases: TOP- K-3 > TOP-K-5 > TOP-K-20. This decline is less pronounced when the gold document appears near the top of the retrieved list for GPT-4 and GPT-3.5-turbo. This indicates that models are in general sensitive to noisy docu- ments in the retrieved list but GPT models are less distracted if the good document is placed in the top position. • For Retriev",
+        "distance": 0.616
+      }
+    ],
+    "Limitations": [
+      {
+        "id": "P04:pdf:2",
+        "text": "on et al., 2023) to address users’ ques- tions/queries in diverse domains (medical ques- tions, math problems, code assistants etc). De- spite LLMs acquiring immense parametric world knowledge during the pre-training, when adapting to real-world applications, their lack of customized domain-specific knowledge or knowledge of recent events (Kandpal et al., 2023; Sun et al., 2023), fre- quently results in outdated responses or baseless responses not grounded in the user’s domain of interest, also termed hallucinations (Bang et al., 2023; Rawte et al., 2023; Li et al., 2023). Halluci- nations contribute to a lack of trust with users, and this unreliability is one of the biggest hindrances in the responsible deployment of LLM based systems for critical business applications in the financial do",
+        "distance": 0.5248
+      },
+      {
+        "id": "P04:pdf:9",
+        "text": "ma-2 mod- els struggle to follow instructions. To summarize, the main contributions of the current studies are as follows: • We comprehensively assess various factors that contribute to the answer generation qual- ity in LLM RAG systems, ranging from sensi- tivity to retrieval quality to the impact of dif- ferent prompts, conducted across 6 LLMs on two datasets in the financial (banking) sector with real user queries, enabling the testing of RAG systems in realistic scenarios 1. Our eval- uations on internal data absent in the LLMs’ pre-training also represents a better estimate of real-world generalization of LLMs. • We conclude with specific recommendations for the design of RAG systems, grounded in the insights and findings derived from our em- pirical results. 2 Experiment Framework Th",
+        "distance": 0.574
+      },
+      {
+        "id": "P04:pdf:4",
+        "text": "xt of the LLM, with users’ query / conversation history, and specific in- structions / prompts on how to generate a response \"grounded\" in retrieved information (Generation). While there is growing number of proposals (Jiang et al., 2023; Siriwardhana et al., 2023) to improve RAG systems (see the survey from Gao et al. (2023)), very few studies (Chen et al., 2023b) systematically investigate the impact of each com- ponent (retriever, prompts, models) on answer gen- eration quality and interactions among these vari- ous components. Our goal of this paper is to eval- uate the efficacy and limits of RAG pipelines for Question Answering (Q&A) systems in the highly specialized financial domain. In this study, we benchmark LLMs’ answer gen- eration quality and explore the following aspects: (i) ",
+        "distance": 0.6075
+      }
+    ],
+    "Gap": [
+      {
+        "id": "P04:pdf:2",
+        "text": "on et al., 2023) to address users’ ques- tions/queries in diverse domains (medical ques- tions, math problems, code assistants etc). De- spite LLMs acquiring immense parametric world knowledge during the pre-training, when adapting to real-world applications, their lack of customized domain-specific knowledge or knowledge of recent events (Kandpal et al., 2023; Sun et al., 2023), fre- quently results in outdated responses or baseless responses not grounded in the user’s domain of interest, also termed hallucinations (Bang et al., 2023; Rawte et al., 2023; Li et al., 2023). Halluci- nations contribute to a lack of trust with users, and this unreliability is one of the biggest hindrances in the responsible deployment of LLM based systems for critical business applications in the financial do",
+        "distance": 0.4932
+      },
+      {
+        "id": "P04:pdf:4",
+        "text": "xt of the LLM, with users’ query / conversation history, and specific in- structions / prompts on how to generate a response \"grounded\" in retrieved information (Generation). While there is growing number of proposals (Jiang et al., 2023; Siriwardhana et al., 2023) to improve RAG systems (see the survey from Gao et al. (2023)), very few studies (Chen et al., 2023b) systematically investigate the impact of each com- ponent (retriever, prompts, models) on answer gen- eration quality and interactions among these vari- ous components. Our goal of this paper is to eval- uate the efficacy and limits of RAG pipelines for Question Answering (Q&A) systems in the highly specialized financial domain. In this study, we benchmark LLMs’ answer gen- eration quality and explore the following aspects: (i) ",
+        "distance": 0.615
+      },
+      {
+        "id": "P04:pdf:0",
+        "text": "Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 6: Industry Track), pages 279–294 June 16-21, 2024 ©2024 Association for Computational Linguistics Optimizing LLM Based Retrieval Augmented Generation Pipelines in the Financial Domain Yiyun Zhao1¶, Hanoz Bhathena1¶, Prateek Singh1¶, Saket Sharma1¶, Bernardo Ramos¶, Aviral Joshi¶, Swaroop Gadiyaram¶ ¶Machine Learning Center of Excellence, JPMorgan Chase & Co. hanoz.bhathena@jpmchase.com Abstract Retrieval Augmented Generation (RAG) is a prominent approach in real-word applications for grounding large language model (LLM) generations in up-to-date and domain-specific knowledge. However, there is a lack of system- atic investigations of the im",
+        "distance": 0.6197
+      }
+    ]
+  }
+}

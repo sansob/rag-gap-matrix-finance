@@ -1,0 +1,12 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Downloaded and derived data (rebuilt by the pipeline)
+data/cache/
+data/chroma/
+results/llm_cache/*_prompt.txt

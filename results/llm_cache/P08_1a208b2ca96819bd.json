@@ -1,0 +1,208 @@
+{
+  "paper_id": "P08",
+  "model": "openai/gpt-oss-120b",
+  "seed": 42,
+  "usage": {
+    "completion_tokens": 1201,
+    "prompt_tokens": 3819,
+    "total_tokens": 5020,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 291,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 0.213162071,
+    "prompt_time": 0.21813471,
+    "completion_time": 2.497243063,
+    "total_time": 2.715377773
+  },
+  "raw": {
+    "Problem": {
+      "content": "Paper mengidentifikasi kebutuhan akan kerangka evaluasi yang memperhitungkan heterogenitas dokumen, tipe pertanyaan, dan kedalaman penalaran dalam sistem RAG pada domain keuangan.",
+      "evidence_ids": [
+        "P08:pdf:12",
+        "P08:pdf:8",
+        "P08:pdf:11"
+      ],
+      "quote": "These insights emphasize the importance of benchmarks that capture real-world document heterogeneity while enabling multifaceted evaluations aligned with the strengths and trade-offs of both models and methodologies."
+    },
+    "Domain & Data": {
+      "content": "Benchmark FinDoc-RAG mencakup 600+ pasangan QA dari 46 dokumen keuangan berbahasa Inggris, termasuk deskripsi produk, panduan investasi, kebijakan hukum, dan materi pemasaran dengan konten numerik padat.",
+      "evidence_ids": [
+        "P08:pdf:5",
+        "P08:pdf:7",
+        "P08:pdf:4"
+      ],
+      "quote": "FinDoc-RAG comprises 600+ QA pairs extracted from 46 documents in English from UBS AG and other UBS entities."
+    },
+    "RAG Method": {
+      "content": "Arsitektur yang dievaluasi meliputi Vector-RAG berbasis indeks vektor dense, tanpa fine‑tuning, dengan konfigurasi default serta alur lengkap retrieval‑to‑answer tanpa intervensi manusia.",
+      "evidence_ids": [
+        "P08:pdf:50",
+        "P08:pdf:27",
+        "P08:pdf:25"
+      ],
+      "quote": "Vector-based (Vector-RAG) ... using cosine as the similarity metric."
+    },
+    "Evaluation & Metrics": {
+      "content": "Evaluasi mencakup akurasi rata‑rata, LLMLogScore (L3Score) berbasis log‑likelihood, serta penilaian biner CORRECT/INCORRECT oleh LLM judge pada tiga run independen.",
+      "evidence_ids": [
+        "P08:pdf:22",
+        "P08:pdf:36",
+        "P08:pdf:35"
+      ],
+      "quote": "We computed accuracy as the mean proportion of CORRECT responses per question ... adopt the LLMLogScore (L3Score) metric."
+    },
+    "Main Results": {
+      "content": "Sistem teratas mencapai akurasi 0.91 pada ekstraksi faktual, namun hanya 0.44 pada sintesis multi‑dokumen; RAPTOR memperoleh skor rata‑rata 0.66 (σ=0.17), sementara GFM‑RAG mencapai akurasi sempurna 1.00 pada level L3.",
+      "evidence_ids": [
+        "P08:pdf:12",
+        "P08:pdf:26",
+        "P08:pdf:40"
+      ],
+      "quote": "leading systems achieve 0.91 accuracy in factual extraction but only 0.44 on multi-document synthesis tasks."
+    },
+    "Limitations": {
+      "content": "Penulis mencatat keterbatasan LLM dalam penalaran kuantitatif, cakupan dokumen yang hanya sebagian dari keseluruhan domain, serta metrik yang belum sepenuhnya menangkap semua dimensi kualitas jawaban.",
+      "evidence_ids": [
+        "P08:pdf:2",
+        "P08:pdf:49",
+        "P08:pdf:6"
+      ],
+      "quote": "Current LLMs show limitations in quantitative reasoning and cross-document synthesis essential for financial applications."
+    },
+    "Gap": {
+      "content": "Tidak ada evaluasi faithfulness atau mekanisme abstention pada dokumen perbankan berbahasa Indonesia; fokus benchmark hanya pada dokumen berbahasa Inggris dan tidak menguji penolakan jawaban ketika konteks tidak memadai. Inferensi: Penelitian selanjutnya perlu menambah bahasa Indonesia serta mengukur kemampuan sistem menolak menjawab pertanyaan di luar cakupan konteks.",
+      "evidence_ids": [
+        "P08:pdf:49",
+        "P08:pdf:14",
+        "P08:pdf:35"
+      ],
+      "quote": "Finally, our metrics comparison reveals challenges in accurately measuring RAG system performance, suggesting that even our multifaceted evaluation approach may not capture all dimensions of answer quality relevant to financial domain experts."
+    }
+  },
+  "retrieved": {
+    "Problem": [
+      {
+        "id": "P08:pdf:12",
+        "text": "al., 2024b). However, recent findings indicate that no single approach consistently outperforms others across all task types. The LaRA benchmark (Li et al., 2025), for example, demonstrates that both RAG and long-context methods succeed in different sce- 125 narios, highlighting the need for nuanced, task- aware evaluation frameworks that account for doc- ument complexity, question type, and reasoning depth. These insights emphasize the importance of benchmarks that capture real-world document het- erogeneity while enabling multifaceted evaluations aligned with the strengths and trade-offs of both models and methodologies. 3 FinDoc-RAG Benchmark FinDoc-RAG comprises 600+ QA pairs extracted from 46 documents in English from UBS AG and other UBS entities. Documents span four categories: prod",
+        "distance": 0.5744
+      },
+      {
+        "id": "P08:pdf:8",
+        "text": "ess in RAG-based approaches. 2.1 Domain-Specific and Heterogeneous QA Benchmarks General-purpose benchmarks such as Natural Ques- tions (Kwiatkowski et al., 2019) evaluate QA over real-world queries and Wikipedia passages. Domain-specific datasets target deeper comprehen- sion in specialized settings. For instance, Qasper (Dasigi et al., 2021) covers academic articles in NLP, SPIQA (Pramanick et al., 2024) addresses reasoning over complex figures and tables, and datasets such as MedRGB (Ngo et al., 2024) and LegalBench-RAG (Pipitone and Alami, 2024) fo- cus on medical and legal domains, respectively. Recent efforts have extended QA evaluation to longer and more complex contexts. HOTPOTQA (Yang et al., 2018) and MultiHop-RAG (Tang and Yang, 2024) test multihop reasoning, while QuAL- ITY (Pa",
+        "distance": 0.6056
+      },
+      {
+        "id": "P08:pdf:11",
+        "text": "ion strategies fall into two categories: model-centric, which assess the performance of different LLMs, and method-centric, which com- pare paradigms such as extractive, abstractive, or RAG. While early QA benchmarks focused primar- ily on comparing model performance, recent ef- forts have shifted toward approach-specific evalua- tions, particularly in the context of RAG. Despite the strong general QA capabilities of state-of-the- art LLMs such as GPT-4, studies show persistent limitations in multistep reasoning and numerical understanding (Rasool et al., 2024). In contrast, RAG-based methods demonstrate improved factual grounding and reduced hallucination in domain- specific tasks (Chen et al., 2024b). However, recent findings indicate that no single approach consistently outperforms othe",
+        "distance": 0.6069
+      }
+    ],
+    "Domain & Data": [
+      {
+        "id": "P08:pdf:5",
+        "text": "merical content and regulatory references. The questions span nine complexity levels (L0-L8) that target factual extraction, quantitative reason- ing, and multi-document synthesis. Evaluation of five RAG architectures –vector-based indexing, graph-enhanced RAG, hierarchical summary-style retrieval (e.g., Raptor 4.2), and Knowledge Graph (KG)– reveals systematic performance gaps: lead- ing systems achieve 0.91 accuracy in factual ex- traction but only 0.44 on multi-document synthesis tasks. Contributions: 1. We present FinDoc-RAG, a RAG-focused question-answer benchmark over heteroge- neous financial documents. It comprises 124 Proceedings of The 10th Workshop on Financial Technology and Natural Language. EMNLP-2025, Suzhou, China nine task levels, each associated with a predefined difficul",
+        "distance": 0.4227
+      },
+      {
+        "id": "P08:pdf:7",
+        "text": "hmark enables systematic evaluation of financial RAG systems and provides deployment readiness assessment for different task types. 2 Related Work By retrieving relevant passages from external doc- ument collections prior to generation, RAG sys- tems improve factual grounding, enhance domain- specific accuracy, and support local deployment with preserved data privacy. This architecture is especially promising in specialized domains like finance, where even state-of-the-art LLMs struggle, when used in isolation, with quantitative reasoning, factual consistency, and multi-document synthesis (Rasool et al., 2024). The creation of information-seeking QA datasets has been pivotal in driving progress in RAG-based approaches. 2.1 Domain-Specific and Heterogeneous QA Benchmarks General-purpose ben",
+        "distance": 0.4358
+      },
+      {
+        "id": "P08:pdf:4",
+        "text": ", or single-domain sources (Pipitone and Alami, 2024, Ngo et al., 2024), and therefore fail to capture the heterogeneous nature of financial document collections. While finan- cial QA benchmarks often focus on narrow regu- latory domains, they neglect the broader spectrum of client-facing content. Moreover, no benchmark systematically evaluates the intersection of finan- cial materials and the diverse types of tasks critical for the deployment of RAG. We introduce FinDoc-RAG, a QA benchmark comprising 600+ QA pairs from 46 documents in English from UBS AG and other UBS entities. Doc- uments include product descriptions, investment guides, legal policies, and marketing materials with dense numerical content and regulatory references. The questions span nine complexity levels (L0-L8) that ta",
+        "distance": 0.4452
+      }
+    ],
+    "RAG Method": [
+      {
+        "id": "P08:pdf:50",
+        "text": "te that our evaluation focuses on RAG architectures, which currently represent the most prevalent and practical approach for in- corporating external knowledge into LLM-based question answering. This is due to their ability to maintain data locality and provide retrieval trans- parency - critical requirements in regulated finan- cial environments. In contrast, long-context LLMs face significant deployment challenges in financial institutions, including prohibitive high computa- tional costs for inference over a large document collections and challenges in explaining retrieval decisions. Acknowledgements This work has been supported by UBS Switzerland AG and its affiliates.",
+        "distance": 0.483
+      },
+      {
+        "id": "P08:pdf:27",
+        "text": "omplete a document-to-answer workflow without human intervention in retrieval decisions. 4.2 Selected RAG Architectures Vector-based (Vector-RAG) This baseline method is based on an index of dense vector representations. It starts by encoding documents into high-dimensional embeddings using a neural encoder model. These document vectors are stored in a vector index that supports efficient similarity search. When a query is submitted, it is encoded using the same model, and the system retrieves documents with embeddings most similar to the query vector, in this case using cosine as the similarity metric. During retrieval, the system ranks documents based on their vector similarity scores to determine relevance. By leveraging the semantic representativeness of dynamic embeddings produced by ",
+        "distance": 0.4841
+      },
+      {
+        "id": "P08:pdf:25",
+        "text": "included in the FinDoc-RAG benchmark. The set of questions comprises questions spanning the nine complexity levels (L0–L8) defined in the benchmark. Each architecture under evaluation (detailed in 4.2) processes the full set of questions in a zero- shot setting. The retriever has access to all 46 documents and selects the subset of documents that it considers relevant to answer the input query. The retrieved documents, along with the query, are then passed to the generator component, which produces the answer. All systems utilize default configurations without fine-tuning, hyperparame- ter optimization, or preprocessing customization (e.g., chunking, enrichment, propositionalization) to provide baseline performance assessment repre- sentative of out-of-the-box deployment scenarios. The gen",
+        "distance": 0.4956
+      }
+    ],
+    "Evaluation & Metrics": [
+      {
+        "id": "P08:pdf:22",
+        "text": " ∼5). Details can be found in Appendix C.2, Figure 9. 3.3 Quality Validation Human validation at all levels reveals correctness rates above 80% for most levels, with L3 and L7 achieving 95% correctness. Ambiguity ranges from 0% (L1, L8) to 50% (L3), with most levels main- taining low-to-moderate ambiguity (see Figure 1 and Appendix C.2). The validation process assessed maximum 50 randomly sampled questions per level using two annotators with financial domain expertise 1. Addi- tionally, QA pairs were deduplicated and reviewed by a domain expert to remove those that appeared incorrect based on domain expertise, without for- mal fact-checking. For all levels, the financial ex- perts performed internal validation of the QA pairs to filter out the suprious pairs. 4 Evaluating Financial RAG Sys",
+        "distance": 0.4826
+      },
+      {
+        "id": "P08:pdf:36",
+        "text": "ficant omissions, or distortions of the core meaning. Each question was evaluated by the LLM judge across 3 independent runs. We com- puted accuracy as the mean proportion of COR- RECT responses per question (ranging from 0 to 1), then averaged across all questions per system. To capture a more fine-grained measure of an- swer quality, we finally adopt the LLMLogScore (L3Score) metric introduced by Pramanick et al. (2024). This approach leverages the log-likelihood probabilities generated by an LLM when prompted to evaluate semantic similarity between a candidate answer and the ground truth. By comparing the model’s predicted probabilities of “yes” and “no” 129 responses, L3Score computes a continuous similar- ity score normalized between 0 and 1, enabling a more sensitive and graded evalu",
+        "distance": 0.4872
+      },
+      {
+        "id": "P08:pdf:35",
+        "text": "he question. The LLM is prompted to determine whether the candidate’s answer accu- rately preserves the meaning of the ground truth. To improve reliability and better reflect the model’s confidence, we frame the evaluation as a factual cor- rectness task with a binary classification—labeling answers as either CORRECT or INCORRECT. The LLM provides a brief explanation for its judgment while applying semantic flexibility for minor phras- ing differences that preserve core meaning, toler- ating reasonable omissions that do not introduce ambiguity, and ignoring stylistic differences un- less they impact clarity. The answers are marked INCORRECT if they contain factual errors, false claims, significant omissions, or distortions of the core meaning. Each question was evaluated by the LLM judge a",
+        "distance": 0.5238
+      }
+    ],
+    "Main Results": [
+      {
+        "id": "P08:pdf:12",
+        "text": "al., 2024b). However, recent findings indicate that no single approach consistently outperforms others across all task types. The LaRA benchmark (Li et al., 2025), for example, demonstrates that both RAG and long-context methods succeed in different sce- 125 narios, highlighting the need for nuanced, task- aware evaluation frameworks that account for doc- ument complexity, question type, and reasoning depth. These insights emphasize the importance of benchmarks that capture real-world document het- erogeneity while enabling multifaceted evaluations aligned with the strengths and trade-offs of both models and methodologies. 3 FinDoc-RAG Benchmark FinDoc-RAG comprises 600+ QA pairs extracted from 46 documents in English from UBS AG and other UBS entities. Documents span four categories: prod",
+        "distance": 0.5252
+      },
+      {
+        "id": "P08:pdf:26",
+        "text": "ide baseline performance assessment repre- sentative of out-of-the-box deployment scenarios. The generated answers are evaluated against the expected answers provided in FinDoc-RAG. Multi- ple evaluation metrics are used to assess different aspects of system performance (see Section 4.3). Our assessment evaluates end-to-end RAG system performance, rather than isolated retrieval or gen- erator components. The systems handle document selection from the collection and passage identifi- cation within selected documents as integrated pro- cesses, with the final answer generation completing the pipeline. This holistic evaluation reflects real- world deployment scenarios in which RAG systems must complete a document-to-answer workflow without human intervention in retrieval decisions. 4.2 Selecte",
+        "distance": 0.5531
+      },
+      {
+        "id": "P08:pdf:40",
+        "text": "onsis- tent mid-to-high performance across all complex- ity levels, achieving the second-highest scores on L3 (0.92) and maintaining stability across diverse question types. With the highest average score across levels (0.66) with low standard deviation (σ = 0.17), RAPTOR is a robust general purpose approach. GraphRAG demonstrates mixed perfor- mance patterns: strong capability on basic tasks (L1: 0.742) but severe degradation on complex synthesis (L7-L8: 0.14-0.16), which suggests ar- chitectural limitations in multi-document reason- ing. GFM-RAG is one of the strongest performers, achieving perfect accuracy on L3 (1.00) and lead- ing performance on L6 (0.74), demonstrating good capabilities for multi-document reasoning tasks. System Selection Guidance For basic document extraction, all s",
+        "distance": 0.5655
+      }
+    ],
+    "Limitations": [
+      {
+        "id": "P08:pdf:2",
+        "text": "- plexities in the financial services sector and position FinDoc-RAG as a benchmark for mea- suring progress in this area. 1 Introduction Financial institutions process thousands of docu- ments that require human interpretation for client advisory tasks, regulatory compliance, and prod- uct inquiries. Large Language Models (LLMs) of- fer automation potential but face deployment chal- lenges such as regulatory constraints that prevent external data transfer and operational complexity challenges, such as documents that combine textual content with numerical data, complex layouts, and requirements. Current LLMs show limitations in quantitative reasoning and cross-document synthe- sis essential for financial applications. Retrieval- Augmented Generation (RAG) addresses privacy constraints whil",
+        "distance": 0.5575
+      },
+      {
+        "id": "P08:pdf:49",
+        "text": "ically generated questions may oc- casionally lack the depth that human-crafted ques- tions might offer. Despite our manual validation showing high correctness rates, there remains in- herent variability in the LLM output that could affect the quality of the question. Second, while our collection of documents spans multiple types of financial documents, it still represents a subset of the vast landscape of financial documentation. Finally, our metrics comparison reveals challenges in accurately measuring RAG system performance, suggesting that even our multifaceted evaluation approach may not capture all dimensions of answer quality relevant to financial domain experts. It is important to note that our evaluation focuses on RAG architectures, which currently represent the most prevalent an",
+        "distance": 0.5631
+      },
+      {
+        "id": "P08:pdf:6",
+        "text": "ral Language. EMNLP-2025, Suzhou, China nine task levels, each associated with a predefined difficulty ranging from single- document extraction to multi-document synthesis. The data are published at https: //gitlab-core.supsi.ch/dti-idsia/ ai-finance-papers/findoc-rag. 2. We evaluate four representative RAG architec- tures, demonstrating their individual strengths and weaknesses. The dataset is released to foster research and compare RAG systems in the financial domain. Our analysis identifies specific failure modes in current RAG approaches, with quantitative rea- soning showing high performance variability and multi-document synthesis proving most challeng- ing across all systems. The benchmark enables systematic evaluation of financial RAG systems and provides deployment readiness asses",
+        "distance": 0.5808
+      }
+    ],
+    "Gap": [
+      {
+        "id": "P08:pdf:49",
+        "text": "ically generated questions may oc- casionally lack the depth that human-crafted ques- tions might offer. Despite our manual validation showing high correctness rates, there remains in- herent variability in the LLM output that could affect the quality of the question. Second, while our collection of documents spans multiple types of financial documents, it still represents a subset of the vast landscape of financial documentation. Finally, our metrics comparison reveals challenges in accurately measuring RAG system performance, suggesting that even our multifaceted evaluation approach may not capture all dimensions of answer quality relevant to financial domain experts. It is important to note that our evaluation focuses on RAG architectures, which currently represent the most prevalent an",
+        "distance": 0.6128
+      },
+      {
+        "id": "P08:pdf:14",
+        "text": "specific constraints on document scope, quote requirements, and reasoning complexity based on our initial de- sign expectations (see Table 1). However, empirical results reveal that expected difficulty progression does not always align with actual model perfor- mance. Question generation is carried out using two methodological approaches: raw document con- tent and clustered document summaries. Raw doc- ument approaches (L0-L4) generate questions di- rectly from the original text, enabling extraction and role-based query formulations. For the other levels, the cluster-based approach first creates doc- ument summaries, embed them semantically, and clusters related content using Gaussian Mixture Models. The optimal number of clusters is selected using the Bayesian Information Criterion. The ",
+        "distance": 0.6239
+      },
+      {
+        "id": "P08:pdf:35",
+        "text": "he question. The LLM is prompted to determine whether the candidate’s answer accu- rately preserves the meaning of the ground truth. To improve reliability and better reflect the model’s confidence, we frame the evaluation as a factual cor- rectness task with a binary classification—labeling answers as either CORRECT or INCORRECT. The LLM provides a brief explanation for its judgment while applying semantic flexibility for minor phras- ing differences that preserve core meaning, toler- ating reasonable omissions that do not introduce ambiguity, and ignoring stylistic differences un- less they impact clarity. The answers are marked INCORRECT if they contain factual errors, false claims, significant omissions, or distortions of the core meaning. Each question was evaluated by the LLM judge a",
+        "distance": 0.6278
+      }
+    ]
+  }
+}

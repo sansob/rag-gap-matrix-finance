@@ -1,0 +1,85 @@
+# Config for the RAG pipeline that builds a Literature GAP Matrix
+# (RAG in finance/banking). All paths are relative to the repo root.
+# No paths or hyperparameters are hardcoded in src/.
+
+seed: 42
+
+data:
+  papers: data/papers.csv              # manually verified paper metadata
+  cache_dir: data/cache                # OpenAlex responses and open-access PDFs (not committed)
+  manual_dir: data/manual              # optional extra text: data/manual/<paper_id>.txt
+
+fetch:
+  openalex_url: https://api.openalex.org/works
+  use_open_access_pdf: true            # false = OpenAlex abstracts only
+  max_pdf_pages: 30
+  timeout_seconds: 30
+
+chunking:
+  size: 800                            # characters per chunk
+  overlap: 100
+
+embedding:
+  # Local model on CPU via fastembed (ONNX Runtime). Same model as the class example
+  # 5.2 transformer.ipynb, without the torch dependency.
+  model: sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+  batch_size: 16
+
+vector_store:
+  dir: data/chroma
+  collection: finance_rag_papers
+
+retrieval:
+  top_k: 3                             # chunks per column per paper
+
+generation:
+  base_url: https://api.groq.com/openai/v1
+  model: openai/gpt-oss-120b
+  temperature: 0
+  reasoning_effort: low
+  max_tokens: 4000
+  delay_seconds: 30                    # one ~6k-token call per paper; stay under free-tier TPM
+  max_retries: 5
+  output_language: Indonesian          # language of the matrix cells
+  not_stated_label: tidak disebut      # written when the context does not support a cell
+  fuzzy_quote_threshold: 0.85          # min share of quote characters matched in a cited chunk
+
+# Used to frame the Gap column.
+research_focus: >
+  Evaluating faithfulness and abstention (refusing to answer when the retrieved context
+  does not contain the answer) of RAG systems over Indonesian-language banking product
+  documents.
+
+# Columns filled by the LLM. "query" drives retrieval, "instruction" drives generation.
+# The Paper column (authors, year, venue) comes straight from data/papers.csv, not the LLM.
+columns:
+  - name: Problem
+    query: research problem, motivation, challenge addressed, objective of the study
+    instruction: The research problem or objective addressed by the paper.
+  - name: Domain & Data
+    query: financial domain, dataset, corpus, documents, reports, language, benchmark used
+    instruction: Finance subdomain, document type or dataset, size, and language.
+  - name: RAG Method
+    query: retrieval method, retriever, embedding, chunking, generator model, LLM, architecture, pipeline
+    instruction: Retriever, embedding model, chunking strategy, generator model, and architectural changes.
+  - name: Evaluation & Metrics
+    query: evaluation, metrics, accuracy, faithfulness, hallucination, human evaluation, baseline comparison
+    instruction: How the system is evaluated, which metrics, and which baselines.
+  - name: Main Results
+    query: results, findings, performance improvement, outperforms, achieves
+    instruction: Main findings; include numbers when the context states them.
+  - name: Limitations
+    query: limitations, future work, weaknesses, challenges remaining, failure cases
+    instruction: Limitations stated by the authors or clearly visible in the context.
+  - name: Gap
+    query: limitations, future work, not addressed, language, faithfulness, abstention, unanswerable questions
+    instruction: >
+      The research gap left by this paper with respect to the research focus.
+      Separate what the authors state from your own inference; prefix inference with "Inferensi:".
+
+review:
+  verdicts: data/review/verdicts.csv   # cell-by-cell review of the generated matrix
+
+output:
+  dir: results
+  basename: gap_matrix
