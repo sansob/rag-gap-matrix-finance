@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-10-26T09:51:32+00:00",
+  "timestamp_utc": "2026-10-28T06:52:03+00:00",
   "seed": 42,
   "embedding_model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
   "generation_model": "openai/gpt-oss-120b",
@@ -11,31 +11,22 @@
   "papers": [
     "P01",
     "P02",
-    "P03",
     "P04",
     "P05",
     "P06",
-    "P07",
     "P08",
     "P09",
-    "P10",
     "P11",
     "P12",
     "P13",
-    "P14",
     "P15",
     "P16",
-    "P17",
-    "P18",
-    "P19",
-    "P20",
-    "P21",
-    "P22"
+    "P17"
   ],
   "cell_checks": {
-    "quote_verified": 125,
-    "quote_fuzzy": 12,
-    "not_stated": 9,
-    "quote_not_found": 8
+    "quote_verified": 72,
+    "quote_fuzzy": 9,
+    "quote_not_found": 6,
+    "not_stated": 4
   }
 }

@@ -1,5 +1,5 @@
 ﻿check,NOT_STATED_OK,NOT_STATED_WRONG,PARTIAL,SUPPORTED,UNSUPPORTED
-not_stated,6,3,0,0,0
-quote_fuzzy,0,0,2,9,1
-quote_not_found,0,0,4,4,0
-quote_verified,0,0,31,93,1
+not_stated,3,1,0,0,0
+quote_fuzzy,0,0,1,7,1
+quote_not_found,0,0,2,4,0
+quote_verified,0,0,20,51,1

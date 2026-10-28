@@ -1,37 +1,37 @@
 {
   "verdicts": {
-    "SUPPORTED": 106,
-    "PARTIAL": 37,
-    "NOT_STATED_OK": 6,
-    "NOT_STATED_WRONG": 3,
-    "UNSUPPORTED": 2
+    "SUPPORTED": 62,
+    "PARTIAL": 23,
+    "NOT_STATED_OK": 3,
+    "UNSUPPORTED": 2,
+    "NOT_STATED_WRONG": 1
   },
-  "cells_corrected": 42,
-  "cells_total": 154,
+  "cells_corrected": 26,
+  "cells_total": 91,
   "auto_check_vs_review": {
     "NOT_STATED_OK": {
-      "not_stated": 6,
+      "not_stated": 3,
       "quote_fuzzy": 0,
       "quote_not_found": 0,
       "quote_verified": 0
     },
     "NOT_STATED_WRONG": {
-      "not_stated": 3,
+      "not_stated": 1,
       "quote_fuzzy": 0,
       "quote_not_found": 0,
       "quote_verified": 0
     },
     "PARTIAL": {
       "not_stated": 0,
-      "quote_fuzzy": 2,
-      "quote_not_found": 4,
-      "quote_verified": 31
+      "quote_fuzzy": 1,
+      "quote_not_found": 2,
+      "quote_verified": 20
     },
     "SUPPORTED": {
       "not_stated": 0,
-      "quote_fuzzy": 9,
+      "quote_fuzzy": 7,
       "quote_not_found": 4,
-      "quote_verified": 93
+      "quote_verified": 51
     },
     "UNSUPPORTED": {
       "not_stated": 0,

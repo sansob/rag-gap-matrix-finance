@@ -12,7 +12,7 @@ Intelligence, Universitas Dian Nuswantoro.
 
 ```
 data/papers.csv ─► fetch ─► index ─► generate ─► review ─► results/
- (22 verified     OpenAlex  chunk +   Groq LLM    verdicts   gap_matrix.*           raw LLM output
+ (13 verified     OpenAlex  chunk +   Groq LLM    verdicts   gap_matrix.*           raw LLM output
   papers)         abstract  local     (JSON per   merged     gap_matrix_reviewed.*  after review
                   + OA PDF  embedding paper)                 review_summary.json
                             + Chroma
@@ -56,18 +56,18 @@ Main Results, Limitations, Gap. Columns, retrieval queries, and instructions liv
 
 ## Results of this run
 
-22 papers × 7 generated columns = 154 cells.
+13 papers × 7 generated columns = 91 cells.
 
 | Review verdict | Cells |
 |---|---|
-| SUPPORTED | 106 |
-| PARTIAL | 37 |
+| SUPPORTED | 62 |
+| PARTIAL | 23 |
 | UNSUPPORTED | 2 |
-| NOT_STATED_OK | 6 |
-| NOT_STATED_WRONG | 3 |
+| NOT_STATED_OK | 3 |
+| NOT_STATED_WRONG | 1 |
 
-42 cells (27%) needed correction. The automatic quote check is not enough on its own:
-32 of the 125 cells labelled `quote_verified` were still partly or wholly wrong. The quote
+26 cells (29%) needed correction. The automatic quote check is not enough on its own:
+21 of the 72 cells labelled `quote_verified` were still partly or wholly wrong. The quote
 was real, but the claim around it went beyond it. The most common errors were:
 
 - weaknesses of prior work, or general RAG challenges, reported as the paper's own limitations;
@@ -110,8 +110,7 @@ python run_pipeline.py review                     # merge data/review/verdicts.c
 
 ### Staying within Groq free-tier limits
 
-- One API call per paper: 22 papers means 22 calls, not one call per cell. The full run used
-  about 81k tokens, plus about 19k for prompt testing on one paper.
+- One API call per paper, not one call per cell: 13 papers means 13 calls.
 - Responses are cached in `results/llm_cache/` keyed by a hash of the model and prompt.
   A re-run with an unchanged config makes no API calls, and adding a paper only calls the
   API for that paper.
@@ -136,15 +135,17 @@ data/manual/             optional hand-added text per paper
 src/gapmatrix/           fetch, index (chunk/embed/Chroma), generate (Groq + check), export/review
 run_pipeline.py          command-line entry point
 results/                 matrices, evidence, review summary, run log, LLM cache
+                         (gap_matrix_ringkas.csv: condensed matrix used in the report)
 ```
 
 ## Limitations
 
-- Eight papers (P02, P03, P06, P17, P18, P20, P21, P22) have no usable open-access PDF and
+- Three papers (P02, P06, P17) have no usable open-access PDF and
   rest on the abstract alone. Cells the abstract does not cover are marked `tidak disebut`
   (not stated) instead of being guessed.
 - Fixed-size character chunking can split sentences. It is simple, and it is good enough
   for abstracts.
-- The literature search covers OpenAlex, Crossref, and web search up to 2026-10-26. SAGE and
-  Taylor & Francis returned no experimental RAG-in-banking paper; the SAGE entry (P21) is a
-  teaching case.
+- The literature search covers OpenAlex, Crossref, and web search up to 2026-10-26. The
+  paper list is limited to studies that test RAG for question answering over finance or
+  banking documents, with English or Indonesian data. Paper IDs keep their original numbers,
+  so the list has gaps (P03, P07, P10, P14, P18 to P22 were dropped).
